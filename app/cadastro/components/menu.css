@@ -1,6 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  
+  }
+       
+  .panel {
+    background:#BDBDBD;  
+    padding: 100px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+    
+  
+       
+       
+       
        .botao {
         cursor: pointer;
-        background-color: #9E9E9E;
+        background-color: #757575;
         width: 90px;
         height: 40px;
         border: none;
@@ -11,10 +32,20 @@
 
         background-color: #4CAF50;
         padding: 20px;
-        
+
       
 
 
 
 
     }
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid white;
+        border-radius: 4px;
+        background-color: #388E3C;
+       
+      }
+     
