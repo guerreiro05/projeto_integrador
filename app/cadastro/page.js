@@ -6,7 +6,7 @@ export default function Cadastro() {
     <div>
 
       <div className="corPrincipal">
-      
+
 
       <h1>Cadastro de Usuario</h1>
       <p>Preencha os campos abaixo para se cadastrar.</p>
@@ -16,18 +16,23 @@ export default function Cadastro() {
 
       <form>
    
-      <div className="flex justify-around">
+      <div className="container">
+      <div className="panel">
        
-        <input name="nome" placeholder="Nome" required />
-        <input name="sobrenome" placeholder="Sobrenome" required />
-        <input name="idade" type="number" placeholder="Idade" required />
-        <input name="cpf" placeholder="CPF" required />
-        <button className="botao" type="submit">Cadastrar</button>
+     
+
+      <input name="nome" placeholder="Nome" className="placeholder-white" />
+        <input name="sobrenome" placeholder="Sobrenome" className="placeholder-white" />
+        <input name="idade" type="number" placeholder="Idade" className="placeholder-white" />
+        <input name="cpf" placeholder="CPF" className="placeholder-white"  />
+        <button className="botao" type="submit" >Cadastrar</button>
+       </div>
       
+  
 
       </div>
       </form>
-    </div>
+      </div>
   );
 }
        
