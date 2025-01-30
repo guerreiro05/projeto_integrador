@@ -3,7 +3,7 @@ import "./menu.css"
 export default function Menu() {
     return (
      
-        <h2>Cadastro</h2>
+        <h2>LOGIN</h2>
      
     );
   }
