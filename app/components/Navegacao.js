@@ -4,7 +4,7 @@ function Navegacao() {
     return ( 
     <main>
         <nav>
-            <ul className="w-100 bg-red-300 flex justify-between">
+            <ul className="w-100 bg-green-700 text-white flex justify-between list-none">
                 <li>Categorias</li>
                 <li>Ofertas</li>
                 <li>Planos e Pacotes</li>
