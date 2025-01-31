@@ -14,7 +14,7 @@ export default function Cadastro() {
 
       <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-[#00f2fe] bg-green-500">
       <div className="bg-white bg-opacity-80 p-6 rounded-lg w-80 shadow-lg">
-        <h2 className="text-center text-2xl font-semibold mb-6">Cadastre-se:</h2>
+        <h2 className="text-center text-2xl font-semibold mb-6">Cadastre-se</h2>
     
         <input className="p-2 rounded bg-green-700 text-white placeholder-white w-72" placeholder="Nome" />
         <input className="p-2 rounded bg-green-700 text-white placeholder-white w-72" placeholder="Sobrenome" />
