@@ -21,11 +21,11 @@ export default function Menu ({ login, senha, username, Logar }) {
           />
         </div>
   
-        <button
-        type="submit" 
-        className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24">
+        <button 
+          type="submit" 
+          className="w-full p-2 text-lg bg-[#388E3C] text-white rounded-md hover:bg-[#388E3C]"
+        >
           {Logar}
-
         </button>
       </div>
     );
