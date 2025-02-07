@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.botaoModelo{
+  background-color: #9E9E9E;
+  border-radius: 10px;
+  border: none;
+  padding: 15px;
+  color: #FFFFFF;
+}

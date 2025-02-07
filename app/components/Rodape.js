@@ -2,7 +2,7 @@ export default RodaPe;
 function RodaPe() {
     return ( 
     <main>
-        <div className="w-100 bg-red-300 flex justify-between">
+        <div className="w-100 bg-green-500 flex justify-between">
             <div>
                 <a href="">R. Episcopal, 700 - Centro, São Carlos - SP, 13560-570</a>
                 <br/>
@@ -27,7 +27,6 @@ function RodaPe() {
 
         <hr/>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nam recusandae in, voluptate nihil minima earum, dignissimos fugit sapiente fuga modi rerum maxime qui quam sint reprehenderit cum ducimus ipsa.</p>
     </main>
      );
 }
