@@ -43,8 +43,6 @@ export default function Cadastro() {
         <div className="bg-white bg-opacity-80 p-6 rounded-lg w-80 shadow-lg">
           <h2 className="text-center text-2xl font-semibold mb-6">Cadastre-se</h2>
 
-          {erro && <p className="text-red-500 text-sm mb-2">{erro}</p>}
-
           <input 
             className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
             placeholder="Nome" 
@@ -80,11 +78,10 @@ export default function Cadastro() {
             value={confirmaSenha} 
             onChange={(e) => alteraConfirmaSenha(e.target.value)}/>
 
-          <button 
+      <button 
             className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
             onClick={salvar}>
-            Cadastrar
-          </button>
+            Cadastrar</button>
         </div>
       </div>
     </div>
