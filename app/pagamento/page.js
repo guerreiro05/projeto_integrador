@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from "react";
+import RodaPe from "../components/Rodape";
+import Rodapepg from "./components/Rodapepg";
 
 export default function Pagamento() {
 
@@ -53,71 +55,60 @@ export default function Pagamento() {
 
             {
                 pix == true ? 
-                    <div className="mt-5 flex justify-center">
-                        <div className="ring-3 shadow-lg rounded-lg w-96 h-full flex justify-center ">
-                            <div className="mt-5 text-center">
-                                <h3>Pix</h3>
-                                <img className="mb-5 w-64" src="./imagens/qrcode.png" alt="QR Code"></img>
-                                <br/>
-
-                                <button className="rounded-lg border-none mr-5 bg-blue-500 shadow-lg shadow-blue-500/50 text-white p-2 mb-3">
-                                    Copiar
-                                </button>
-
-                                <input className="w-64" placeholder="A1B2C3D4E5F6789G0H1I2J3K4L5M6N7P8Q9R0S1T2U3V4W5X6Y7Z8A9"></input>
+                            <div className="flex justify-center">
+                                <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
+                                    <div className="text-center">
+                                        <h3>Escanear QrCode</h3>
+                                        <img className="w-40" src="./imagens/qrcode.png" alt="QR Code"></img>
+                                        <br/>
+                                        <p>A1B2C3D4E5F6789G0H1I2J3K4L5M6N7P8Q9R0S1T2U3V4W5X6Y7Z8A9</p>
+                                        <button className="botaoModelo">
+                                            Copiar
+                                        </button>
+                                    </div>
+                                        
+                                    <Rodapepg texto="Gerar Boleto" texto2="Cartão de Débito/Crédito"/>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-              :            
+                :            
                     <div></div>
             
             }
 
             {
                 cartao === true ?
-                    <div className="mt-5 flex justify-center">
-                        <div>
-                            <input placeholder="Nome do titular"></input>
-                            <br/>
-                            <input placeholder="Número do cartão"></input>
-                            <br/>
-                            <input placeholder="Data de Validade"></input>
-                            <br/>
-                            <input placeholder="CVV"></input>
-                            <br/>
-                            <button>Confirmar</button>
+                        <div className="flex justify-center">
+                            <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
+                                <input className="w-[285px] p-2 m-1" placeholder="Número do cartão"></input>
+                                <br/>
+                                <input className="w-[285px] p-2 m-1" placeholder="Nome do titular"></input>
+                                <br/>
+                                <input className="w-32 p-2 m-1" placeholder="Data de Validade"></input>
+                                
+                                <input className="w-32 p-2 m-1" placeholder="CVV"></input>
+                                <br/>
+                                <button className="botaoModelo">Confirmar</button>
+
+                                <Rodapepg texto="Gerar Pix" texto2="Gerar Boleto"/>
+                            </div>
                         </div>
-                    </div>
                 :
                     <div></div>
             }
 
             {
                 boleto === true ?
-                    <div className="mt-5 border-dotted border-2 rounded-md p-5">
-                        <h2>Pagamento da fatura no boleto</h2>
+                    <div className="flex justify-center">
+                        <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
+                            <h2>Pagamento da fatura no boleto</h2>
                         
-                        <p>
-                            A fatura só será paga após a <strong>compensação do boleto</strong>, caso queira a ativação instantânea, selecione o pagamento <strong>via cartão de crédito ou PIX</strong>.
-                        </p>
-
-                        <button onClick={()=>alteraPagamento("boletoGerado")} className="ml-2 rounded-sm mb-5 p-2 w-64 bg bg-gray-600 text-white border-none">📄 Gerar boleto</button>
-
-                        <div className="">
-                            <h3 className="mt-10">Outras formas de pagamento</h3>
-
-                            <div className="flex justify-around">
-                                <button onClick={()=>alteraPagamento("pix")} className="p-2 w-64 rounded-sm border-grey-600 text-grey-600">🔲 Gerar Pix</button>
-                                <button onClick={()=>alteraPagamento("cartao")} className="p-2 w-80 rounded-sm border-grey-600 text-grey-600">💳 Cartão de crédito</button>
-                            </div>
-
-                                <p className="italic">
-                                    <small>
-                                        Prefira pagar no cartão ou no PIX para seu acesso ser liberado imediatamente. O pagamento no boleto pode levar até 72hs para ser aprovado.
-                                    </small>
-                                </p>
+                            <p>
+                                A fatura só será paga após a <strong>compensação do boleto</strong>, caso queira a ativação instantânea, selecione o pagamento <strong>via cartão de crédito ou PIX</strong>.
+                            </p>
+                            <button onClick={()=>alteraPagamento("boletoGerado")} className="ml-2 rounded-sm mb-5 p-2 w-64 bg bg-gray-600 text-white border-none">📄 Gerar boleto</button>
+                            
+                            <Rodapepg texto="Gerar Pix" texto2="Cartão de Débito/Crédito"/>
                         </div>
-
                     </div>
                 :
                     <div></div>
@@ -125,41 +116,30 @@ export default function Pagamento() {
 
             {
                 boletoGerado === true ?
-                    <div className="mt-5 text-center border-dotted border-2 rounded-md p-5">
-
-                        <h2>Boleto gerado com sucesso!</h2>
-                        <p>
-                            <small>O vencimento do boleto é no dia 02 de Maio de 2022</small>
-                        </p>
-
-                        <p>Utilize o número do código de barras para realizar o pagamento da sua fatura</p>
-
-                        <img src="https://placehold.co/350x80?text=||||||||+||||||||+||||||||+||||||+||||||"></img>
-
-                        <p>3839789730000013980000019141000001374150801</p>
-
-                        <p>
-                            <a href="#">Copiar código de barras</a>  
-                            <a href="#">Imprimir boleto</a>
-                        </p>
-
-                        <h3>Outras formas de pagamento</h3>
-
-                        <button onClick={()=>alteraPagamento("pix")} className="p-2 w-80 bg-white rounded-md border-grey-600 text-grey-600">🔲 Gerar Pix</button>
-                        <br/>
-                        <br/>
-                        <button onClick={()=>alteraPagamento("cartao")} className="p-2 w-80 bg-white rounded-md border-grey-600 text-grey-600">💳 Cartão de crédito</button>
-
-                        <p className="italic">
-                            <small>
-                                Prefira pagar no cartão ou no PIX para seu acesso ser liberado imediatamente. O pagamento no boleto pode levar até 72hs para ser aprovado.
-                            </small>
-                        </p>
-
+                    <div className="justify-center flex">
+                        <div className="w-[700px] mt-5 text-center border-dotted border-2 rounded-md p-5">
+                            <h2>Boleto gerado com sucesso!</h2>
+                            <p>
+                                <small>O vencimento do boleto é no dia 02 de Maio de 2022</small>
+                            </p>
+                            <p>Utilize o número do código de barras para realizar o pagamento da sua fatura</p>
+                            <img src="https://placehold.co/350x80?text=||||||||+||||||||+||||||||+||||||+||||||"></img>
+                            <p>3839789730000013980000019141000001374150801</p>
+                            <p>
+                                <a className="mr-5" href="#">Copiar código de barras</a>
+                                <a href="#">Imprimir boleto</a>
+                            </p>
+                            <Rodapepg texto="Gerar Pix" texto2="Cartão de Débito/Crédito"/>
+                        </div>
                     </div>
                 :
                     <div></div>
             }
+
+                <h1>Pagamento Confirmado!</h1>
+                <p>Seu pagamento foi processado com sucesso. Obrigado pela sua compra!</p>
+                <p>Você receberá um e-mail de confirmação com os detalhes do seu pedido.</p>
+                <a href="/">Voltar para a Página Inicial</a>
 
         </main>
     );
