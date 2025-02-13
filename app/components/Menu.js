@@ -3,21 +3,19 @@ export default Menu;
 function Menu() {
     return ( 
     <main>
-        <div className="w-100 bg-green-500 flex justify-between">
-            <div>
-                <img className="" width="100" src="./imagens/logo.jpg"/>
+        <div className="bg-green-500 flex content-center justify-between">
+            
+            <img className="w-24" src="./imagens/logo.jpg"/>
+
+            <div className="mt-10 mb-5 bg-red-500">
+                <input className="w-80 h-6 border-none rounded-lg w-80" type="text"/>
             </div>
 
-            <div className="pesquisar">
-                <i className="fa-solid fa-magnifying-glass"></i>
-                <input type="text"/>
-            </div>
-
-            <p>
+            <div className="">
                 <button className="botaoModelo">Crie a sua conta</button>
                 <button className="botaoModelo ml-5 mr-5">Entre</button>
                 <button className="botaoModelo">Calendário</button>
-            </p>
+            </div>
         </div> 
     </main>
     );

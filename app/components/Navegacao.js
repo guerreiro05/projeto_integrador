@@ -5,7 +5,9 @@ function Navegacao() {
     <main>
         <nav>
             <ul className="w-100 bg-green-700 text-white flex justify-between list-none">
-                <li>Categorias</li>
+                <a href="">
+                    <li>Categorias</li>
+                </a>
                 <li>Ofertas</li>
                 <li>Planos e Pacotes</li>
                 <li>Eventos e Torneios</li>

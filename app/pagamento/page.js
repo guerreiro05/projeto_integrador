@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from "react";
-import RodaPe from "../components/Rodape";
 import Rodapepg from "./components/Rodapepg";
 
 export default function Pagamento() {
@@ -67,7 +66,7 @@ export default function Pagamento() {
                                         </button>
                                     </div>
                                         
-                                    <Rodapepg texto="Gerar Boleto" texto2="Cartão de Débito/Crédito"/>
+                                    <Rodapepg texto="Gerar Boleto" texto2="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento}/>
                                 </div>
                             </div>
                 :            
