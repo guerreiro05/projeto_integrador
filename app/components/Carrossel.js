@@ -28,9 +28,9 @@ export default function Carrossel() {
   return (
     <Carousel responsive={responsive} draggable={true} showDots={true} infinite={true} autoPlay={true} autoPlaySpeed={3000} >
 
-      <div> <img className="w-3/4" src="./imagens/quadra_descobera.jpg"/> </div>
-      <div> <img className="w-5/6" src="./imagens/quadra_tenis.jpg"/> </div>
-      <div> <img className="w-5/6" src="./imagens/campinho_aberto.jpg"/> </div>
+      <div> <img src="https://placehold.co/300"/> </div>
+      <div> <img src="https://placehold.co/300"/> </div>
+      <div> <img src="https://placehold.co/300"/> </div>
     </Carousel>
   );
 }

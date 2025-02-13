@@ -6,7 +6,7 @@ import Rodapepg from "./components/Rodapepg";
 export default function Pagamento() {
 
     const [pix, alteraPix] = useState(false);  // Estado inicial configurado como 'true'
-    const [cartao, alteraCartao] = useState(false); 
+    const [cartao, alteraCartao] = useState(true); 
     const [boleto, alteraBoleto] = useState(false); 
     const [boletoGerado, alteraBoletoGerado] = useState(false); 
 
@@ -53,7 +53,7 @@ export default function Pagamento() {
             </div>
 
             {
-                pix == true ? 
+                pix === true ? 
                             <div className="flex justify-center">
                                 <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
                                     <div className="text-center">
