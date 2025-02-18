@@ -27,3 +27,10 @@ body {
   padding: 15px;
   color: #FFFFFF;
 }
+
+.botaoPagamento {
+  padding: 5px;
+  width: 300px;
+  border-radius: 3px;
+  background-color: #fff;
+}

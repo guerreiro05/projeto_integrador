@@ -1,9 +1,12 @@
+'use client'
+
 import { useState } from "react";
 
 export default function Rodapepg(attr) {
-    const [pix, alteraPix] = useState(false)  // Estado do PIX
+
+    const [pix, alteraPix] = useState(false);  // Estado do PIX
     const [cartao, alteraCartao] = useState(false);  // Estado do Cartão
-    const [boleto, alteraBoleto] = useState(false);  // Estado do Boleto
+    const [boleto, alteraBoleto] = useState(true);  // Estado do Boleto
 
     // Função para alternar entre os métodos de pagamento
     const alternarPagamento = (pagamento) => {
@@ -12,13 +15,13 @@ export default function Rodapepg(attr) {
             alteraCartao(false);
             alteraBoleto(false);
         } else if (pagamento == "cartao") {
-            alteraPix(false);
             alteraCartao(true);
+            alteraPix(false);
             alteraBoleto(false);
         } else if (pagamento == "boleto") {
+            alteraBoleto(true);
             alteraPix(false);
             alteraCartao(false);
-            alteraBoleto(true);
         }
     };
 
@@ -31,37 +34,52 @@ export default function Rodapepg(attr) {
                         {/* Botão para PIX */}
 
                         {
-                        pix == true ?
-                            <button 
-                                onClick={() => attr.alteraPagamento && attr.alteraPagamento("pix")}  
-                                className="p-2 w-64 rounded-sm border-grey-500 text-grey-500 bg-white">
-                                {attr.texto2}
-                            </button>
-                        
-                        : 
-                            <button 
-                            onClick={() => attr.alteraPagamento && attr.alteraPagamento("cartao")} 
-                                className="p-2 w-80 rounded-sm border-grey-500 text-grey-500 bg-white">
-                                {attr.texto}
-                            </button>
+                        pix == true &&
+                            <div>
+                                <button
+                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("boleto")}
+                                    className="botaoPagamento">
+                                    {attr.texto}
+                                </button>
+                                <button
+                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("cartao")}
+                                    className="botaoPagamento">
+                                    {attr.texto2}
+                                </button>
+                            </div>
                         }
 
                         {
-                            cartao == true ?
-                                <button 
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("pix")}  
-                                    className="p-2 w-64 rounded-sm border-grey-500 text-grey-500 bg-white">
+                        cartao == true &&
+                            <div>
+                                <button
+                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("pix")}
+                                    className="botaoPagamento">
                                     {attr.texto}
                                 </button>
-                        
-                        : 
-                                <button 
-                                onClick={() => attr.alteraPagamento && attr.alteraPagamento("boleto")} 
-                                    className="p-2 w-80 rounded-sm border-grey-500 text-grey-500 bg-white">
+                                <button
+                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("boleto")}
+                                    className="botaoPagamento">
                                     {attr.texto2}
                                 </button>
+                            </div>                    
                         }
 
+                        {
+                        boleto == true &&
+                            <div>
+                                <button
+                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("pix")}
+                                    className="botaoPagamento">
+                                    {attr.texto}
+                                </button>
+                                <button
+                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("cartao")}
+                                    className="botaoPagamento">
+                                    {attr.texto2}
+                                </button>
+                            </div>                   
+                        }
                     </div>
 
                     <p className="italic">

@@ -81,7 +81,7 @@ export default function Pagamento() {
                                 </button>
                             </div>
                                         
-                            <Rodapepg texto2="Gerar Boleto" texto="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento} />
+                            <Rodapepg texto="Gerar Boleto" texto2="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento} />
                         </div>
                     </div>
             }
@@ -119,7 +119,7 @@ export default function Pagamento() {
                             </p>
                             <button onClick={()=>alteraPagamento("boletoGerado")} className="ml-2 rounded-sm mb-5 p-2 w-64 bg bg-gray-600 text-white border-none">📄 Gerar boleto</button>
                             
-                            <Rodapepg texto2="Gerar Pix" texto="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento}/>
+                            <Rodapepg texto="Gerar Pix" texto2="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento}/>
                         </div>
                     </div>
             }
