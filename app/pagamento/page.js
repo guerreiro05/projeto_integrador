@@ -5,9 +5,9 @@ import Rodapepg from "./components/Rodapepg";
 
 export default function Pagamento() {
 
-    const [pix, alteraPix] = useState(true);  // Estado inicial configurado como 'true'
+    const [pix, alteraPix] = useState(false);  // Estado inicial configurado como 'true'
     const [cartao, alteraCartao] = useState(false); 
-    const [boleto, alteraBoleto] = useState(false); 
+    const [boleto, alteraBoleto] = useState(true); 
     const [boletoGerado, alteraBoletoGerado] = useState(false); 
     const [pagamentoConfirmado, alteraPagamentoConfirmado] = useState(false); 
 
