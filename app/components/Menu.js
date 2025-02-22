@@ -1,27 +1,22 @@
-'use client'
+'use client'; 
 
-export default Menu;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-function Menu() {
+export default function Menu() {
     return ( 
     <main>
-        <div className="bg-green-500 flex content-center ">
+        <div className="bg-green-500 flex justify-between ">
             
-            <img onClick={()=> window.location.href="/"} className="w-24" src="./imagens/logo.jpg"/>
+            <img onClick={() => window.location.href="/"} className="w-24 ml-2" src="./imagens/logo.jpg" alt="Logo"/>
 
             <div className="flex justify-center items-center">
-                <input placeholder="Digite o nome da quadra" className="w-[800px] p-3 border-none" type="text"/>
-            </div>
-
-            <div className=" justify-between content-center flex bg-red-300">
-                <div className="flex">
-                    <h2>Assine a partir de R$ 99,00/mês</h2>
-                    <p>Economize em cada jogo!</p>
+                <div className="cursor-pointer bg-white flex justify-center items-center mr-2">
+                    <input placeholder="Digite o nome da quadra" className="w-80 p-3 border-none"/>
+                    <FontAwesomeIcon icon={faSearch} className="text-gray-500 text-2xl p-2" />
                 </div>
-                    <button className="">Assinar clube</button>
             </div>
         </div> 
     </main>
     );
 }
-

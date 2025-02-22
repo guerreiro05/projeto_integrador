@@ -305,24 +305,24 @@ function Local(attr) {
                             <p>Cartões de crédito</p>
                             <p className="text-xs">Pague em até 12x!</p>
                         
-                                <div>
-                                    <img className="w-[70px]" src="/imagens/imagens.svg/mastercard.svg"/>
-                                    <img className="w-[70px]" src="/imagens/imagens.svg/visa.svg"/>
-                                    <br/>
-                                    <img className="w-[70px]" src="/imagens/imagens.svg/hipercard.svg"/>
-                                    <img className="w-[70px]" src="/imagens/imagens.svg/elo.svg"/>
-                                </div>
+                            <div>
+                                <img className="w-[70px]" src="/imagens/imagens.svg/mastercard.svg"/>
+                                <img className="w-[70px]" src="/imagens/imagens.svg/visa.svg"/>
+                                <br/>
+                                <img className="w-[70px]" src="/imagens/imagens.svg/hipercard.svg"/>
+                                <img className="w-[70px]" src="/imagens/imagens.svg/elo.svg"/>
+                            </div>
                                                     
-                                <p>Cartões de débito</p>
+                            <p>Cartões de débito</p>
                                 
-                                <img src="/imagens/imagens.svg/caixa.svg"/>
-                                <img src="/imagens/imagens.svg/santander.svg"/>
+                            <img src="/imagens/imagens.svg/caixa.svg"/>
+                            <img src="/imagens/imagens.svg/santander.svg"/>
 
-                                <p>Pix</p>
-                                <img src="/imagens/imagens.svg/pix.svg"/>
+                            <p>Pix</p>
+                            <img src="/imagens/imagens.svg/pix.svg"/>
 
-                                <p>Boleto bancário</p>
-                                <img src="/imagens/imagens.svg/boleto.svg"/>
+                            <p>Boleto bancário</p>
+                            <img src="/imagens/imagens.svg/boleto.svg"/>
                         </div>
                     </div>
             </div>

@@ -230,10 +230,10 @@ export default function Home() {
 
       <h2 >Quadras em destaques</h2>
 
-      <div className="flex cursor-pointer justify-center">
+      <div className="flex justify-center">
         {
           locais.map((i, index)=> {
-            if(index < 4) {
+            if(index < 5) {
               return <Quadras id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
             }
           }
@@ -243,10 +243,10 @@ export default function Home() {
 
       <h2 >Quadras em destaques</h2>
 
-      <div className="flex cursor-pointer justify-center">
+      <div className="flex justify-center">
         {
           locais.map((i, index)=> {
-            if(index < 4) {
+            if(index < 5) {
               return <Quadras id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
             }
           }
@@ -255,18 +255,10 @@ export default function Home() {
       </div>
 
       <button className="botaoModelo">Ver mais</button>
-
-      <div className="bg-red-300">
-        <div>
-          <h2>Assine a partir de R$ 99,00/mês</h2>
-          <button>Assinar clube</button>
-        </div>
-
-        <p>Economize em cada jogo!</p>
-      </div>
       
     </div>
 
     </main>
   );
 }
+
