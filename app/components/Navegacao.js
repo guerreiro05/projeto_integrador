@@ -7,8 +7,8 @@ function Navegacao() {
     <main>
         <nav>
             <ul className="bg-green-700 p-1 text-white flex justify-between list-none m-0 mb-5">
-                <li>Categorias ↓ </li>
-                <li>Ofertas</li>
+                <a href="">Informe seu CEP</a>
+                <li>Todas as categorias</li>
                 <li>Planos e Pacotes</li>
                 <li>Eventos e Torneios</li>
                 <li>Primeira Partida Grátis</li>

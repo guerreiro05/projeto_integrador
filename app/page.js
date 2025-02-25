@@ -9,6 +9,8 @@ import Quadras from "./components/Quadras";
 
 export default function Home() {
 
+  const [ exibirCampoCep, alteraExibirCampoCep ] = useState(true);
+
   const [ locais, alteraLocais ] = useState([
     {
         id: 1,
@@ -221,14 +223,45 @@ export default function Home() {
     }
 ]);
 
+  function atualizarCampoCep() {
+      alteraExibirCampoCep(false)
+  }
+
   return (
     <main>
       
     <Carrossel/>
-    
+ 
+    { 
+      exibirCampoCep == true &&
+        <div class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+          <div class="w-[350px] h-[300px] rounded-lg items-center justify-center flex p-4 bg-white">
+            <div className="text-center">
+
+              <button onClick={()=> atualizarCampoCep(false)} className="flex justify-start cursor-pointer text-xl bg-white border-none">
+                ✖
+              </button>
+
+              <p>Inseira seu CEP para encontrar quadras perto de você!</p>
+
+              <form action="#">
+                <div><input pattern="^\d{5}-\d{3}$" required className="border-2 p-3 w-64" placeholder="Digite seu CEP"/></div>
+                <br/>
+                <button className="rounded-xs w-64 p-3">continuar</button>
+              </form>
+
+              <p>Já tem conta?</p>
+              <button onClick={() => window.location.href = "login/"} className="hover:bg-gray-300 rounded-xs p-3 w-64">
+                Fazer Login
+              </button>
+            </div>
+          </div>
+        </div>
+    }
+
     <div className="text-center">
 
-      <h2 >Quadras em destaques</h2>
+      <h2>Quadras em destaques</h2>
 
       <div className="flex justify-center">
         {
