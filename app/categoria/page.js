@@ -1,16 +1,16 @@
 'use client'
 
-import RodaPe from "../../components/Rodape";
-import Menu from "../../components/Menu";
 import { useState } from "react";
+import Quadras from "../components/Quadras";
+import Cabecalho from "./components/Cabecalho";
+import BarraLateral from "./components/BarraLateral";
 
-function Local(attr) {
+function Categoria() {
 
-    const [ local, alteraLocal ] =  useState({});
     const [ locais, alteraLocais ] = useState([
         {
             id: 1,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/campinho_aberto.jpg",
             nome: "Campo de futebol",
             preco: 179,
             avaliacoes: 4.8,
@@ -25,12 +25,11 @@ function Local(attr) {
             localizacao: "Rua das Palmeiras, 123 - Centro", 
             telefone: "(11) 99999-9999", 
             desconto: 10, 
-            arquibancada: "não",
-            localizacao: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29590.16543521822!2d-47.8937088!3d-22.020096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8773405555553%3A0x5a3287d7a70d1681!2sIguatemi%20S%C3%A3o%20Carlos!5e0!3m2!1spt-BR!2sbr!4v1740012240753!5m2!1spt-BR!2sbr"
+            arquibancada: "não"
         },
         {
             id: 2,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/quadra_descobera.jpg",
             nome: "Arena Society",
             preco: 200,
             dimensoes: "30x50m",
@@ -49,7 +48,7 @@ function Local(attr) {
         },
         {
             id: 3,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/quadra_tenis.jpg",
             nome: "Quadra Coberta Central",
             preco: 150,
             dimensoes: "20x30m",
@@ -68,7 +67,7 @@ function Local(attr) {
         },
         {
             id: 4,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/campinho_aberto.jpg",
             nome: "Campo da Vila",
             preco: 120,
             dimensoes: "22x35m",
@@ -220,116 +219,38 @@ function Local(attr) {
         }
     ]);
 
-    useState(()=> {
-        const id_local = attr.params.id;
-        locais.map( (i)=> {
-            if( i.id == id_local ){
-                alteraLocal(i)
-            }   
-        })
-    }, [])
-
     return ( 
         <main>
-            
-            {/* div geral */}
-            <div className="flex justify-center">
-                <div className="flex">
-                    {/* conteiner imagens */}
-                    <container className="bg-red-300">
-                        <img className="border-double" src="https://placehold.co/50"></img>
-                        <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
-                        <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
-                        <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
-                        <br/>
-                    </container>
 
-                    {/* Imagem principal */}
-                    <div className="bg-blue-300">
-                        <img className="w-[500px] mx-5 border-double" src={local.imagem}>
-                        </img>
-                    </div> 
+            <Cabecalho/>
 
-                    {/* Informações do produto */}
-                    <div class="w-80 container bg-red-500">
-                        <p>🏆 MAIS ALUGADA | 5º em Quadras</p>
-                        <h2>{local.nome}</h2>
+            <section className="flex h-screen">
 
-                        <h2>Quadra Society 25x15m Gramado Sintético - Iluminada |
-                        <br/> Ideal Para Futebol, Treinos e Eventos</h2>
-                        <p >⭐ {local.avaliacoes}</p>
-                        <p >R$ {local.preco} <span>🏷️ {local.desconto} OFF</span></p>
-                        <p>em até <strong>12x R$ 17,99</strong></p>
-                        <p><a href="#">Ver os meios de pagamento</a></p>
-                    <div/>
-
-                        <div>
-                            <strong>Dimensões Disponíveis:</strong>
-                            <ul>
-                                <li>{local.dimensoes}</li>
-                            </ul>
-                        </div>
+                <BarraLateral/>
+                
+                <div>
+                    <div className="flex-1 flex">
+                        {
+                        locais.map((i, index)=> {
+                            if(index < 4) {
+                            return <Quadras id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+                            }
+                        })}
+                    </div>
                     
-
-                            <h3>Estrutura Inclui:</h3>
-                        <ul>
-                            <li>✅ Tipo de gramado: {local.tipo_grama}</li>
-                            <li>✅ Posui iluminação: {local.iluminacao}</li>
-                            <li>✅ Vestiários: {local.vestiarios}</li>
-                            <li>✅ Arquibancada: {local.arquibancada}</li>
-                            <li>✅ Bebedouro e estacionamento 🚗</li>
-                        </ul>
+                    <h2>Titulo</h2>
+                    <div className="flex-1 flex">
+                        {
+                        locais.map((i, index)=> {
+                            if(index < 4) {
+                            return <Quadras id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+                            }
+                        })}
                     </div>
                 </div>
-
-                    
-
-                    {/* Parte de pagamento */}
-                    <div >
-                        <div className="border-solid bg-green-500 ml-5">
-                            <button>Alugar agora</button>
-                            <br/>
-                            <button>Agendar data</button>
-                        </div>
-
-                        {/* Meios de pagamento */}
-                        <div className="pl-5">
-                            <h2>Meios de pagamento</h2>
-
-                            <p className="">Linha de Crédito</p>
-                            <img src="/imagens/imagens.svg/mercadopago.svg"/>
-
-                            <p>Cartões de crédito</p>
-                            <p className="text-xs">Pague em até 12x!</p>
-                        
-                            <div>
-                                <img className="w-[70px]" src="/imagens/imagens.svg/mastercard.svg"/>
-                                <img className="w-[70px]" src="/imagens/imagens.svg/visa.svg"/>
-                                <br/>
-                                <img className="w-[70px]" src="/imagens/imagens.svg/hipercard.svg"/>
-                                <img className="w-[70px]" src="/imagens/imagens.svg/elo.svg"/>
-                            </div>
-                                                    
-                            <p>Cartões de débito</p>
-                                
-                            <img src="/imagens/imagens.svg/caixa.svg"/>
-                            <img src="/imagens/imagens.svg/santander.svg"/>
-
-                            <p>Pix</p>
-                            <img src="/imagens/imagens.svg/pix.svg"/>
-
-                            <p>Boleto bancário</p>
-                            <img src="/imagens/imagens.svg/boleto.svg"/>
-                        </div>
-                    </div>
-            </div>
-
-            
+            </section>
         </main>
      );
 }
 
-export default Local;
+export default Categoria;

@@ -1,23 +1,22 @@
-export default Menu;
+'use client'; 
 
-function Menu() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+export default function Menu() {
     return ( 
     <main>
-        <div className="bg-green-500 flex content-center justify-between">
+        <div className="bg-green-500 flex justify-between ">
             
-            <img className="w-24" src="./imagens/logo.jpg"/>
+            <img onClick={() => window.location.href="/"} className="w-24 ml-2" src="./imagens/logo.jpg" alt="Logo"/>
 
-            <div className="mt-10 mb-5 bg-red-500">
-                <input className="w-80 h-6 border-none rounded-lg w-80" type="text"/>
-            </div>
-
-            <div className="">
-                <button className="botaoModelo">Crie a sua conta</button>
-                <button className="botaoModelo ml-5 mr-5">Entre</button>
-                <button className="botaoModelo">Calendário</button>
+            <div className="flex justify-center items-center">
+                <div className="cursor-pointer bg-white flex justify-center items-center mr-2">
+                    <input placeholder="Digite o nome da quadra" className="w-80 p-3 border-none"/>
+                    <FontAwesomeIcon icon={faSearch} className="text-gray-500 text-2xl p-2" />
+                </div>
             </div>
         </div> 
     </main>
     );
 }
-
