@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from "react";
-import Quadras from "../components/Quadras";
+
 import Cabecalho from "./components/Cabecalho";
 import BarraLateral from "./components/BarraLateral";
+import Quadras from "../components/Quadras";
 
 function Categoria() {
 

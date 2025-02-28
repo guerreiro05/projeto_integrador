@@ -1,7 +1,6 @@
 'use client'
 
-import RodaPe from "../../components/Rodape";
-import Menu from "../../components/Menu";
+import Carrossel from "@/app/components/Carrossel";
 import { useState } from "react";
 
 function Local(attr) {
@@ -10,23 +9,31 @@ function Local(attr) {
     const [ locais, alteraLocais ] = useState([
         {
             id: 1,
-            imagem: "https://placehold.co/300",
+            imagem_principal: "/imagens/quadra_descobera.jpg",
+            imagem_primeira: "/imagens/quadra_descobera.jpg",
+            imagem_secunda: "/imagens/quadra_descobera.jpg",
+            imagem_terceira: "/imagens/quadra_descobera.jpg",
+            imagem_quarta: "/imagens/quadra_descobera.jpg",
             nome: "Campo de futebol",
             preco: 179,
             avaliacoes: 4.8,
-            disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado e Domingo - 10h às 22h"], 
+            disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado e Domingo - 10h às 22h"],
             dimensoes: "25x40m",
-            iluminacao: "Sim",  
-            tipo_grama: "sintético",  
-            capacidade: 10,  
-            vestiarios: "Não",  
-            bebedouro: "Sim",  
-            estacionamento: "Não", 
-            localizacao: "Rua das Palmeiras, 123 - Centro", 
-            telefone: "(11) 99999-9999", 
-            desconto: 10, 
-            arquibancada: "não",
-            localizacao: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29590.16543521822!2d-47.8937088!3d-22.020096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8773405555553%3A0x5a3287d7a70d1681!2sIguatemi%20S%C3%A3o%20Carlos!5e0!3m2!1spt-BR!2sbr!4v1740012240753!5m2!1spt-BR!2sbr"
+            iluminacao: "Sim",
+            tipo_grama: "Sintético",
+            capacidade: 10,
+            vestiarios: "Não",
+            bebedouro: "Sim",
+            estacionamento: "Não",
+            localizacao: "Rua das Palmeiras, 123 - Centro",
+            telefone: "(11) 99999-9999",
+            desconto: 10,
+            arquibancada: "Não",
+            aberto_fechado: "Aberto",
+            tipo_piso: "Sintético",
+            acessibilidade: "Sim",
+            equipamentos_extras: "Bolas, Redes",
+            wi_fi: "Não"           
         },
         {
             id: 2,
@@ -231,30 +238,27 @@ function Local(attr) {
 
     return ( 
         <main>
-            
             {/* div geral */}
-            <div className="flex justify-center">
-                <div className="flex">
+            <div className="layout-container">
+                <section className="flex">
                     {/* conteiner imagens */}
-                    <container className="bg-red-300">
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                    <container className="hover:bg-red-300 p-3">
+                        <img className="w-24 border-solid border-2 rounded-md hover:border-gray-300" src={local.imagem_primeira}></img>
                         <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                        <img className="w-24 border-solid border-2 rounded-md hover:border-gray-300" src={local.imagem_secunda}></img>
                         <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
-                        <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                        <img className="w-24 border-solid border-2 rounded-md hover:border-gray-300" src={local.imagem_terceira}></img>
                         <br/>
                     </container>
 
                     {/* Imagem principal */}
-                    <div className="bg-blue-300">
-                        <img className="w-[500px] mx-5 border-double" src={local.imagem}>
+                    <div className="hover:bg-blue-300 p-3">
+                        <img className="w-[500px] rounded-md border-solid border-2 hover:border-gray-300" src={local.imagem_principal}>
                         </img>
-                    </div> 
+                    </div>
 
                     {/* Informações do produto */}
-                    <div class="w-80 container bg-red-500">
+                    <div className="w-80 container hover:bg-red-500 p-3">
                         <p>🏆 MAIS ALUGADA | 5º em Quadras</p>
                         <h2>{local.nome}</h2>
 
@@ -263,7 +267,7 @@ function Local(attr) {
                         <p >⭐ {local.avaliacoes}</p>
                         <p >R$ {local.preco} <span>🏷️ {local.desconto} OFF</span></p>
                         <p>em até <strong>12x R$ 17,99</strong></p>
-                        <p><a href="#">Ver os meios de pagamento</a></p>
+                        <a href="">Ver os meios de pagamento</a>
                     <div/>
 
                         <div>
@@ -283,51 +287,93 @@ function Local(attr) {
                             <li>✅ Bebedouro e estacionamento 🚗</li>
                         </ul>
                     </div>
-                </div>
-
-                    
 
                     {/* Parte de pagamento */}
-                    <div >
-                        <div className="border-solid bg-green-500 ml-5">
-                            <button>Alugar agora</button>
-                            <br/>
-                            <button>Agendar data</button>
-                        </div>
+                    <div className="border-solid bg-green-500 ml-5">
+                        <button>Alugar agora</button>
+                        <br/>
+                        <button>Agendar data</button>
+                    </div>
 
-                        {/* Meios de pagamento */}
-                        <div className="pl-5">
-                            <h2>Meios de pagamento</h2>
+                </section>
 
-                            <p className="">Linha de Crédito</p>
-                            <img src="/imagens/imagens.svg/mercadopago.svg"/>
+                {/* Caracteristicas do produto */}
+                <section>
+                    <div>
+                        <h2>Características do produto</h2>
 
-                            <p>Cartões de crédito</p>
-                            <p className="text-xs">Pague em até 12x!</p>
-                        
+                        {/* Div centralizadora */}
+                        <div className="flex justify-start">
+                            {/* Características principais */}
                             <div>
+                                <h3 className="ml-10">Estrutura Inclui:</h3>
+                                <ul className="list-none rounded-lg">
+                                    <li className="barraCinza rounded-t-lg">Tipo de gramado: {local.tipo_grama}</li>
+                                    <li className="barraBranca">Bebedouro: {local.bebedouro}</li>
+                                    <li className="barraCinza">Wifi: {local.wi_fi}</li>
+                                    <li className="barraBranca">Vestiário: {local.vestiarios}</li>
+                                    <li className="barraCinza">Estacionamento: {local.estacionamento}</li>
+                                    <li className="barraBranca">Arquibancada: {local.arquibancada}</li>
+                                    <li className="barraCinza rounded-b-lg">Acessibilidade:{local.acessibilidade}</li>
+                                    
+                                </ul>
+                            </div>
+                    
+                            {/* Informações Tecnicas */}
+                            <div>
+                                <h3 className="ml-10">Informações Técnicas</h3>
+                                <ul className="list-none rounded-lg">
+                                    <li className="barraCinza rounded-t-lg">Iluminação:{local.iluminacao} </li>
+                                    <li className="barraBranca">Capacidade: {local.capacidade} </li>
+                                    <li className="barraCinza">Dimensões: {local.dimensoes}</li>
+                                    <li className="barraBranca">Equipamentos extras: {local.equipamentos_extras}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Meios de pagamento */}
+                <section>
+                    <div className="">
+                        <h2>Meios de pagamento</h2>
+
+                        <div className="flex justify-around">
+
+                            <div>
+                                <p className="">Linha de Crédito</p>
+                                <img src="/imagens/imagens.svg/mercadopago.svg"/>
+                            </div>
+                            
+                            <div>
+                                <p>Cartões de crédito</p>
+                                <p className="text-xs">Pague em até 12x!</p>
                                 <img className="w-[70px]" src="/imagens/imagens.svg/mastercard.svg"/>
                                 <img className="w-[70px]" src="/imagens/imagens.svg/visa.svg"/>
                                 <br/>
                                 <img className="w-[70px]" src="/imagens/imagens.svg/hipercard.svg"/>
                                 <img className="w-[70px]" src="/imagens/imagens.svg/elo.svg"/>
                             </div>
-                                                    
-                            <p>Cartões de débito</p>
-                                
-                            <img src="/imagens/imagens.svg/caixa.svg"/>
-                            <img src="/imagens/imagens.svg/santander.svg"/>
 
-                            <p>Pix</p>
-                            <img src="/imagens/imagens.svg/pix.svg"/>
-
-                            <p>Boleto bancário</p>
-                            <img src="/imagens/imagens.svg/boleto.svg"/>
+                            <div>
+                                <p>Cartões de débito</p>
+                            
+                                <img src="/imagens/imagens.svg/caixa.svg"/>
+                                <img src="/imagens/imagens.svg/santander.svg"/>
+                            </div>
+                            <div>
+                                <p>Pix</p>
+                                <img src="/imagens/imagens.svg/pix.svg"/>
+                            </div>
+                            <div>
+                                <p>Boleto bancário</p>
+                                <img src="/imagens/imagens.svg/boleto.svg"/>
+                            </div>
                         </div>
                     </div>
+                </section>
             </div>
 
-            
         </main>
      );
 }
