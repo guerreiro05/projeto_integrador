@@ -1,3 +1,5 @@
+'use client'
+
 export default function Menu ({ login, senha, username, Logar }) {
     return (
       <div>

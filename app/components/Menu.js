@@ -8,7 +8,7 @@ export default function Menu() {
     <main>
         <div className="bg-green-500 flex justify-between ">
             
-            <img onClick={() => window.location.href="/"} className="w-24 ml-2" src="./imagens/logo.jpg" alt="Logo"/>
+            <img onClick={() => window.location.href="/"} className="w-24 ml-2" src="/imagens/logo.jpg" alt="Logo"/>
 
             <div className="flex justify-center items-center">
                 <div className="cursor-pointer bg-white flex justify-center items-center mr-2">

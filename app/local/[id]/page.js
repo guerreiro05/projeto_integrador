@@ -1,16 +1,15 @@
-'use client'
+'use client';
 
-import RodaPe from "../../components/Rodape";
-import Menu from "../../components/Menu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from 'next/navigation'; // Importando useParams
 
-function Local(attr) {
+function Local() {
 
-    const [ local, alteraLocal ] =  useState({});
+    const [local, alteraLocal] = useState({});
     const [ locais, alteraLocais ] = useState([
         {
             id: 1,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/campinho_aberto.jpg",
             nome: "Campo de futebol",
             preco: 179,
             avaliacoes: 4.8,
@@ -25,12 +24,11 @@ function Local(attr) {
             localizacao: "Rua das Palmeiras, 123 - Centro", 
             telefone: "(11) 99999-9999", 
             desconto: 10, 
-            arquibancada: "não",
-            localizacao: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29590.16543521822!2d-47.8937088!3d-22.020096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8773405555553%3A0x5a3287d7a70d1681!2sIguatemi%20S%C3%A3o%20Carlos!5e0!3m2!1spt-BR!2sbr!4v1740012240753!5m2!1spt-BR!2sbr"
+            arquibancada: "não"
         },
         {
             id: 2,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/quadra_descobera.jpg",
             nome: "Arena Society",
             preco: 200,
             dimensoes: "30x50m",
@@ -49,7 +47,7 @@ function Local(attr) {
         },
         {
             id: 3,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/quadra_tenis.jpg",
             nome: "Quadra Coberta Central",
             preco: 150,
             dimensoes: "20x30m",
@@ -68,7 +66,7 @@ function Local(attr) {
         },
         {
             id: 4,
-            imagem: "https://placehold.co/300",
+            imagem: "/imagens/campinho_aberto.jpg",
             nome: "Campo da Vila",
             preco: 120,
             dimensoes: "22x35m",
@@ -219,15 +217,20 @@ function Local(attr) {
           arquibancada: "sim"
         }
     ]);
+    
+    // Obtendo o id da URL usando o hook useParams
+    const { id } = useParams();
 
-    useState(()=> {
-        const id_local = attr.params.id;
-        locais.map( (i)=> {
-            if( i.id == id_local ){
-                alteraLocal(i)
-            }   
-        })
-    }, [])
+    // Executar a busca do local quando o id mudar
+    useEffect(() => {
+        if (id) {
+            const id_local = parseInt(id, 10); // Converter o id para inteiro
+            const localEncontrado = locais.find(local => local.id === id_local); // Procurando o local pelo id
+            if (localEncontrado) {
+                alteraLocal(localEncontrado); // Atualizando o estado
+            }
+        }
+    }, [id, locais]);
 
     return ( 
         <main>
@@ -236,25 +239,27 @@ function Local(attr) {
             <div className="flex justify-center">
                 <div className="flex">
                     {/* conteiner imagens */}
-                    <container className="bg-red-300">
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                    <container className="">
+                        <img className="border-double" src="https://placehold.co/60"></img>
                         <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                        <img className="border-double" src="https://placehold.co/60"></img>
                         <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                        <img className="border-double" src="https://placehold.co/60"></img>
                         <br/>
-                        <img className="border-double" src="https://placehold.co/50"></img>
+                        <img className="border-double" src="https://placehold.co/60"></img>
+                        <br/>
+                        <img className="border-double" src="https://placehold.co/60"></img>
                         <br/>
                     </container>
 
                     {/* Imagem principal */}
-                    <div className="bg-blue-300">
+                    <div className="">
                         <img className="w-[500px] mx-5 border-double" src={local.imagem}>
                         </img>
                     </div> 
 
                     {/* Informações do produto */}
-                    <div class="w-80 container bg-red-500">
+                    <div className="w-80 container">
                         <p>🏆 MAIS ALUGADA | 5º em Quadras</p>
                         <h2>{local.nome}</h2>
 

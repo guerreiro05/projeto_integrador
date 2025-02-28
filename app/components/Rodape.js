@@ -1,3 +1,5 @@
+'use client'
+
 export default RodaPe;
 function RodaPe() {
     return ( 

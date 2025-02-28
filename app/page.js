@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 import Carrossel from "./components/Carrossel";
-import Menu from "./components/Menu";
-import Navegacao from "./components/Navegacao";
-import RodaPe from "./components/Rodape";
 import Quadras from "./components/Quadras";
 
 export default function Home() {

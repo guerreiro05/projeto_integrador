@@ -230,20 +230,37 @@ function Categoria() {
                 
                 <div>
                     <div className="flex-1 flex">
-                        {
-                        locais.map((i, index)=> {
-                            if(index < 4) {
-                            return <Quadras id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+                        {locais.map((i, index) => {
+                            if (index < 4) {
+                                return (
+                                    <Quadras
+                                        key={i.id}
+                                        id={i.id}
+                                        imagem={i.imagem}
+                                        nome={i.nome}
+                                        avaliacoes={i.avaliacoes}
+                                        preco={i.preco}
+                                    />
+                                );
                             }
                         })}
                     </div>
                     
                     <h2>Titulo</h2>
+
                     <div className="flex-1 flex">
-                        {
-                        locais.map((i, index)=> {
-                            if(index < 4) {
-                            return <Quadras id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+                        {locais.map((i, index) => {
+                            if (index < 4) {
+                                return (
+                                    <Quadras
+                                        key={i.id}
+                                        id={i.id}
+                                        imagem={i.imagem}
+                                        nome={i.nome}
+                                        avaliacoes={i.avaliacoes}
+                                        preco={i.preco}
+                                    />
+                                );
                             }
                         })}
                     </div>
