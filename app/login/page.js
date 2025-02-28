@@ -141,9 +141,6 @@ export default function Login() {
     },
   ]);
 
-  
-  
-
   const [erro, alteraErro] = useState("");
   
   function validarCampos() {

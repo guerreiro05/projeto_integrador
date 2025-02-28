@@ -220,40 +220,40 @@ export default function Home() {
 
   return (
     <main>
-      
-    <Carrossel/>
 
-    <div className="text-center">
+      <Carrossel/>
 
-      <h2>Quadras em destaques</h2>
+      <div className="layout-container text-center">
 
-      <div className="flex justify-center">
-        {
-          locais.map((i, index)=> {
-            if(index < 5) {
-              return <Quadras key={i.id} id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
+        <h2>Quadras em destaques</h2>
+
+        <div className="flex justify-center">
+          {
+            locais.map((i, index)=> {
+              if(index < 5) {
+                return <Quadras key={i.id} id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
+              }
             }
+          )
           }
-        )
-        }
-      </div>
+        </div>
 
-      <h2 >Quadras em destaques</h2>
+        <h2 >Quadras em destaques</h2>
 
-      <div className="flex justify-center">
-        {
-          locais.map((i, index)=> {
-            if(index < 5) {
-              return <Quadras key={i.id} id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+        <div className="flex justify-center">
+          {
+            locais.map((i, index)=> {
+              if(index < 5) {
+                return <Quadras key={i.id} id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+              }
             }
+          )
           }
-        )
-        }
-      </div>
+        </div>
 
-      <button className="botaoModelo">Ver mais</button>
-      
-    </div>
+        <button className="botaoModelo">Ver mais</button>
+        
+      </div>
 
     </main>
   );
