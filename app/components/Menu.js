@@ -9,10 +9,9 @@ export default function Menu() {
 
     const [exibirCampoCep, alteraExibirCampoCep] = useState(false);
     
-    const redirecionarParaCadastro = () => {
-        alteraExibirCampoCep(false);
-        router.push('/cadastro');
-    };
+    // const redirecionarParaCadastro = () => {
+    //     alteraExibirCampoCep(false);
+    // };
 
     return ( 
     <main className="">
@@ -37,8 +36,8 @@ export default function Menu() {
                         <li>Primeira Partida Grátis</li>
                         <li>Anuncie sua Quadra</li>
                         <div className="flex">
-                            <li onClick={() => router.push('/cadastro')} className="cursor-pointer">Crie sua conta</li>
-                            <li onClick={() => router.push('/login')} className="cursor-pointer ml-5 mr-5">Entre</li>
+                            <li onClick={() => window.location.href = "cadastro/"} className="cursor-pointer">Crie sua conta</li>
+                            <li onClick={() => window.location.href = "login/"} className="cursor-pointer ml-5 mr-5">Entre</li>
                         </div>
                     </ul>
                 </nav>
@@ -59,10 +58,10 @@ export default function Menu() {
                                     maxLength={8}
                                 />
                                 <p>Já tem conta?</p>
-                                <button className="hover:bg-gray-300 rounded-xs p-3 w-64" >
+                                <button onClick={() => window.location.href = "login/"} className="hover:bg-gray-300 rounded-xs p-3 w-64" >
                                     Fazer Login
                                 </button>
-                                <button className="hover:bg-gray-300 rounded-xs p-3 w-64" onClick={redirecionarParaCadastro}>
+                                <button onClick={() => window.location.href = "cadastro/"} className="hover:bg-gray-300 rounded-xs p-3 w-64">
                                     Fazer Cadastro
                                 </button>
                             </div>

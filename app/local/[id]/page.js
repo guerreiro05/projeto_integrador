@@ -1,7 +1,6 @@
-'use client';
+'use client'
 
-import Carrossel from "@/app/components/Carrossel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Local() {
 
@@ -9,12 +8,12 @@ function Local() {
     const [ locais, alteraLocais ] = useState([
         {
             id: 1,
-            imagem_principal: "/imagens/quadra_descobera.jpg",
-            imagem_primeira: "/imagens/quadra_descobera.jpg",
-            imagem_secunda: "/imagens/quadra_descobera.jpg",
-            imagem_terceira: "/imagens/quadra_descobera.jpg",
-            imagem_quarta: "/imagens/quadra_descobera.jpg",
+            imagem_principal: "/imagens/campinho_aberto.jpg",
             nome: "Campo de futebol",
+            imagem_primeira: "/imagens/campinho_aberto.jpg",
+            imagem_secunda: "/imagens/campinho_aberto.jpg",
+            imagem_terceira: "/imagens/campinho_aberto.jpg",
+            imagem_quarta: "/imagens/campinho_aberto.jpg",
             preco: 179,
             avaliacoes: 4.8,
             disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado e Domingo - 10h às 22h"],
@@ -37,22 +36,34 @@ function Local() {
         },
         {
             id: 2,
-            imagem: "/imagens/quadra_descobera.jpg",
-            nome: "Arena Society",
-            preco: 200,
-            dimensoes: "30x50m",
+            imagem_principal: "/imagens/public/quadra_descobera.jpg",
+            nome: "Quadra de Basquete Centro Esportivo",
+            imagem_primeira: "/imagens/quadra_descobera.jpg",
+            imagem_secunda: "/imagens/quadra_descobera.jpg",
+            imagem_terceira: "/imagens/quadra_descobera.jpg",
+            imagem_quarta: "/imagens/quadra_descobera.jpg",
+            preco: 120,
             avaliacoes: 4.7,
+            disponibilidade: [
+                "Segunda a Sexta - 08h às 22h", 
+                "Sábado - 10h às 18h", 
+                "Domingo - Fechado"
+            ],
+            dimensoes: "28x15m",
             iluminacao: "Sim",
-            tipo_grama: "natural",
-            capacidade: 14,
+            tipo_piso: "Madeira",
+            capacidade: 12,
             vestiarios: "Sim",
             bebedouro: "Sim",
             estacionamento: "Sim",
-            localizacao: "Av. dos Esportes, 456 - Bairro Novo",
-            disponibilidade: ["Todos os dias - 08h às 23h"],
-            telefone: "(11) 98888-8888",
-            desconto: 5,
-            arquibancada: "não"
+            localizacao: "Avenida Brasil, 1000 - Centro",
+            telefone: "(11) 3344-5566",
+            desconto: 15,
+            arquibancada: "Sim",
+            aberto_fechado: "Aberto",
+            acessibilidade: "Sim",
+            equipamentos_extras: "Bolas, Redes, Tabelas",
+            wi_fi: "Sim" 
         },
         {
             id: 3,
@@ -225,21 +236,7 @@ function Local() {
           desconto: 0,
           arquibancada: "sim"
         }
-    ]);
-    
-    // Obtendo o id da URL usando o hook useParams
-    const { id } = useParams();
-
-    // Executar a busca do local quando o id mudar
-    useEffect(() => {
-        if (id) {
-            const id_local = parseInt(id, 10); // Converter o id para inteiro
-            const localEncontrado = locais.find(local => local.id === id_local); // Procurando o local pelo id
-            if (localEncontrado) {
-                alteraLocal(localEncontrado); // Atualizando o estado
-            }
-        }
-    }, [id, locais]);
+    ]);  
 
     return ( 
         <main>
