@@ -12,7 +12,7 @@ export default function Quadras(attr) {
             >
             
             <div className="flex justify-between items-center">
-                <p className="text-gray-700">⭐⭐⭐ ({attr.avaliacoes})</p>
+                <p className="text-gray-700">⭐⭐⭐ {attr.avaliacoes}</p>
 
                 <FontAwesomeIcon icon={faHeart} 
                 className="hover:text-red-600 text-gray-300 transition-colors text-2xl cursor-pointer"/>

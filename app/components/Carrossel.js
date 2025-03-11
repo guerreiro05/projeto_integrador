@@ -30,7 +30,7 @@ export default function Carrossel() {
       <Carousel responsive={responsive} draggable={true} showDots={true} infinite={true} autoPlay={true} autoPlaySpeed={3000} >
         <div> <img className="w-full h-96 object-cover rounded-t-lg" src="/imagens/campinho_aberto.jpg"/> </div>
         <div> <img className="w-full h-96 object-cover rounded-t-lg" src="/imagens/quadra_tenis.jpg"/> </div>
-        <div> <img className="w-full h-96 object-cover rounded-t-lg" src="/imagens/quadra_descobera.jpg"/> </div>
+        <div> <img className="w-full h-96 object-cover rounded-t-lg" src="/imagens/quadra_descoberta.jpg"/> </div>
       </Carousel>
     </div>
   );

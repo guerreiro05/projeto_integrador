@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import Cabecalho from "./components/Cabecalho";
-import BarraLateral from "./components/BarraLateral";
 import Quadras from "../components/Quadras";
 
 function Categoria() {
@@ -30,7 +28,7 @@ function Categoria() {
         },
         {
             id: 2,
-            imagem: "/imagens/quadra_descobera.jpg",
+            imagem: "/imagens/quadra_descoberta.jpg",
             nome: "Arena Society",
             preco: 200,
             dimensoes: "30x50m",
@@ -222,51 +220,32 @@ function Categoria() {
 
     return ( 
         <main>
+            <div className="layout-container text-center flex">
 
-            <Cabecalho/>
-
-            <section className="flex h-screen">
-
-                <BarraLateral/>
-                
-                <div>
-                    <div className="flex-1 flex">
-                        {locais.map((i, index) => {
-                            if (index < 4) {
-                                return (
-                                    <Quadras
-                                        key={i.id}
-                                        id={i.id}
-                                        imagem={i.imagem}
-                                        nome={i.nome}
-                                        avaliacoes={i.avaliacoes}
-                                        preco={i.preco}
-                                    />
-                                );
-                            }
-                        })}
-                    </div>
-                    
-                    <h2>Titulo</h2>
-
-                    <div className="flex-1 flex">
-                        {locais.map((i, index) => {
-                            if (index < 4) {
-                                return (
-                                    <Quadras
-                                        key={i.id}
-                                        id={i.id}
-                                        imagem={i.imagem}
-                                        nome={i.nome}
-                                        avaliacoes={i.avaliacoes}
-                                        preco={i.preco}
-                                    />
-                                );
-                            }
-                        })}
-                    </div>
+                <div className="p-10 bg-green-300">
+                    <p>Campo de Futebol</p>
+                    <p>Quadra de Tênis</p>
                 </div>
-            </section>
+
+                <div className="flex w-full justify-center">
+                    {
+                    locais.map((i, index) => {
+                        if (index < 3) {
+                            return (
+                                <Quadras
+                                    key={i.id}
+                                    id={i.id}
+                                    imagem={i.imagem}
+                                    nome={i.nome}
+                                    avaliacoes={i.avaliacoes}
+                                    preco={i.preco}
+                                />
+                            );
+                        }
+                    })
+                    }     
+                </div>
+            </div>
         </main>
      );
 }

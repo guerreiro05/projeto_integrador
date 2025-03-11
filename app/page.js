@@ -4,11 +4,12 @@ import { useState } from "react";
 import Carrossel from "./components/Carrossel";
 import Quadras from "./components/Quadras";
 
-export default function Home() {
+export default function Home(attr) {
 
+  const [local, alteraLocal] = useState({});
   const [ locais, alteraLocais ] = useState([
     {
-        id: 1,
+    id: 1,
     imagem_principal: "/imagens/campinho_aberto.jpg",
     nome: "Campo de futebol",
     imagem_primeira: "/imagens/campinho_aberto.jpg",
@@ -37,7 +38,7 @@ export default function Home() {
 },
 {
     id: 2,
-    imagem_principal: "/imagens/quadra_coberta.jpg",
+    imagem_principal: "/imagens/quadra_descoberta.jpg",
     nome: "Quadra Poliesportiva Coberta",
     imagem_primeira: "/imagens/quadra_coberta.jpg",
     imagem_secunda: "/imagens/quadra_coberta.jpg",
@@ -93,7 +94,7 @@ export default function Home() {
 },
 {
     id: 4,
-    imagem_principal: "/imagens/quadra_volei.jpg",
+    imagem_principal: "/imagens/quadra_descoberta.jpg",
     nome: "Quadra de Vôlei de Praia",
     imagem_primeira: "/imagens/quadra_volei.jpg",
     imagem_secunda: "/imagens/quadra_volei.jpg",
@@ -121,7 +122,7 @@ export default function Home() {
 },
 {
     id: 5,
-    imagem_principal: "/imagens/quadra_basquete.jpg",
+    imagem_principal: "/imagens/quadra_tenis.jpg",
     nome: "Quadra de Basquete",
     imagem_primeira: "/imagens/quadra_basquete.jpg",
     imagem_secunda: "/imagens/quadra_basquete.jpg",
@@ -149,6 +150,15 @@ export default function Home() {
 }
 ]);
 
+    useState(()=> {
+      const id_local = attr.params.id;
+      locais.map( (i)=> {
+          if( i.id == id_local ){
+              alteraLocal(i)
+          }   
+      })
+    }, [])
+
   return (
     <main>
 
@@ -162,7 +172,7 @@ export default function Home() {
           {
             locais.map((i, index)=> {
               if(index < 5) {
-                return <Quadras key={i.id} id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
+                return <Quadras key={i.id} id={i.id} imagem={i.imagem_principal} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
               }
             }
           )
@@ -175,7 +185,7 @@ export default function Home() {
           {
             locais.map((i, index)=> {
               if(index < 5) {
-                return <Quadras key={i.id} id={i.id} imagem={i.imagem} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+                return <Quadras key={i.id} id={i.id} imagem={i.imagem_principal} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
               }
             }
           )
