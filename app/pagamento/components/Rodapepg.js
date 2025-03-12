@@ -9,7 +9,7 @@ export default function Rodapepg(attr) {
     const [boleto, alteraBoleto] = useState(true);  // Estado do Boleto
 
     // Função para alternar entre os métodos de pagamento
-    const alternarPagamento = (pagamento) => {
+    const alteraPagamento = (pagamento) => {
         if (pagamento == "pix") {
             alteraPix(true);
             alteraCartao(false);
@@ -28,67 +28,83 @@ export default function Rodapepg(attr) {
     return (
         <main>
             <div className="flex justify-center">
-                <div className="w-[700px]">
-                    <h3 className="text-center mt-10">Outras formas de pagamento</h3>
-                    <div className="flex justify-around">
-                        {/* Botão para PIX */}
+                <div>
+                    <h2 className="mb-2 text-lg font-semibold">Método de pagamento:</h2>
+                    
+                    {/* Container dos botões */}
+                    <div className="flex flex-col gap-3">
+                    
+                    {/* PIX */}
+                    <label className="relative block">
+                        {/* O input fica oculto, mas é 'peer' para que o 'span' seja estilizado quando marcado */}
+                        <input
+                        type="radio"
+                        name="metodoPagamento"
+                        value="pix"
+                        className="peer sr-only"
+                        onClick={() => attr.alteraPagamento("pix")}
+                        />
 
-                        {
-                        pix == true &&
-                            <div>
-                                <button
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("boleto")}
-                                    className="botaoPagamento">
-                                    {attr.texto}
-                                </button>
-                                <button
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("cartao")}
-                                    className="botaoPagamento">
-                                    {attr.texto2}
-                                </button>
-                            </div>
-                        }
+                        {/* O span que mostra o texto e muda de cor ao marcar o input */}
+                        <span
+                        className="
+                        p-3 border rounded-md cursor-pointer transition-colors
+                        peer-checked:bg-indigo-50 peer-checked:text-indigo-900
+                        peer-checked:ring-2 peer-checked:ring-indigo-200"
+                        >
+                        Pix
+                        </span>
+                    </label>
 
-                        {
-                        cartao == true &&
-                            <div>
-                                <button
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("pix")}
-                                    className="botaoPagamento">
-                                    {attr.texto}
-                                </button>
-                                <button
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("boleto")}
-                                    className="botaoPagamento">
-                                    {attr.texto2}
-                                </button>
-                            </div>                    
-                        }
+                    {/* Cartão de débito/crédito */}
+                    <label className="relative block">
+                        <input
+                        type="radio"
+                        name="metodoPagamento"
+                        value="cartao"
+                        className="peer sr-only"
+                        onClick={() => attr.alteraPagamento("cartao")}
+                        />
 
-                        {
-                        boleto == true &&
-                            <div>
-                                <button
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("pix")}
-                                    className="botaoPagamento">
-                                    {attr.texto}
-                                </button>
-                                <button
-                                    onClick={() => attr.alteraPagamento && attr.alteraPagamento("cartao")}
-                                    className="botaoPagamento">
-                                    {attr.texto2}
-                                </button>
-                            </div>                   
-                        }
+                        <span
+                        className="
+                            p-3 border rounded-md cursor-pointer transition-colors
+                            peer-checked:bg-indigo-50 peer-checked:text-indigo-900
+                            peer-checked:ring-2 peer-checked:ring-indigo-200"
+                        >
+                        Cartão de débito/crédito
+                        </span>
+                    </label>
+
+                    {/* Boleto */}
+                    <label className="relative block">
+                        <input
+                            type="radio"
+                            name="metodoPagamento"
+                            value="boleto"
+                            className="peer sr-only"
+                            onClick={() => attr.alteraPagamento("boleto")}
+                        />
+                        <span
+                            className="
+                            p-3 border rounded-md cursor-pointer transition-colors
+                            peer-checked:bg-indigo-50 peer-checked:text-indigo-900
+                            peer-checked:ring-2 peer-checked:ring-indigo-200"
+                        >
+                        Boleto
+                        </span>
+                    </label>
                     </div>
 
-                    <p className="italic">
-                        <small>
-                            Prefira pagar no cartão ou no PIX para seu acesso ser liberado imediatamente. O pagamento no boleto pode levar até 72hs para ser aprovado.
-                        </small>
-                    </p>
                 </div>
             </div>
+
+            <p className="italic">
+                <small>
+                    Prefira pagar no cartão ou no PIX para seu acesso ser liberado imediatamente. O pagamento no boleto pode levar até 72hs para ser aprovado.
+                </small>
+            </p>
         </main>
     );
 }
+

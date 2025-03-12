@@ -52,26 +52,12 @@ export default function Pagamento() {
 
     return ( 
         <main>
-            {/* <div className="flex justify-center">
-                <div>
-                    <h2>Método de pagamento: </h2>
-                    <div>
-                        <button onClick={()=>alteraPagamento("pix")} className="border-none w-80 rounded-lg p-2">Pix</button>
-                        <br/>
-
-                        <button onClick={()=>alteraPagamento("cartao")} className="mt-2 mb-2 w-80 border-none rounded-lg p-2">Cartão de débito/crédito</button>
-                        <br/>
-
-                        <button onClick={()=>alteraPagamento("boleto")} className="border-none w-80 rounded-lg p-2">Boleto</button>
-                    </div>
-                </div>
-            </div> */}
-
+             
             {
                 pix == true &&
                     <div className="flex justify-center ">
-                        <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
-                            <div className="text-center">
+                        <div className="w-[700px] mt-5 text-center border-dotted border-2 rounded-md p-5">
+                            <div>
                                 <h3>Escanear QrCode</h3>
                                 <img className="w-40" src="./imagens/qrcode.png" alt="QR Code"></img>
                                 <br/>
@@ -81,7 +67,7 @@ export default function Pagamento() {
                                 </button>
                             </div>
                                         
-                            <Rodapepg texto="Gerar Boleto" texto2="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento} />
+                            <Rodapepg alteraPagamento={alteraPagamento} />
                         </div>
                     </div>
             }
@@ -89,7 +75,7 @@ export default function Pagamento() {
             {
                 cartao == true &&
                     <div className="flex justify-center">
-                        <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
+                        <div className="w-[700px] mt-5 text-center border-dotted border-2 rounded-md p-5">
                             <input className="w-[285px] p-2 m-1" placeholder="Número do cartão"></input>
                             <br/>
                             <input className="w-[285px] p-2 m-1" placeholder="Nome do titular"></input>
@@ -103,7 +89,7 @@ export default function Pagamento() {
                                 Confirmar pagamento
                             </button>
 
-                            <Rodapepg texto="Gerar Pix" texto2="Gerar Boleto" alteraPagamento={alteraPagamento}/>
+                            <Rodapepg alteraPagamento={alteraPagamento}/>
                         </div>
                     </div>
             }
@@ -111,7 +97,7 @@ export default function Pagamento() {
             {
                 boleto == true &&
                     <div className="flex justify-center">
-                        <div className="w-[700px] mt-5 border-dotted border-2 rounded-md p-5">
+                        <div className="w-[700px] mt-5 text-center border-dotted border-2 rounded-md p-5">
                             <h2>Pagamento da fatura no boleto</h2>
                         
                             <p>
@@ -119,7 +105,7 @@ export default function Pagamento() {
                             </p>
                             <button onClick={()=>alteraPagamento("boletoGerado")} className="ml-2 rounded-sm mb-5 p-2 w-64 bg bg-gray-600 text-white border-none">📄 Gerar boleto</button>
                             
-                            <Rodapepg texto="Gerar Pix" texto2="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento}/>
+                            <Rodapepg alteraPagamento={alteraPagamento}/>
                         </div>
                     </div>
             }
@@ -153,7 +139,7 @@ export default function Pagamento() {
                                     Confirmar pagamento
                             </button>
 
-                            <Rodapepg texto="Gerar Pix" texto2="Cartão de Débito/Crédito" alteraPagamento={alteraPagamento}/>
+                            <Rodapepg alteraPagamento={alteraPagamento}/>
                         </div>
                     </div>
             }
