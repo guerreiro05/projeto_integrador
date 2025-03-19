@@ -1,4 +1,5 @@
 @echo off
-cd /d "D:\Users\gabriel.ldias1\Desktop\UC 15 Web\React\projeto_integrador"
-start code .
-cmd /k "npm run dev"
+
+start cmd /k "cd /d C:\Users\Gabriel\Desktop\react\projeto_integrador && code . && npm run dev"
+
+start cmd /k "cd /d C:\Users\Gabriel\Desktop\react\Revisao && code . && npx express app"
