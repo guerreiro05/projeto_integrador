@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, use } from "react";
 import { useParams } from "next/navigation"; // Hook para pegar os parâmetros na URL
+import Avaliacoes from "./components/page";
 
 function Local() {
     const params = useParams(); // Obtém os parâmetros da URL
@@ -190,17 +191,18 @@ function Local() {
                     
                             {/* Galeria de imagens */}
                             <div className="p-3">
-                                <img className="max-w-24 border-solid border-2 rounded-md hover:border-gray-300" src={local.imagem_primeira} />
+                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_primeira} />
                                 <br />
-                                <img className="max-w-24 border-solid border-2 rounded-md hover:border-gray-300" src={local.imagem_secunda} />
+                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_secunda} />
                                 <br />
-                                <img className="max-w-24 border-solid border-2 rounded-md hover:border-gray-300" src={local.imagem_terceira} />
+                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_terceira} />
                                 <br />
+                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_terceira} />
                             </div>
 
                             {/* Imagem principal */}
                             <div className="p-3">
-                                <img className="max-w-full rounded-md border-solid border-2 hover:border-gray-300" src={local.imagem_principal} />
+                                <img className="max-w-full rounded-md border-gray-300 border-solid border hover:border-black" src={local.imagem_principal} />
                             </div>
                             
                             {/* Seção de informações do produto */}
@@ -217,7 +219,7 @@ function Local() {
                         </div>
 
                         {/* Caracteristicas do produto */}
-                        <div className="p-3">
+                        <div className="px-3">
 
                             <hr/>
 
@@ -236,7 +238,6 @@ function Local() {
                                         <li className="barraCinza">Estacionamento: {local.estacionamento}</li>
                                         <li className="barraBranca">Arquibancada: {local.arquibancada}</li>
                                         <li className="barraCinza rounded-b-lg">Acessibilidade:{local.acessibilidade}</li>
-                    
                                     </ul>
                                 </div>
                     
@@ -253,42 +254,36 @@ function Local() {
                             </div>
                     
                             <hr/>
-
-                            {/* Avaliações do clientes */}
-                            <div ref={minhaDivRef}>
-
-                                <h2>Opiniões do local</h2>
-                            
-                                <div className="flex">
-                                    <div className="w-64 p-3 bg-blue-300">
-                                        <div className="flex">
-                                            <h2>{local.avaliacoes}</h2>
-                                            <p>⭐⭐⭐⭐</p>
-                                        </div>
-
-                                        <hr/>
-                                        <hr/>
-                                        <hr/>
-                                        <hr/>
-                                    </div>
-                            
-                                    <div className="w-full p-3 bg-yellow-300">
-
-                                        <div className="flex justify-between">
-                                            <p>{local.nome}</p>
-                                            {/* Data de criação */}
-                                            <p>26/12/2024</p>
-                                        </div>
-                                        
-                                        {/* Imagem do usuario */}
-                                        <img className="max-w-24" src={local.imagem_quarta}/> 
-
-                                        <p>{local.comentario}</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
+                        {/* Avaliações geral */}
+                        <div className="px-3 flex">
+                            <div className="p-3 h-full bg-blue-300 w-80">
+                                <h2>Opiniões do local</h2>
+                                    <div className="flex">
+                                        <h2>{local.avaliacoes}</h2>
+                                        <p>⭐⭐⭐⭐</p>
+                                    </div>
+                                <hr/>
+                                <hr/>
+                                <hr/>
+                                <hr/>
+                            </div>
+
+                            {/* Avaliações dos clientes */}
+                            <div className="w-full">
+                                {
+                                    locais.map((i, index)=> {
+                                        if(index < 5) {
+                                            return <Avaliacoes key={i.id} id={i.id} imagem={i.imagem_quarta} nome={i.nome} comentario={i.comentario}/>
+                                        }})
+                                }
+                            </div>
+                            
+                        </div>
+                        
                     </section>
+
 
                     {/* Divisão lateral */}
                     <section className="max-w-64">

@@ -161,10 +161,9 @@ export default function Home(attr) {
 
   return (
     <main>
+      <div className="layout-container bg-white text-center rounded-md">
 
-      <Carrossel/>
-
-      <div className="layout-container text-center">
+        <Carrossel/>
 
         <h2>Quadras em destaques</h2>
 
@@ -192,10 +191,9 @@ export default function Home(attr) {
           }
         </div>
 
-        <button className="botaoModelo">Ver mais</button>
+        <button className="botaoModelo cursor-pointer">Ver mais</button>
         
       </div>
-
     </main>
   );
 }

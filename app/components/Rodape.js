@@ -7,7 +7,7 @@ function RodaPe() {
         <div className="w-100 bg-green-700 flex justify-around text-white">
             <div>
                 <h3>Conheça-nos</h3>
-                <p>Sobre a PlayFute</p>
+                <p onClick={() => window.location.href="/sobre"}>Sobre a PlayFute</p>
             </div>
             <div>
                 <h3>Ganhe dinheiro conosco</h3>
@@ -16,8 +16,8 @@ function RodaPe() {
             </div>
             <div>
                 <h3>Vamos te ajudar</h3>
-                <p>Sua conta</p>
-                <p>Devoluções e reembolsos</p>
+                <p onClick={() => window.location.href="/perfil"}>Sua conta</p>
+                <p>Cancelamento e reembolsos</p>
                 <p>Ajuda e Suporte</p>
             </div>
         </div>
