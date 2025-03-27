@@ -12,12 +12,11 @@ function Local() {
     const [ locais, alteraLocais ] = useState([
         {
         id: 1,
-        imagem_principal: "/imagens/campinho_aberto.jpg",
+        imagem_primeira: "/imagens/campo_futebol_primeira.png",
         nome: "Campo de futebol",
-        imagem_primeira: "/imagens/campinho_aberto.jpg",
-        imagem_secunda: "/imagens/campinho_aberto.jpg",
-        imagem_terceira: "/imagens/campinho_aberto.jpg",
-        imagem_quarta: "/imagens/campinho_aberto.jpg",
+        imagem_secunda: "/imagens/campo_futebol_segunda.png",
+        imagem_terceira: "/imagens/campo_futebol_terceira.png",
+        imagem_quarta: "/imagens/campo_futebol_quarta.png",
         preco: 179,
         avaliacoes: 4.8,
         disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado e Domingo - 10h às 22h"],
@@ -41,12 +40,11 @@ function Local() {
     },
     {
         id: 2,
-        imagem_principal: "/imagens/quadra_descoberta.jpg",
-        nome: "Quadra Poliesportiva Coberta",
-        imagem_primeira: "/imagens/quadra_descoberta.jpg",
-        imagem_secunda: "/imagens/quadra_descoberta.jpg",
-        imagem_terceira: "/imagens/quadra_descoberta.jpg",
-        imagem_quarta: "/imagens/quadra_descoberta.jpg",
+        imagem_primeira: "/imagens/quadra_basquete_primeira.png",
+        nome: "Quadra de Tênis",
+        imagem_secunda: "/imagens/quadra_basquete_segunda.png",
+        imagem_terceira: "/imagens/quadra_basquete_terceira.png",
+        imagem_quarta: "/imagens/quadra_basquete_quarta.png",
         preco: 250,
         avaliacoes: 4.9,
         disponibilidade: ["Segunda a Sexta - 8h às 20h", "Sábado - 9h às 18h"],
@@ -70,9 +68,8 @@ function Local() {
     },
     {
         id: 3,
-        imagem_principal: "/imagens/quadra_tenis.jpg",
-        nome: "Quadra de Tênis",
         imagem_primeira: "/imagens/quadra_tenis.jpg",
+        nome: "Quadra de Tênis",
         imagem_secunda: "/imagens/quadra_tenis.jpg",
         imagem_terceira: "/imagens/quadra_tenis.jpg",
         imagem_quarta: "/imagens/quadra_tenis.jpg",
@@ -99,9 +96,8 @@ function Local() {
     },
     {
         id: 4,
-        imagem_principal: "/imagens/quadra_volei.jpg",
-        nome: "Quadra de Vôlei de Praia",
         imagem_primeira: "/imagens/quadra_volei.jpg",
+        nome: "Quadra de Vôlei de Praia",
         imagem_secunda: "/imagens/quadra_volei.jpg",
         imagem_terceira: "/imagens/quadra_volei.jpg",
         imagem_quarta: "/imagens/quadra_volei.jpg",
@@ -128,9 +124,8 @@ function Local() {
     },
     {
         id: 5,
-        imagem_principal: "/imagens/quadra_basquete.jpg",
-        nome: "Quadra de Basquete",
         imagem_primeira: "/imagens/quadra_basquete.jpg",
+        nome: "Quadra de Basquete",
         imagem_secunda: "/imagens/quadra_basquete.jpg",
         imagem_terceira: "/imagens/quadra_basquete.jpg",
         imagem_quarta: "/imagens/quadra_basquete.jpg",
@@ -190,19 +185,17 @@ function Local() {
                         <div className="flex">
                     
                             {/* Galeria de imagens */}
-                            <div className="p-3">
-                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_primeira} />
-                                <br />
-                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_secunda} />
-                                <br />
-                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_terceira} />
-                                <br />
-                                <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_terceira} />
+                            <div className="p-3 max-w-24">
+                                {local.imagem_secunda != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_secunda} />}
+
+                                {local.imagem_terceira != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_terceira} />}
+
+                                {local.imagem_quarta != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_quarta}/>}
                             </div>
 
                             {/* Imagem principal */}
                             <div className="p-3">
-                                <img className="max-w-full rounded-md border-gray-300 border-solid border hover:border-black" src={local.imagem_principal} />
+                                <img className="max-w-full rounded-md border-gray-300 border-solid border hover:border-black" src={local.imagem_primeira} />
                             </div>
                             
                             {/* Seção de informações do produto */}

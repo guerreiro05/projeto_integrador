@@ -37,8 +37,8 @@ export default function Menu() {
                             <li className="cursor-pointer">Anuncie sua Quadra</li>
                         
                             <div className="flex">
-                                <li onClick={() => window.location.href = "cadastro/"} className="cursor-pointer">Crie sua conta</li>
-                                <li onClick={() => window.location.href = "login/"} className="cursor-pointer mx-10">Entre</li>
+                                <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer">Crie sua conta</li>
+                                <li onClick={() => window.location.href = "/login"} className="cursor-pointer mx-10">Entre</li>
                             </div>
                         </ul>
                     </div>

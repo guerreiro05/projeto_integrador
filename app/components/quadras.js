@@ -18,11 +18,12 @@ export default function Quadras(attr) {
                     src={attr.imagem}/>
 
                 <div className="items-center">
-                    <p className="text-lg h-[60px] font-semibold">{attr.nome}</p>
-                   
-                    <p className="font-bold text-green-600">R$ {attr.preco}</p>
+                    <p className="text-lg h-[60px] font-semibold m-0">{attr.nome}</p>
                     
-                    <p className="text-sm h-[40px] text-gray-500">{attr.localizacao}</p>
+                    <p className="font-bold text-gray-500 line-through m-0">R$ {attr.preco}</p>
+                    <p className="font-bold text-green-600 text-2xl font-bold m-0">R$ {attr.preco}</p>
+                    
+                    <p className="text-sm h-[40px] text-gray-500 mt-2">{attr.localizacao}</p>
                 </div>
 
                 <button className="cursor-pointer w-5/6 bg-white rounded-sm hover:bg-gray-300 p-1"

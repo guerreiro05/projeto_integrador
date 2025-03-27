@@ -4,18 +4,18 @@ import { useState } from "react";
 import Carrossel from "./components/Carrossel";
 import Quadras from "./components/Quadras";
 
+
 export default function Home(attr) {
 
   const [local, alteraLocal] = useState({});
   const [ locais, alteraLocais ] = useState([
     {
     id: 1,
-    imagem_principal: "/imagens/campinho_aberto.jpg",
+    imagem_primeira: "/imagens/campo_futebol_primeira.png",
     nome: "Campo de futebol",
-    imagem_primeira: "/imagens/campinho_aberto.jpg",
-    imagem_secunda: "/imagens/campinho_aberto.jpg",
-    imagem_terceira: "/imagens/campinho_aberto.jpg",
-    imagem_quarta: "/imagens/campinho_aberto.jpg",
+    imagem_secunda: "/imagens/campo_futebol_segunda.png",
+    imagem_terceira: "/imagens/campo_futebol_terceira.png",
+    imagem_quarta: "/imagens/campo_futebol_quarta.png",
     preco: 179,
     avaliacoes: 4.8,
     disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado e Domingo - 10h às 22h"],
@@ -34,16 +34,16 @@ export default function Home(attr) {
     tipo_piso: "Sintético",
     acessibilidade: "Sim",
     equipamentos_extras: "Bolas, Redes",
-    wi_fi: "Não"
+    wi_fi: "Não",
+    comentario: "Excelente local muito bom mesmo!"
 },
 {
     id: 2,
-    imagem_principal: "/imagens/quadra_descoberta.jpg",
-    nome: "Quadra Poliesportiva Coberta",
-    imagem_primeira: "/imagens/quadra_coberta.jpg",
-    imagem_secunda: "/imagens/quadra_coberta.jpg",
-    imagem_terceira: "/imagens/quadra_coberta.jpg",
-    imagem_quarta: "/imagens/quadra_coberta.jpg",
+    imagem_primeira: "/imagens/quadra_basquete_primeira.png",
+    nome: "Quadra de Tênis",
+    imagem_secunda: "/imagens/quadra_basquete_segunda.png",
+    imagem_terceira: "/imagens/quadra_basquete_terceira.png",
+    imagem_quarta: "/imagens/quadra_basquete_quarta.png",
     preco: 250,
     avaliacoes: 4.9,
     disponibilidade: ["Segunda a Sexta - 8h às 20h", "Sábado - 9h às 18h"],
@@ -62,13 +62,13 @@ export default function Home(attr) {
     tipo_piso: "Concreto",
     acessibilidade: "Sim",
     equipamentos_extras: "Bolas, Redes, Cones",
-    wi_fi: "Sim"
+    wi_fi: "Sim",
+    comentario: "Excelente local muito bom mesmo!"
 },
 {
     id: 3,
-    imagem_principal: "/imagens/quadra_tenis.jpg",
-    nome: "Quadra de Tênis",
     imagem_primeira: "/imagens/quadra_tenis.jpg",
+    nome: "Quadra de Tênis",
     imagem_secunda: "/imagens/quadra_tenis.jpg",
     imagem_terceira: "/imagens/quadra_tenis.jpg",
     imagem_quarta: "/imagens/quadra_tenis.jpg",
@@ -90,13 +90,13 @@ export default function Home(attr) {
     tipo_piso: "Saibro",
     acessibilidade: "Não",
     equipamentos_extras: "Raquetes, Bolas",
-    wi_fi: "Sim"
+    wi_fi: "Sim",
+    comentario: "Excelente local muito bom mesmo!"
 },
 {
     id: 4,
-    imagem_principal: "/imagens/quadra_descoberta.jpg",
-    nome: "Quadra de Vôlei de Praia",
     imagem_primeira: "/imagens/quadra_volei.jpg",
+    nome: "Quadra de Vôlei de Praia",
     imagem_secunda: "/imagens/quadra_volei.jpg",
     imagem_terceira: "/imagens/quadra_volei.jpg",
     imagem_quarta: "/imagens/quadra_volei.jpg",
@@ -118,13 +118,13 @@ export default function Home(attr) {
     tipo_piso: "Areia",
     acessibilidade: "Não",
     equipamentos_extras: "Bolas, Rede de Vôlei",
-    wi_fi: "Não"
+    wi_fi: "Não",
+    comentario: "Excelente local muito bom mesmo!"
 },
 {
     id: 5,
-    imagem_principal: "/imagens/quadra_tenis.jpg",
-    nome: "Quadra de Basquete",
     imagem_primeira: "/imagens/quadra_basquete.jpg",
+    nome: "Quadra de Basquete",
     imagem_secunda: "/imagens/quadra_basquete.jpg",
     imagem_terceira: "/imagens/quadra_basquete.jpg",
     imagem_quarta: "/imagens/quadra_basquete.jpg",
@@ -146,7 +146,8 @@ export default function Home(attr) {
     tipo_piso: "Madeira",
     acessibilidade: "Sim",
     equipamentos_extras: "Bolas, Tabelas",
-    wi_fi: "Sim"
+    wi_fi: "Sim",
+    comentario: "Excelente local muito bom mesmo!"
 }
 ]);
 
@@ -171,7 +172,7 @@ export default function Home(attr) {
           {
             locais.map((i, index)=> {
               if(index < 5) {
-                return <Quadras key={i.id} id={i.id} imagem={i.imagem_principal} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
+                return <Quadras key={i.id} id={i.id} imagem={i.imagem_primeira} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
               }
             }
           )
@@ -184,15 +185,13 @@ export default function Home(attr) {
           {
             locais.map((i, index)=> {
               if(index < 5) {
-                return <Quadras key={i.id} id={i.id} imagem={i.imagem_principal} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} />
+                return <Quadras key={i.id} id={i.id} imagem={i.imagem_terceira} nome={i.nome} avaliacoes={i.avaliacoes} preco={i.preco} localizacao={i.localizacao}/>
               }
             }
           )
           }
         </div>
 
-        <button className="botaoModelo cursor-pointer">Ver mais</button>
-        
       </div>
     </main>
   );
