@@ -7,6 +7,7 @@ export default function Quadras(attr) {
     return (
        
         <main className="w-80 py-2 px-2 m-2 rounded-lg border-solid border-gray-300 border"> 
+        
                 <div className="flex justify-between items-center">
                     <p className="text-gray-700">⭐⭐⭐ {attr.avaliacoes}</p>
                     <FontAwesomeIcon icon={faHeart}

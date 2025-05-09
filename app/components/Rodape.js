@@ -11,8 +11,9 @@ function RodaPe() {
             </div>
             <div>
                 <h3>Ganhe dinheiro conosco</h3>
-                <p>Anuncie sua quadra</p>
-                <p>Seja um assosiado</p>
+                <a href="https://wa.me/5511999999999" target="_blank" className="text-blue-500 underline">
+                    Anuncie sua quadra 
+                </a>
             </div>
             <div>
                 <h3>Vamos te ajudar</h3>

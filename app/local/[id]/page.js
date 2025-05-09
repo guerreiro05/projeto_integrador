@@ -11,145 +11,115 @@ function Local() {
     const [local, alteraLocal] = useState({});
     const [ locais, alteraLocais ] = useState([
         {
-        id: 1,
-        imagem_primeira: "/imagens/campo_futebol_primeira.png",
-        nome: "Campo de futebol",
-        imagem_secunda: "/imagens/campo_futebol_segunda.png",
-        imagem_terceira: "/imagens/campo_futebol_terceira.png",
-        imagem_quarta: "/imagens/campo_futebol_quarta.png",
-        preco: 179,
-        avaliacoes: 4.8,
-        disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado e Domingo - 10h às 22h"],
-        dimensoes: "25x40m",
-        iluminacao: "Sim",
-        tipo_grama: "Sintético",
-        capacidade: 10,
-        vestiarios: "Não",
-        bebedouro: "Sim",
-        estacionamento: "Não",
-        localizacao: "Rua das Palmeiras, 123 - Centro",
-        telefone: "(11) 99999-9999",
-        desconto: 10,
-        arquibancada: "Não",
-        aberto_fechado: "Aberto",
-        tipo_piso: "Sintético",
-        acessibilidade: "Sim",
-        equipamentos_extras: "Bolas, Redes",
-        wi_fi: "Não",
-        comentario: "Excelente local muito bom mesmo!"
-    },
-    {
-        id: 2,
-        imagem_primeira: "/imagens/quadra_basquete_primeira.png",
-        nome: "Quadra de Tênis",
-        imagem_secunda: "/imagens/quadra_basquete_segunda.png",
-        imagem_terceira: "/imagens/quadra_basquete_terceira.png",
-        imagem_quarta: "/imagens/quadra_basquete_quarta.png",
-        preco: 250,
-        avaliacoes: 4.9,
-        disponibilidade: ["Segunda a Sexta - 8h às 20h", "Sábado - 9h às 18h"],
-        dimensoes: "30x50m",
-        iluminacao: "Sim",
-        tipo_grama: "Não se aplica",
-        capacidade: 20,
-        vestiarios: "Sim",
-        bebedouro: "Sim",
-        estacionamento: "Sim",
-        localizacao: "Avenida Brasil, 456 - Centro",
-        telefone: "(21) 88888-8888",
-        desconto: 15,
-        arquibancada: "Sim",
-        aberto_fechado: "Fechado",
-        tipo_piso: "Concreto",
-        acessibilidade: "Sim",
-        equipamentos_extras: "Bolas, Redes, Cones",
-        wi_fi: "Sim",
-        comentario: "Excelente local muito bom mesmo!"
-    },
-    {
-        id: 3,
-        imagem_primeira: "/imagens/quadra_tenis.jpg",
-        nome: "Quadra de Tênis",
-        imagem_secunda: "/imagens/quadra_tenis.jpg",
-        imagem_terceira: "/imagens/quadra_tenis.jpg",
-        imagem_quarta: "/imagens/quadra_tenis.jpg",
-        preco: 200,
-        avaliacoes: 4.7,
-        disponibilidade: ["Todos os dias - 7h às 22h"],
-        dimensoes: "23.77x10.97m",
-        iluminacao: "Sim",
-        tipo_grama: "Saibro",
-        capacidade: 4,
-        vestiarios: "Sim",
-        bebedouro: "Sim",
-        estacionamento: "Sim",
-        localizacao: "Rua dos Esportes, 789 - Vila Olímpica",
-        telefone: "(31) 77777-7777",
-        desconto: 5,
-        arquibancada: "Não",
-        aberto_fechado: "Aberto",
-        tipo_piso: "Saibro",
-        acessibilidade: "Não",
-        equipamentos_extras: "Raquetes, Bolas",
-        wi_fi: "Sim",
-        comentario: "Excelente local muito bom mesmo!"
-    },
-    {
-        id: 4,
-        imagem_primeira: "/imagens/quadra_volei.jpg",
-        nome: "Quadra de Vôlei de Praia",
-        imagem_secunda: "/imagens/quadra_volei.jpg",
-        imagem_terceira: "/imagens/quadra_volei.jpg",
-        imagem_quarta: "/imagens/quadra_volei.jpg",
-        preco: 150,
-        avaliacoes: 4.6,
-        disponibilidade: ["Segunda a Sexta - 14h às 20h", "Domingo - 8h às 18h"],
-        dimensoes: "16x8m",
-        iluminacao: "Não",
-        tipo_grama: "Areia",
-        capacidade: 6,
-        vestiarios: "Não",
-        bebedouro: "Sim",
-        estacionamento: "Não",
-        localizacao: "Praça Central, 100 - Beira-Mar",
-        telefone: "(41) 66666-6666",
-        desconto: 20,
-        arquibancada: "Não",
-        aberto_fechado: "Aberto",
-        tipo_piso: "Areia",
-        acessibilidade: "Não",
-        equipamentos_extras: "Bolas, Rede de Vôlei",
-        wi_fi: "Não",
-        comentario: "Excelente local muito bom mesmo!"
-    },
-    {
-        id: 5,
-        imagem_primeira: "/imagens/quadra_basquete.jpg",
-        nome: "Quadra de Basquete",
-        imagem_secunda: "/imagens/quadra_basquete.jpg",
-        imagem_terceira: "/imagens/quadra_basquete.jpg",
-        imagem_quarta: "/imagens/quadra_basquete.jpg",
-        preco: 180,
-        avaliacoes: 4.8,
-        disponibilidade: ["Segunda a Sábado - 9h às 22h"],
-        dimensoes: "28x15m",
-        iluminacao: "Sim",
-        tipo_grama: "Não se aplica",
-        capacidade: 12,
-        vestiarios: "Sim",
-        bebedouro: "Sim",
-        estacionamento: "Sim",
-        localizacao: "Rua dos Atletas, 321 - Zona Norte",
-        telefone: "(51) 55555-5555",
-        desconto: 12,
-        arquibancada: "Sim",
-        aberto_fechado: "Fechado",
-        tipo_piso: "Madeira",
-        acessibilidade: "Sim",
-        equipamentos_extras: "Bolas, Tabelas",
-        wi_fi: "Sim",
-        comentario: "Excelente local muito bom mesmo!"
-    }
+            id: 1,
+            nome_local: "Arena Sol Azul",
+            tipo_quadra: "Quadra de basquete",
+            localizacao: "Rua das Palmeiras, 123 - Centro",
+            imagem_principal: "/imagens/quadra_basquete_1.png",
+            imagem_pri: "/imagens/quadra_basquete_2.png",
+            imagem_seg: "/imagens/quadra_basquete_3.png",
+            imagem_ter: "/imagens/quadra_basquete_4.png",
+            telefone: "(11) 99999-1234",
+            disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado - 14h às 20h"],
+            preco: 150,
+            dimensoes: "28x15m",
+            iluminacao: "Sim",
+            vestiarios: "Sim",
+            bebedouro: "Sim",
+            estacionamento: "Sim",
+            arquibancada: "Não",
+            coberta: "Fechada",
+            acessibilidade: "Sim",
+            wi_fi: "Sim"
+          },
+          {
+            id: 2,
+            nome_local: "Centro Esportivo Águia",
+            tipo_quadra: "Quadra de vôlei de praia",
+            localizacao: "Av. Atlântica, 500 - Bairro Sul",
+            imagem_principal: "/imagens/quadra_volei_1.png",
+            imagem_pri: "/imagens/quadra_volei_2.png",
+            imagem_seg: "/imagens/quadra_volei_3.png",
+            imagem_ter: "/imagens/quadra_volei_4.png",
+            telefone: "(11) 98888-2222",
+            disponibilidade: ["Todos os dias - 8h às 20h"],
+            preco: 120,
+            dimensoes: "16x8m",
+            iluminacao: "Não",
+            vestiarios: "Não",
+            bebedouro: "Sim",
+            estacionamento: "Sim",
+            arquibancada: "Sim",
+            coberta: "Aberto",
+            acessibilidade: "Não",
+            wi_fi: "Não"
+          },
+          {
+            id: 3,
+            nome_local: "Quadra Raquete Club",
+            tipo_quadra: "Quadra de tênis rápida",
+            localizacao: "Rua das Palmeiras, 800 - Jardim Verde",
+            imagem_principal: "/imagens/quadra_tenis_1.png",
+            imagem_pri: "/imagens/quadra_tenis_2.png",
+            imagem_seg: "/imagens/quadra_tenis_3.png",
+            imagem_ter: "/imagens/quadra_tenis_4.png",
+            telefone: "(11) 97777-7777",
+            disponibilidade: ["Segunda a Sexta - 7h às 22h"],
+            preco: 200,
+            dimensoes: "23.77x10.97m",
+            iluminacao: "Sim",
+            vestiarios: "Sim",
+            bebedouro: "Sim",
+            estacionamento: "Sim",
+            arquibancada: "Sim",
+            coberta: "Fechada",
+            acessibilidade: "Sim",
+            wi_fi: "Sim"
+          },
+          {
+            id: 4,
+            nome_local: "Esporte Clube Montanha",
+            tipo_quadra: "Quadra de futebol society",
+            localizacao: "Rua dos Trilhos, 321 - Alto da Serra",
+            imagem_principal: "/imagens/quadra_society_1.png",
+            imagem_pri: "/imagens/quadra_society_2.png",
+            imagem_seg: "/imagens/quadra_society_3.png",
+            imagem_ter: "/imagens/quadra_society_4.png",
+            telefone: "(11) 96666-4444",
+            disponibilidade: ["Sábado e Domingo - 9h às 23h"],
+            preco: 180,
+            dimensoes: "30x50m",
+            iluminacao: "Sim",
+            vestiarios: "Sim",
+            bebedouro: "Sim",
+            estacionamento: "Não",
+            arquibancada: "Não",
+            coberta: "Aberto",
+            acessibilidade: "Sim",
+            wi_fi: "Não"
+          },
+          {
+            id: 5,
+            nome_local: "Clube Estrela Norte",
+            tipo_quadra: "Quadra poliesportiva",
+            localizacao: "Av. Central, 89 - Vila Nova",
+            imagem_principal: "/imagens/quadra_poliesportiva_1.png",
+            imagem_pri: "/imagens/quadra_poliesportiva_2.png",
+            imagem_seg: "/imagens/quadra_poliesportiva_3.png",
+            imagem_ter: "/imagens/quadra_poliesportiva_4.png",
+            telefone: "(11) 95555-1111",
+            disponibilidade: ["Todos os dias - 6h às 22h"],
+            preco: 160,
+            dimensoes: "20x35m",
+            iluminacao: "Sim",
+            vestiarios: "Sim",
+            bebedouro: "Sim",
+            estacionamento: "Sim",
+            arquibancada: "Sim",
+            coberta: "Fechada",
+            acessibilidade: "Sim",
+            wi_fi: "Sim"
+          }
     ]);
     
     useEffect(() => {
@@ -186,21 +156,21 @@ function Local() {
                     
                             {/* Galeria de imagens */}
                             <div className="p-3 max-w-24">
-                                {local.imagem_secunda != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_secunda} />}
+                                {local.imagem_pri != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_pri} />}
 
-                                {local.imagem_terceira != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_terceira} />}
+                                {local.imagem_seg != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_seg} />}
 
-                                {local.imagem_quarta != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_quarta}/>}
+                                {local.imagem_ter != "" && <img className="max-w-24 border-solid border border-gray-300 rounded-md hover:border-black" src={local.imagem_ter}/>}
                             </div>
 
                             {/* Imagem principal */}
                             <div className="p-3">
-                                <img className="max-w-full rounded-md border-gray-300 border-solid border hover:border-black" src={local.imagem_primeira} />
+                                <img className="max-w-full rounded-md border-gray-300 border-solid border hover:border-black" src={local.imagem_pri} />
                             </div>
                             
                             {/* Seção de informações do produto */}
                             <div className="max-w-64 p-3">
-                                <h2>{local.nome}</h2>
+                                <h2>{local.nome_local}</h2>
                                 <h2>Quadra Society 25x15m Gramado Sintético - Iluminada |
                                     <br /> Ideal Para Futebol, Treinos e Eventos
                                 </h2>
@@ -216,7 +186,7 @@ function Local() {
 
                             <hr/>
 
-                            <h2>Informações - {local.nome}</h2>
+                            <h2>Informações - {local.nome_local}</h2>
 
                             {/* Div centralizadora */}
                             <div className="flex">
