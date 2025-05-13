@@ -15,12 +15,11 @@ function Local() {
             nome_local: "Arena Sol Azul",
             tipo_quadra: "Quadra de basquete",
             localizacao: "Rua das Palmeiras, 123 - Centro",
-            imagem_principal: "/imagens/quadra_basquete_1.png",
-            imagem_pri: "/imagens/quadra_basquete_2.png",
-            imagem_seg: "/imagens/quadra_basquete_3.png",
-            imagem_ter: "/imagens/quadra_basquete_4.png",
+            imagem_principal: "https://i.imgur.com/fgqYnsz.jpeg",
+            imagem_pri: "https://i.imgur.com/DkwzUkd.jpeg",
+            imagem_seg: "https://i.imgur.com/O66Dwe3.jpeg",
+            imagem_ter: "https://i.imgur.com/0PNCSOo.jpeg",
             telefone: "(11) 99999-1234",
-            disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado - 14h às 20h"],
             preco: 150,
             dimensoes: "28x15m",
             iluminacao: "Sim",
@@ -30,95 +29,96 @@ function Local() {
             arquibancada: "Não",
             coberta: "Fechada",
             acessibilidade: "Sim",
-            wi_fi: "Sim"
+            wi_fi: "Sim",
+            criado_em: new Date()
           },
           {
             id: 2,
-            nome_local: "Centro Esportivo Águia",
-            tipo_quadra: "Quadra de vôlei de praia",
-            localizacao: "Av. Atlântica, 500 - Bairro Sul",
-            imagem_principal: "/imagens/quadra_volei_1.png",
-            imagem_pri: "/imagens/quadra_volei_2.png",
-            imagem_seg: "/imagens/quadra_volei_3.png",
-            imagem_ter: "/imagens/quadra_volei_4.png",
-            telefone: "(11) 98888-2222",
-            disponibilidade: ["Todos os dias - 8h às 20h"],
+            nome_local: "Quadra Estrela do Norte",
+            tipo_quadra: "Quadra de futsal",
+            localizacao: "Av. Brasil, 456 - Zona Norte",
+            imagem_principal: "https://i.imgur.com/fgqYnsz.jpeg",
+            imagem_pri: "https://i.imgur.com/DkwzUkd.jpeg",
+            imagem_seg: "https://i.imgur.com/O66Dwe3.jpeg",
+            imagem_ter: "https://i.imgur.com/0PNCSOo.jpeg",
+            telefone: "(11) 98888-1111",
             preco: 120,
-            dimensoes: "16x8m",
-            iluminacao: "Não",
-            vestiarios: "Não",
-            bebedouro: "Sim",
+            dimensoes: "25x15m",
+            iluminacao: "Sim",
+            vestiarios: "Sim",
+            bebedouro: "Não",
             estacionamento: "Sim",
             arquibancada: "Sim",
-            coberta: "Aberto",
-            acessibilidade: "Não",
-            wi_fi: "Não"
+            coberta: "Aberta",
+            acessibilidade: "Sim",
+            wi_fi: "Não",
+            criado_em: new Date()
           },
           {
             id: 3,
-            nome_local: "Quadra Raquete Club",
-            tipo_quadra: "Quadra de tênis rápida",
-            localizacao: "Rua das Palmeiras, 800 - Jardim Verde",
-            imagem_principal: "/imagens/quadra_tenis_1.png",
-            imagem_pri: "/imagens/quadra_tenis_2.png",
-            imagem_seg: "/imagens/quadra_tenis_3.png",
-            imagem_ter: "/imagens/quadra_tenis_4.png",
-            telefone: "(11) 97777-7777",
-            disponibilidade: ["Segunda a Sexta - 7h às 22h"],
-            preco: 200,
-            dimensoes: "23.77x10.97m",
+            nome_local: "Clube Raquete Dourada",
+            tipo_quadra: "Quadra de tênis",
+            localizacao: "Rua das Flores, 789 - Jardim",
+            imagem_principal: "https://i.imgur.com/fgqYnsz.jpeg",
+            imagem_pri: "https://i.imgur.com/DkwzUkd.jpeg",
+            imagem_seg: "https://i.imgur.com/O66Dwe3.jpeg",
+            imagem_ter: "https://i.imgur.com/0PNCSOo.jpeg",
+            telefone: "(11) 97777-2222",
+            preco: 180,
+            dimensoes: "23.77x8.23m",
             iluminacao: "Sim",
             vestiarios: "Sim",
             bebedouro: "Sim",
             estacionamento: "Sim",
-            arquibancada: "Sim",
-            coberta: "Fechada",
-            acessibilidade: "Sim",
-            wi_fi: "Sim"
+            arquibancada: "Não",
+            coberta: "Coberta",
+            acessibilidade: "Não",
+            wi_fi: "Sim",
+            criado_em: new Date()
           },
           {
             id: 4,
-            nome_local: "Esporte Clube Montanha",
-            tipo_quadra: "Quadra de futebol society",
-            localizacao: "Rua dos Trilhos, 321 - Alto da Serra",
-            imagem_principal: "/imagens/quadra_society_1.png",
-            imagem_pri: "/imagens/quadra_society_2.png",
-            imagem_seg: "/imagens/quadra_society_3.png",
-            imagem_ter: "/imagens/quadra_society_4.png",
-            telefone: "(11) 96666-4444",
-            disponibilidade: ["Sábado e Domingo - 9h às 23h"],
-            preco: 180,
-            dimensoes: "30x50m",
-            iluminacao: "Sim",
+            nome_local: "Ginásio Vôlei+",
+            tipo_quadra: "Quadra de vôlei",
+            localizacao: "Rua da Rede, 321 - Centro",
+            imagem_principal: "https://i.imgur.com/fgqYnsz.jpeg",
+            imagem_pri: "https://i.imgur.com/DkwzUkd.jpeg",
+            imagem_seg: "https://i.imgur.com/O66Dwe3.jpeg",
+            imagem_ter: "https://i.imgur.com/0PNCSOo.jpeg",
+            telefone: "(11) 96666-3333",
+            preco: 140,
+            dimensoes: "18x9m",
+            iluminacao: "Não",
             vestiarios: "Sim",
             bebedouro: "Sim",
             estacionamento: "Não",
-            arquibancada: "Não",
-            coberta: "Aberto",
-            acessibilidade: "Sim",
-            wi_fi: "Não"
-          },
-          {
-            id: 5,
-            nome_local: "Clube Estrela Norte",
-            tipo_quadra: "Quadra poliesportiva",
-            localizacao: "Av. Central, 89 - Vila Nova",
-            imagem_principal: "/imagens/quadra_poliesportiva_1.png",
-            imagem_pri: "/imagens/quadra_poliesportiva_2.png",
-            imagem_seg: "/imagens/quadra_poliesportiva_3.png",
-            imagem_ter: "/imagens/quadra_poliesportiva_4.png",
-            telefone: "(11) 95555-1111",
-            disponibilidade: ["Todos os dias - 6h às 22h"],
-            preco: 160,
-            dimensoes: "20x35m",
-            iluminacao: "Sim",
-            vestiarios: "Sim",
-            bebedouro: "Sim",
-            estacionamento: "Sim",
             arquibancada: "Sim",
             coberta: "Fechada",
             acessibilidade: "Sim",
-            wi_fi: "Sim"
+            wi_fi: "Sim",
+            criado_em: new Date()
+          },
+          {
+            id: 5,
+            nome_local: "Arena Basquete 360",
+            tipo_quadra: "Quadra de basquete",
+            localizacao: "Av. dos Atletas, 1000 - Sul",
+            imagem_principal: "https://i.imgur.com/fgqYnsz.jpeg",
+            imagem_pri: "https://i.imgur.com/DkwzUkd.jpeg",
+            imagem_seg: "https://i.imgur.com/O66Dwe3.jpeg",
+            imagem_ter: "https://i.imgur.com/0PNCSOo.jpeg",
+            telefone: "(11) 95555-4444",
+            preco: 160,
+            dimensoes: "28x15m",
+            iluminacao: "Sim",
+            vestiarios: "Sim",
+            bebedouro: "Não",
+            estacionamento: "Sim",
+            arquibancada: "Sim",
+            coberta: "Aberta",
+            acessibilidade: "Sim",
+            wi_fi: "Não",
+            criado_em: new Date()
           }
     ]);
     
@@ -175,7 +175,7 @@ function Local() {
                                     <br /> Ideal Para Futebol, Treinos e Eventos
                                 </h2>
                                 <p>⭐ {local.avaliacoes}</p>
-                                <p>R$ {local.preco} <span>🏷️ {local.desconto} OFF</span></p>
+                                <p>R$ {local.preco}</p>
                                 <p>em até <strong>12x R$ 17,99</strong></p>
                                 <a onClick={rolarParaDiv}>Ver os meios de pagamento</a>
                             </div>
@@ -194,24 +194,14 @@ function Local() {
                                 <div>
                                     <h3 className="ml-10">Estrutura Inclui:</h3>
                                     <ul className="list-none rounded-lg">
-                                        <li className="barraCinza rounded-t-lg">Tipo de gramado: {local.tipo_grama}</li>
-                                        <li className="barraBranca">Bebedouro: {local.bebedouro}</li>
-                                        <li className="barraCinza">Wifi: {local.wi_fi}</li>
-                                        <li className="barraBranca">Vestiário: {local.vestiarios}</li>
-                                        <li className="barraCinza">Estacionamento: {local.estacionamento}</li>
-                                        <li className="barraBranca">Arquibancada: {local.arquibancada}</li>
-                                        <li className="barraCinza rounded-b-lg">Acessibilidade:{local.acessibilidade}</li>
-                                    </ul>
-                                </div>
-                    
-                                {/* Informações Tecnicas */}
-                                <div>
-                                    <h3 className="ml-10">Informações Técnicas</h3>
-                                    <ul className="list-none rounded-lg">
                                         <li className="barraCinza rounded-t-lg">Iluminação:{local.iluminacao} </li>
-                                        <li className="barraBranca">Capacidade: {local.capacidade} </li>
-                                        <li className="barraCinza">Dimensões: {local.dimensoes}</li>
-                                        <li className="barraBranca">Equipamentos extras: {local.equipamentos_extras}</li>
+                                        <li className="barraBranca">Vestiário: {local.vestiarios}</li>
+                                        <li className="barraCinza">Bebedouro: {local.bebedouro}</li>
+                                        <li className="barraBranca">Estacionamento: {local.estacionamento}</li>
+                                        <li className="barraCinza">Arquibancada: {local.arquibancada}</li>
+                                        <li className="barraBranca">Cobertura: {local.coberta}</li>
+                                        <li className="barraCinza rounded-b-lg">Acessibilidade:{local.acessibilidade}</li>
+                                        <li className="barraBranca">Wifi: {local.wi_fi}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -219,31 +209,6 @@ function Local() {
                             <hr/>
                         </div>
 
-                        {/* Avaliações geral */}
-                        <div className="px-3 flex">
-                            <div className="p-3 h-full bg-blue-300 w-80">
-                                <h2>Opiniões do local</h2>
-                                    <div className="flex">
-                                        <h2>{local.avaliacoes}</h2>
-                                        <p>⭐⭐⭐⭐</p>
-                                    </div>
-                                <hr/>
-                                <hr/>
-                                <hr/>
-                                <hr/>
-                            </div>
-
-                            {/* Avaliações dos clientes */}
-                            <div className="w-full">
-                                {
-                                    locais.map((i, index)=> {
-                                        if(index < 5) {
-                                            return <Avaliacoes key={i.id} id={i.id} imagem={i.imagem_quarta} nome={i.nome} comentario={i.comentario}/>
-                                        }})
-                                }
-                            </div>
-                            
-                        </div>
                         
                     </section>
 
@@ -251,12 +216,10 @@ function Local() {
                     {/* Divisão lateral */}
                     <section className="max-w-64">
                         {/* Seção de pagamento */}
-                        <div className="p-3 mt-1 border-gray-300 borda-fina m-3 flex flex-col ">
-                            <small>Disponibilidade:</small>
-                            <p>{local.disponibilidade}</p>
-                            <button className="p-1 mt-auto">Alugar agora</button>
-                            <br/>
-                            <button className="p-1">Ver datas disponiveis</button>
+                        <div className="p-3 mt-1 border-gray-300 borda-fina m-3 h-32 flex flex-col ">
+    
+                            <a href="https://wa.me/5516997676179" target="_blank"> <button>Veja datas disponiveis</button></a>
+
                         </div>
                         {/* Meios de pagamento */}
                         <div className="p-3 mt-1 border-gray-300 borda-fina m-3 flex flex-col ">

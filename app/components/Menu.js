@@ -7,8 +7,6 @@ import { useRouter } from 'next/router';
 
 export default function Menu() {
 
-    const [exibirCampoCep, alteraExibirCampoCep] = useState(false);
-
     return ( 
     <main>
         <div className="bg-green-500">
@@ -32,7 +30,6 @@ export default function Menu() {
                 <nav>
                     <div>
                         <ul className="text-white flex justify-between list-none">
-                            <li className="cursor-pointer" onClick={() => alteraExibirCampoCep(true)}>Informe seu CEP</li>
                             <li className="cursor-pointer" onClick={() => window.location.href = "categoria/"}>Todas as categorias</li>
                             <li className="cursor-pointer">Anuncie sua Quadra</li>
                         
@@ -43,34 +40,6 @@ export default function Menu() {
                         </ul>
                     </div>
                 </nav>  
-            
-            
-                {
-                    exibirCampoCep && (
-                    <div className="fixed inset-0 bg-black bg-opacity-70 z-10 flex items-center justify-center">
-                        <div className="w-[350px] h-[300px] rounded-lg items-center justify-center relative flex p-4 bg-white">
-                            <div className="text-center">
-                                <button onClick={() => alteraExibirCampoCep(false)} className="absolute top-3 right-3  cursor-pointer text-xl bg-white border-none">
-                                    ✖
-                                </button>
-                                <p>Insira seu CEP para encontrar quadras perto de você!</p>
-                                <input
-                                    type="text"
-                                    placeholder="Digite seu CEP"
-                                    className="border p-2 rounded"
-                                    maxLength={8}
-                                />
-                                <p>Já tem conta?</p>
-                                <button onClick={() => window.location.href = "login/"} className="hover:bg-gray-300 rounded-xs p-3 w-64" >
-                                    Fazer Login
-                                </button>
-                                <button onClick={() => window.location.href = "cadastro/"} className="hover:bg-gray-300 rounded-xs p-3 w-64">
-                                    Fazer Cadastro
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         </div> 
     </main>

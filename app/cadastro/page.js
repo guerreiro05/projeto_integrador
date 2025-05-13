@@ -18,8 +18,7 @@ export default function Cadastro() {
   
   const [usuario, alteraUsuario] = useState({
     nome: "",
-    sobrenome: "",
-    idade: "",  
+    nascimento: "",  
     email: "",
     cpf: "",
     senha: "",
