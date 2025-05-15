@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Carrossel from "./components/Carrossel";
-import Quadras from "./components/Quadras";
+import Quadras from "./components/Quadras"
 import axios from "axios";
 
 
@@ -155,7 +155,6 @@ export default function Home(attr) {
               if (index < 7) {
                 return (
                   <div key={i.id} className="w-[22%] min-w-[200px] bg-red-400 p-4">
-                    i.id
                     <Quadras
                       id={i.id}
                       imagem={i.imagem_primeira}

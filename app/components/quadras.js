@@ -22,14 +22,10 @@ export default function Quadras(attr) {
                     <p className="text-lg h-[60px] font-semibold m-0">{attr.nome_local}</p>
                     
                     <p className="font-bold text-gray-500 line-through m-0">R$ {attr.preco}</p>
-                    <p className="font-bold text-green-600 text-2xl font-bold m-0">R$ {attr.preco}</p>
+                    <p className="font-bold text-green-600 text-2xl m-0">R$ {attr.preco}</p>
                     
                     <p className="text-sm h-[40px] text-gray-500 mt-2">{attr.localizacao}</p>
                 </div>
-
-                <button className="cursor-pointer w-5/6 bg-white rounded-sm hover:bg-gray-300 p-1"
-                        onClick={() => window.location.href = "local/" + attr.id} >Alugar
-                </button>
         </main>
 
       

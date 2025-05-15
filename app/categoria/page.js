@@ -10,7 +10,7 @@ function Categoria() {
     const [ locais, alteraLocais ] = useState([ ]);
 
     async function buscaLocais(){
-        const response = await axios.get("http://localhost:4000/quadras?estacionamento=true&preco_min=100&preco_max=300")
+        const response = await axios.get("http://localhost:4000/quadras?preco_min=100&preco_max=300")
         console.log(response.data)
         alteraLocais(response.data)
     }
@@ -68,7 +68,6 @@ function Categoria() {
                                         imagem={i.imagem_principal}
                                         nome={i.nome_local}
                                         preco={i.preco}
-                                        estacionamento={i.estacionamento}
                                     />
                                 </div>
                             );
