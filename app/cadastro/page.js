@@ -105,9 +105,22 @@ export default function Cadastro() {
 
           {erro && <p className="text-red-500 text-sm mb-2">{erro}</p>}
 
+          <div className="flex items-center my-2">
+            <input
+                id="link-checkbox" type="checkbox"
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500"
+            />
+            <label htmlFor="link-checkbox" className="ml-2 text-sm text-gray-900">
+                Eu concordo com os
+                <a href="#" className="text-blue-600 hover:underline">
+                termos e condições
+                </a>.
+            </label>
+          </div>
+
           <Link href="/login">
           <button 
-            className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
+            className="bg-gray-600 text-white my-2 p-2 rounded-full hover:bg-gray-700 w-24"
             onClick={salvar}>
             Cadastrar
           </button>  

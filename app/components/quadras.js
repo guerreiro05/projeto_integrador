@@ -6,7 +6,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 export default function Quadras(attr) {
     return (
        
-        <main className="w-80 py-2 px-2 m-2 rounded-lg border-solid border-gray-300 border"> 
+        <main className="w-48 py-2 px-2 m-2 rounded-lg border-solid border-gray-300 border"> 
         
                 <div className="flex justify-between items-center">
                     <p className="text-gray-700">⭐⭐⭐ {attr.avaliacoes}</p>
@@ -19,7 +19,7 @@ export default function Quadras(attr) {
                     src={attr.imagem}/>
 
                 <div className="items-center">
-                    <p className="text-lg h-[60px] font-semibold m-0">{attr.nome}</p>
+                    <p className="text-lg h-[60px] font-semibold m-0">{attr.nome_local}</p>
                     
                     <p className="font-bold text-gray-500 line-through m-0">R$ {attr.preco}</p>
                     <p className="font-bold text-green-600 text-2xl font-bold m-0">R$ {attr.preco}</p>

@@ -121,19 +121,25 @@ export default function Home(attr) {
         criado_em: new Date()
       }
 ]);
-// useEffect(()=>{
-//   const c = axios.get('http://localhost:4000/quadras')
-    // console.log("")
-//   alteraLocal(c.data)
-// })
-    useState(()=> {
-      const id_local = attr.params.id;
-      locais.map( (i)=> {
-          if( i.id == id_local ){
-              alteraLocal(i)
-          }   
-      })
-    }, [])
+
+  async function buscaLocais(){
+    const response = await axios.get("http://localhost:4000/quadras?estacionamento=true&preco_min=100&preco_max=300")
+    console.log(response.data)
+    alteraLocais(response.data)
+  }
+
+  useEffect(()=>{
+    buscaLocais()
+  },[])
+
+  useState(()=> {
+    const id_local = attr.params.id;
+    locais.map( (i)=> {
+        if( i.id == id_local ){
+            alteraLocal(i)
+        }   
+    })
+  }, [])
 
   return (
     <main>
@@ -148,7 +154,8 @@ export default function Home(attr) {
             locais.map((i, index) => {
               if (index < 7) {
                 return (
-                  <div key={i.id} className="w-[22%] min-w-[200px] bg-red-400">
+                  <div key={i.id} className="w-[22%] min-w-[200px] bg-red-400 p-4">
+                    i.id
                     <Quadras
                       id={i.id}
                       imagem={i.imagem_primeira}

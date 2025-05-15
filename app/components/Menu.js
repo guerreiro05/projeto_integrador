@@ -31,7 +31,7 @@ export default function Menu() {
                     <div>
                         <ul className="text-white flex justify-between list-none">
                             <li className="cursor-pointer" onClick={() => window.location.href = "categoria/"}>Todas as categorias</li>
-                            <li className="cursor-pointer">Anuncie sua Quadra</li>
+                            <li href="" className="cursor-pointer">Anuncie sua Quadra</li>
                         
                             <div className="flex">
                                 <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer">Crie sua conta</li>

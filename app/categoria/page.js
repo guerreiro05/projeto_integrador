@@ -1,145 +1,76 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Quadras from "../components/Quadras";
+import axios from "axios";
 
 function Categoria() {
 
-    const [ locais, alteraLocais ] = useState([
-        {
-            id: 1,
-            nome_local: "Arena Sol Azul",
-            tipo_quadra: "Quadra de basquete",
-            localizacao: "Rua das Palmeiras, 123 - Centro",
-            imagem_principal: "/imagens/quadra_basquete_1.png",
-            imagem_pri: "/imagens/quadra_basquete_2.png",
-            imagem_seg: "/imagens/quadra_basquete_3.png",
-            imagem_ter: "/imagens/quadra_basquete_4.png",
-            telefone: "(11) 99999-1234",
-            disponibilidade: ["Segunda a Sexta - 18h às 22h", "Sábado - 14h às 20h"],
-            preco: 150,
-            dimensoes: "28x15m",
-            iluminacao: "Sim",
-            vestiarios: "Sim",
-            bebedouro: "Sim",
-            estacionamento: "Sim",
-            arquibancada: "Não",
-            coberta: "Fechada",
-            acessibilidade: "Sim",
-            wi_fi: "Sim"
-          },
-          {
-            id: 2,
-            nome_local: "Centro Esportivo Águia",
-            tipo_quadra: "Quadra de vôlei de praia",
-            localizacao: "Av. Atlântica, 500 - Bairro Sul",
-            imagem_principal: "/imagens/quadra_volei_1.png",
-            imagem_pri: "/imagens/quadra_volei_2.png",
-            imagem_seg: "/imagens/quadra_volei_3.png",
-            imagem_ter: "/imagens/quadra_volei_4.png",
-            telefone: "(11) 98888-2222",
-            disponibilidade: ["Todos os dias - 8h às 20h"],
-            preco: 120,
-            dimensoes: "16x8m",
-            iluminacao: "Não",
-            vestiarios: "Não",
-            bebedouro: "Sim",
-            estacionamento: "Sim",
-            arquibancada: "Sim",
-            coberta: "Aberto",
-            acessibilidade: "Não",
-            wi_fi: "Não"
-          },
-          {
-            id: 3,
-            nome_local: "Quadra Raquete Club",
-            tipo_quadra: "Quadra de tênis rápida",
-            localizacao: "Rua das Palmeiras, 800 - Jardim Verde",
-            imagem_principal: "/imagens/quadra_tenis_1.png",
-            imagem_pri: "/imagens/quadra_tenis_2.png",
-            imagem_seg: "/imagens/quadra_tenis_3.png",
-            imagem_ter: "/imagens/quadra_tenis_4.png",
-            telefone: "(11) 97777-7777",
-            disponibilidade: ["Segunda a Sexta - 7h às 22h"],
-            preco: 200,
-            dimensoes: "23.77x10.97m",
-            iluminacao: "Sim",
-            vestiarios: "Sim",
-            bebedouro: "Sim",
-            estacionamento: "Sim",
-            arquibancada: "Sim",
-            coberta: "Fechada",
-            acessibilidade: "Sim",
-            wi_fi: "Sim"
-          },
-          {
-            id: 4,
-            nome_local: "Esporte Clube Montanha",
-            tipo_quadra: "Quadra de futebol society",
-            localizacao: "Rua dos Trilhos, 321 - Alto da Serra",
-            imagem_principal: "/imagens/quadra_society_1.png",
-            imagem_pri: "/imagens/quadra_society_2.png",
-            imagem_seg: "/imagens/quadra_society_3.png",
-            imagem_ter: "/imagens/quadra_society_4.png",
-            telefone: "(11) 96666-4444",
-            disponibilidade: ["Sábado e Domingo - 9h às 23h"],
-            preco: 180,
-            dimensoes: "30x50m",
-            iluminacao: "Sim",
-            vestiarios: "Sim",
-            bebedouro: "Sim",
-            estacionamento: "Não",
-            arquibancada: "Não",
-            coberta: "Aberto",
-            acessibilidade: "Sim",
-            wi_fi: "Não"
-          },
-          {
-            id: 5,
-            nome_local: "Clube Estrela Norte",
-            tipo_quadra: "Quadra poliesportiva",
-            localizacao: "Av. Central, 89 - Vila Nova",
-            imagem_principal: "/imagens/quadra_poliesportiva_1.png",
-            imagem_pri: "/imagens/quadra_poliesportiva_2.png",
-            imagem_seg: "/imagens/quadra_poliesportiva_3.png",
-            imagem_ter: "/imagens/quadra_poliesportiva_4.png",
-            telefone: "(11) 95555-1111",
-            disponibilidade: ["Todos os dias - 6h às 22h"],
-            preco: 160,
-            dimensoes: "20x35m",
-            iluminacao: "Sim",
-            vestiarios: "Sim",
-            bebedouro: "Sim",
-            estacionamento: "Sim",
-            arquibancada: "Sim",
-            coberta: "Fechada",
-            acessibilidade: "Sim",
-            wi_fi: "Sim"
-          }
-    ]);
+    const [ locais, alteraLocais ] = useState([ ]);
+
+    async function buscaLocais(){
+        const response = await axios.get("http://localhost:4000/quadras?estacionamento=true&preco_min=100&preco_max=300")
+        console.log(response.data)
+        alteraLocais(response.data)
+    }
+
+    useEffect(()=>{
+        buscaLocais()
+    },[])
 
     return ( 
-        <main>
-            <div className="layout-container text-center flex">
+        <main className="">
+            <div className="layout-container text-center flex bg-red-300">
 
-                <div className="p-10 bg-green-300">
-                    <p>Campo de Futebol</p>
-                    <p>Quadra de Tênis</p>
+                <div className="p-10 bg-green-300 justify-between">
+
+                    <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Escolhar o tipo de quadra</h3>
+
+                    <label className="flex items-center justify-between">
+                        Vestiário
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
+                    <label className="flex items-center justify-between">
+                        Bebedouro
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
+                    <label className="flex items-center justify-between">
+                        Estacionamento
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
+                    <label className="flex items-center justify-between">
+                        Arquibancada
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
+                    <label className="flex items-center justify-between">
+                        Cobertura
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
+                    <label className="flex items-center justify-between">
+                        Acessibilidade
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
+                    <label className="flex items-center justify-between">
+                        Wifi
+                        <input type="checkbox"name="acessibilidade" className="w-4 h-4 mr-2"/>
+                    </label>
                 </div>
 
-                <div className="flex w-full justify-center">
+                <div className="flex flex-wrap justify-center items-center h-screen gap-">
                     {
                     locais.map((i, index) => {
-                        if (index < 3) {
+                        if (index < 4) {
                             return (
-                                <Quadras
-                                    key={i.id}
-                                    id={i.id}
-                                    imagem={i.imagem_principal}
-                                    nome={i.nome_local}
-                                    preco={i.preco}
-                                />
+                                <div key={index} className="w-[22%] min-w-[200px] bg-red-600">
+                                    <Quadras
+                                        id={i.id}
+                                        imagem={i.imagem_principal}
+                                        nome={i.nome_local}
+                                        preco={i.preco}
+                                        estacionamento={i.estacionamento}
+                                    />
+                                </div>
                             );
                         }
                     })
