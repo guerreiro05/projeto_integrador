@@ -1,10 +1,24 @@
 'use client';
 
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 
 
 export default function Carrossel() {
+
+    const [ locais, alteraLocais ] = useState([]);
+
+    async function buscaLocais(){
+      const response = await axios.get("http://localhost:4000/quadras?preco_min=100&preco_max=300")
+      console.log(response.data)
+      alteraLocais(response.data)
+    }
+  
+    useEffect(()=>{
+      buscaLocais()
+    },[])
 
     const responsive = {
         superLargeDesktop: {
@@ -27,12 +41,24 @@ export default function Carrossel() {
 
   return (
     <div className="layout-container">
-      <Carousel responsive={responsive} draggable={true} showDots={true} infinite={true} autoPlay={true} autoPlaySpeed={3000} >
-        <div> <img className="w-full h-96 object-cover" src="/imagens/campo_futebol_primeira.png"/> </div>
-        <div> <img className="w-full h-96 object-cover" src="/imagens/quadra_basquete_primeira.png"/> </div>
-        <div> <img className="w-full h-96 object-cover" src="/imagens/campo_futebol_segunda.png"/> </div>
-        <div> <img className="w-full h-96 object-cover" src="/imagens/quadra_basquete_segunda.png"/> </div>
+      <Carousel responsive={responsive} draggable={true} showDots={true} infinite={true} autoPlay={true} autoPlaySpeed={3000} >     
+        {
+          locais.map((i, index) => {
+            if (index < 4) {
+              const imagens = [i.imagemPrincipal, i.imagemPri, i.imagemSeg, i.imagemTer];
+              const imagemEscolhida = imagens[index % imagens.length];
+
+              return (
+                <div key={index} onClick={() => window.location.href = `/local/${i.id}`} className="cursor-pointer">
+                  <img className="w-full h-96 object-cover" src={imagemEscolhida} alt={i.nomeLocal} />
+                </div>
+              );
+            }
+          })
+        }
       </Carousel>
     </div>
   );
 }
+
+

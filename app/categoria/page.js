@@ -1,13 +1,12 @@
 'use client'
 
 import { useEffect, useState } from "react";
-
 import Quadras from "../components/Quadras";
 import axios from "axios";
 
 function Categoria() {
 
-    const [ locais, alteraLocais ] = useState([ ]);
+    const [ locais, alteraLocais ] = useState([]);
 
     async function buscaLocais(){
         const response = await axios.get("http://localhost:4000/quadras?preco_min=100&preco_max=300")
@@ -20,7 +19,7 @@ function Categoria() {
     },[])
 
     return ( 
-        <main className="">
+        <main>
             <div className="layout-container text-center flex bg-red-300">
 
                 <div className="p-10 bg-green-300 justify-between">
@@ -65,9 +64,11 @@ function Categoria() {
                                 <div key={index} className="w-[22%] min-w-[200px] bg-red-600">
                                     <Quadras
                                         id={i.id}
-                                        imagem={i.imagem_principal}
-                                        nome={i.nome_local}
+                                        imagem={i.imagemPri}
+                                        nomeLocal={i.nomeLocal}
+                                        avaliacoes={i.avaliacoes}
                                         preco={i.preco}
+                                        localizacao={i.localizacao}
                                     />
                                 </div>
                             );

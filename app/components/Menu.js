@@ -30,8 +30,8 @@ export default function Menu() {
                 <nav>
                     <div>
                         <ul className="text-white flex justify-between list-none">
-                            <li className="cursor-pointer" onClick={() => window.location.href = "categoria/"}>Todas as categorias</li>
-                            <li href="" className="cursor-pointer">Anuncie sua Quadra</li>
+                            <li className="cursor-pointer" onClick={() => window.location.href = "/categoria/"}>Todas as categorias</li>
+                            <li href="https://wa.me/5511999999999" className="cursor-pointer">Anuncie sua Quadra</li>
                         
                             <div className="flex">
                                 <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer">Crie sua conta</li>
