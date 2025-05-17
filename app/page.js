@@ -31,8 +31,7 @@ export default function Home(attr) {
   }, [])
 
   return (
-    <main>
-      <div className="layout-container bg-white text-center rounded-md">
+      <main className="layout-container bg-white text-center rounded-md">
 
         <h2>Quadras em destaques</h2>
 
@@ -44,6 +43,7 @@ export default function Home(attr) {
               if (index < 2) {
                 return (
                   <div key={i.id} className="w-[20%] min-w-[274px] bg-red-400">
+                    <Carrossel/>
                     <Quadras
                       id={i.id}
                       imagem={i.imagemPri}
@@ -59,8 +59,7 @@ export default function Home(attr) {
           }
         </div>
         
-      </div>
-    </main>
+      </main>
   );
 }
 
