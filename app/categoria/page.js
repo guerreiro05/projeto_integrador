@@ -49,7 +49,7 @@ function Categoria() {
 
     return ( 
         <main>
-            <div className="layout-container text-center flex bg-white rounded-md">
+            <div className="layout-container text-center h-[1000px] flex bg-white rounded-md">
 
                 <div className="p-10 rounded-l-lg max-w-[190px]">
 
@@ -195,12 +195,12 @@ function Categoria() {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap justify-center items-center h-screen gap-">
+                <div className="flex flex-wrap justify-center w-full rounded-lg">
                     {
                     locais.map((i, index) => {
-                        if (index < 4) {
+                        if (index < 6) {
                             return (
-                                <div key={index} className="w-[22%] min-w-[200px] bg-red-600">
+                                <div key={index} className="flex m-4 max-h-[450px]">
                                     <Quadras
                                         id={i.id}
                                         imagem={i.imagemPri}

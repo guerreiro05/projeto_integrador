@@ -31,19 +31,20 @@ export default function Home(attr) {
   }, [])
 
   return (
-      <main className="layout-container bg-white text-center rounded-md">
+      <main className="layout-container bg-white text-center p-1 rounded-md">
 
         <h2>Quadras em destaques</h2>
 
-        <Carrossel/>
+        <div className="mx-11 rounded-lg">
+          <Carrossel/>
+        </div>
 
         <div className="flex flex-wrap justify-center items-center">
           {
             locais.map((i, index) => {
-              if (index < 2) {
+              if (index < 8) {
                 return (
-                  <div key={i.id} className="w-[20%] min-w-[274px] bg-red-400">
-                    <Carrossel/>
+                  <div key={i.id} className="flex m-4" >
                     <Quadras
                       id={i.id}
                       imagem={i.imagemPri}
