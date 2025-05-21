@@ -1,30 +1,36 @@
 'use client'
 
 export default RodaPe;
+
 function RodaPe() {
-    return ( 
-    <main>
-        <div className="w-100 bg-green-700 flex justify-around text-white">
+    return (
+        <footer className="w-full bg-green-700 text-white flex justify-around">
             <div>
-                <h3>Conheça-nos</h3>
-                <p onClick={() => window.location.href="/sobre"}>Sobre a PlayFute</p>
+                <h3 className="font-bold mb-2">Conheça-nos</h3>
+                <p className="cursor-pointer hover:underline" onClick={() => window.location.href = "/sobre"}>
+                    Sobre a PlayFute
+                </p>
             </div>
+
             <div>
-                <h3>Ganhe dinheiro conosco</h3>
-                <a href="https://wa.me/5511999999999" target="_blank" className="text-blue-500 underline">
-                    Anuncie sua quadra 
+                <h3 className="font-bold mb-2">Ganhe dinheiro conosco</h3>
+                <a
+                    href="https://wa.me/5511999999999"
+                    target="_blank"
+                    className="text-white cursor-pointer no-underline hover:underline"
+                >
+                    Anuncie sua quadra
                 </a>
             </div>
+
             <div>
-                <h3>Vamos te ajudar</h3>
-                <p onClick={() => window.location.href="/perfil"}>Sua conta</p>
-                <p>Cancelamento e reembolsos</p>
-                <p>Ajuda e Suporte</p>
+                <h3 className="font-bold mb-2">Vamos te ajudar</h3>
+                <p className="cursor-pointer hover:underline" onClick={() => window.location.href = "/perfil"}>
+                    Sua conta
+                </p>
+                <p className="hover:underline">Cancelamento e reembolsos</p>
+                <p className="hover:underline">Ajuda e Suporte</p>
             </div>
-        </div>
-
-        <hr/>
-
-    </main>
-     );
+        </footer>
+    );
 }
