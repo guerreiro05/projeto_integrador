@@ -1,16 +1,23 @@
 'use client'
 
-import  React, { useState } from "react";
+import  React, { useEffect, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 
 
 export default function Cadastro() {
  
-  // const [nome, alteraNome] = useState("");
-  // const [sobrenome, alteraSobrenome] = useState("");
-  // const [idade, alteraIdade] = useState("");
-  // const [cpf, alteraCpf] = useState("");
-  // const [senha, alteraSenha] = useState("");
+  const [ locais, alteraLocais ] = useState([]);
+
+  async function buscaLocais(){
+    const response = await axios.get("http://localhost:4000/usuarios")
+    console.log(response.data)
+    alteraLocais(response.data)
+  }
+
+  useEffect(()=>{
+    buscaLocais()
+  },[])
 
   const [confirmaSenha, alteraConfirmaSenha] = useState("");
   const [erro, alteraErro] = useState("");
@@ -18,6 +25,8 @@ export default function Cadastro() {
   
   const [usuario, alteraUsuario] = useState({
     nome: "",
+    sobrenome: "",
+    idade: "",
     nascimento: "",  
     email: "",
     cpf: "",
@@ -38,10 +47,24 @@ export default function Cadastro() {
     return true;
   }
 
-  function salvar  ()  {
+async function salvar  ()  {
     if (!validarCampos()) return;
 
     console.log(`Nome: ${usuario.nome}\nSobrenome: ${usuario.sobrenome}\nIdade: ${usuario.idade}\nCPF: ${usuario.cpf}\nSenha: ${usuario.senha}`);
+
+
+    const res= await axios.post('http://localhost:4000/usuarios', {
+      nome: usuario.nome,
+      nascimento: usuario.nascimento,
+      email: usuario.email,
+      cpf: usuario.cpf,
+      senha: usuario.senha
+     
+
+    })
+
+
+
     alert("Usuário cadastrado com sucesso!");
   }
 
@@ -63,18 +86,20 @@ export default function Cadastro() {
             value={usuario.nome} 
             onChange={(e) => alteraUsuario({ ...usuario, nome: e.target.value })}/>
 
+        <input 
+           className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
+            placeholder="Data de Nascimento" 
+            type="date" 
+          value={usuario.nascimento} 
+        onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}
+          />
+
           <input 
             className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
             placeholder="Sobrenome" 
             value={usuario.sobrenome} 
             onChange={(e) => alteraUsuario({ ...usuario, sobrenome: e.target.value })}/>
 
-          <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
-            placeholder="Data de nascimento" 
-            type="date" 
-            value={usuario.idade} 
-            onChange={(e) => alteraUsuario({ ...usuario, idade: e.target.value })}/>
 
           <input 
             className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
@@ -88,6 +113,8 @@ export default function Cadastro() {
             placeholder="CPF" 
             value={usuario.cpf} 
             onChange={(e) => alteraUsuario({ ...usuario, cpf: e.target.value })}/>
+
+
 
           <input 
             className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 

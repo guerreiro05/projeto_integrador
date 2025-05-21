@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Cadastro from "../cadastro/page";
 import Link from "next/link";
+import axios from "axios";
 
 export default function Login() {
   
@@ -12,7 +13,10 @@ export default function Login() {
   const [senha, alteraSenha] = useState("");
   
   
-  const [usuario, alteraUsuario] = useState([{
+  const [usuario, alteraUsuario] = useState([]);
+
+  /*
+   {
     
       id: 0,
       nome: "Vinicius",
@@ -139,7 +143,25 @@ export default function Login() {
       senha: "paty_barb37",
       email: "patricia@example.com"
     },
-  ]);
+   */
+
+  async function buscausuario(){
+    const res = await axios.get("http://localhost:4000/usuarios")
+    console.log(res.data)
+    alteraUsuario(res.data)
+  }
+
+  useEffect(()=>{
+    const user = JSON.parse( localStorage.getItem("usuario")  )
+
+    if(user.id != undefined){
+      window.location.href = '/'
+    }
+
+
+    buscausuario()
+  } , [])
+
 
   const [erro, alteraErro] = useState("");
   
@@ -166,6 +188,7 @@ export default function Login() {
         console.log("Usuário encontrado:", i);
         i.senha = "";
         localStorage.setItem("usuario", JSON.stringify(i));
+        window.location.href = '/'
       }
       else {
          console.log("Usuário não encontrado.");

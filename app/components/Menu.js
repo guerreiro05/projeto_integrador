@@ -2,10 +2,22 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+ 
+
 export default function Menu() {
+    const [user, alteraUser] = useState({});
+
+    useEffect(()=>{
+        const u = JSON.parse( localStorage.getItem("usuario")  )
+    
+        if(u.id != undefined){
+          alteraUser(u)
+        }
+    
+      } , [])
 
     return ( 
     <main>
@@ -32,11 +44,26 @@ export default function Menu() {
                         <ul className="text-white flex justify-between list-none">
                             <li className="cursor-pointer" onClick={() => window.location.href = "/categoria/"}>Todas as categorias</li>
                             <li href="https://wa.me/5511999999999" className="cursor-pointer">Anuncie sua Quadra</li>
-                        
                             <div className="flex">
-                                <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer">Crie sua conta</li>
-                                <li onClick={() => window.location.href = "/login"} className="cursor-pointer mx-10">Entre</li>
-                            </div>
+                             {
+                                 user.id === undefined && (
+                                 <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer">
+                                     Crie sua conta
+                                    </li>
+                                     )
+                                     }
+                                 {
+                                    user.id === undefined ? (
+                                    <li onClick={() => window.location.href = "/login"} className="cursor-pointer mx-10">
+                                        Entre
+                                     </li>
+                                     ) : (
+                                        <li onClick={() => window.location.href = "/perfil"} className="cursor-pointer mx-10">
+                                             Perfil
+                                             </li>
+                                    )
+                                         }
+                                    </div>
                         </ul>
                     </div>
                 </nav>  
