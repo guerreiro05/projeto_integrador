@@ -16,6 +16,11 @@ function perfilUsuario() { // É preciso instalar o pacote "axios", ele quem vai
         alteraDados(response.data[0]);
     }
 
+    function sair(){
+        localStorage.removeItem("usuario")
+        window.location.href="/"
+    }
+
     useEffect(()=>{
         buscaLocais()
       },[])
@@ -23,6 +28,10 @@ function perfilUsuario() { // É preciso instalar o pacote "axios", ele quem vai
     return ( 
         <main>
             <div className="layout-container bg-white text-center p-1 rounded-md">
+                <div className="text-right">
+
+            <button onClick={()=>sair()}>sair</button>
+                </div>
                 <div className="max-w-md mx-auto mt-10 p-4 bg-white rounded shadow">
 
                     <h1 className="text-xl font-bold mb-4">Perfil do Usuário</h1>

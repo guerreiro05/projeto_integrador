@@ -69,15 +69,15 @@ async function salvar  ()  {
   }
 
   return (
-    <div>
+    <main className="layout-container bg-white text-center p-1 rounded-md">
       <div className="p-2 rounded bg-green-700 text-white">
         <h1>Cadastro de Usuário</h1>
         <p>Preencha os campos abaixo para se cadastrar.</p>
       </div>
 
     
-     <div className="flex justify-center items-center min-h-screen bg-green-500">   
-        <div className="bg-white bg-opacity-80 p-6 rounded-lg w-80 shadow-lg">
+     <div className="flex justify-center items-center min-h-screen  bg-white">   
+        <div className="bg-green-700 bg-opacity-80 p-6 rounded-lg w-80 shadow-lg">
           <h2 className="text-center text-2xl font-semibold mb-6">Cadastre-se</h2>
 
           <input 
@@ -154,6 +154,6 @@ async function salvar  ()  {
               </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

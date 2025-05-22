@@ -9,8 +9,8 @@ import axios from "axios";
 export default function Login() {
   
   
-  const [cpf, alteraCpf] = useState("");
-  const [senha, alteraSenha] = useState("");
+  const [cpf, alteraCpf] = useState("2147483647");
+  const [senha, alteraSenha] = useState("senha123");
   
   
   const [usuario, alteraUsuario] = useState([]);
@@ -50,24 +50,44 @@ export default function Login() {
     return true;
   }
   
-  function logar() {
+   async function logar() {
     if (!validarCampos()) return;
-    console.log(`Cpf: ${cpf}\nSenha: ${senha}`);
     
-    usuario.map(i => {
-      if (i.cpf == cpf && i.senha == senha) {
-        console.log("Usuário encontrado:", i);
-        i.senha = "";
-        localStorage.setItem("usuario", JSON.stringify(i));
-        window.location.href = '/'
-      }
-      else {
-         console.log("Usuário não encontrado.");
-     }
-    });
+    const obj = {
+      cpf: cpf,
+      senha: senha
+    }
+    const res = await axios.post("http://localhost:4000/autenticar",obj)
+    console.log(res)
     
+    if(res.data.id == null){
+      alert("usuario ou senha incorretos")
+      return
+    }
+
+    localStorage.setItem("usuario", JSON.stringify(res.data))
+    window.location.href = "/"
 
   }
+
+  // function logar() {
+  //   if (!validarCampos()) return;
+  //   console.log(`Cpf: ${cpf}\nSenha: ${senha}`);
+    
+  //   usuario.map(i => {
+  //     if (i.cpf == cpf && i.senha == senha) {
+  //       console.log("Usuário encontrado:", i);
+  //       i.senha = "";
+  //       localStorage.setItem("usuario", JSON.stringify(i));
+  //       window.location.href = '/'
+  //     }
+  //     else {
+  //        console.log("Usuário não encontrado.");
+  //    }
+  //   });
+    
+
+  // }
   
   return (
     <div>
