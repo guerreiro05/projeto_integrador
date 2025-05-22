@@ -10,6 +10,8 @@ function Local() {
     const id_local = params.id; // Pegando o ID do local
 
     const [local, alteraLocal] = useState({});
+    const [data, alteraData] = useState("");
+    const [hora, alteraHora] = useState("");
     
     async function buscaLocais(){
         const response = await axios.get("http://localhost:4000/quadras/"+id_local)
@@ -20,6 +22,42 @@ function Local() {
     useEffect(()=>{
         buscaLocais()
     },[])
+
+    async function alugar() {
+
+        if(data.length < 1 || hora.length < 1){
+            alert("Digite corretamente a data e a hora")
+            return
+        }
+
+        if(localStorage.getItem("usuario") == null){
+            alert("Faça login para continuar")
+            return
+        }
+
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        if (usuario.id == null ){
+            alert("Faça login para continuar")
+            return
+        }
+        
+        const idUsuario = usuario.id
+
+        const obj = {
+            id_usuario: idUsuario,
+            id_quadra: local.id,
+            data_hora: data+" "+hora
+        }
+
+        try{
+            const response = await axios.post("http://localhost:4000/locacoes/", obj)
+            window.location.href = "/pagamento"
+        }catch(e){
+            alert("Dados invalidos...")
+        }
+        
+        
+    }
 
     return ( 
         <main className="layout-container flex h-[540px] p-3 rounded-lg bg-white">          
@@ -48,7 +86,10 @@ function Local() {
                             <p>R$ {local.preco}</p>
                             <p>em até <strong>12x R$ 17,99</strong></p>
                         
-                            <a href="https://wa.me/5516997676179" target="_blank"> <button>Veja datas disponiveis</button></a>
+                            <input type="date" onChange={e=> alteraData(e.target.value)} />
+                            <input type="time" onChange={e=> alteraHora(e.target.value)}/>
+
+                            <button onClick={() => {alugar()}}>Alugar</button>
 
                         </div>
                     </div>

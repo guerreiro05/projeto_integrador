@@ -15,136 +15,6 @@ export default function Login() {
   
   const [usuario, alteraUsuario] = useState([]);
 
-  /*
-   {
-    
-      id: 0,
-      nome: "Vinicius",
-      sobrenome: "Rodrigues",
-      dataNascimento: "1992-05-15", 
-      cpf: "189230828-21",
-      senha: "12345678",
-      email: "vinicius@example.com" 
-    },
-    {
-      id: 1,
-      nome: "Camila",
-      sobrenome: "Ferreira",
-      dataNascimento: "1996-07-20",
-      cpf: "321654987-12",
-      senha: "senhaCamila123",
-      email: "camila@example.com"
-    },
-    {
-      id: 2,
-      nome: "Gustavo",
-      sobrenome: "Almeida",
-      dataNascimento: "1989-02-10",
-      cpf: "456123789-99",
-      senha: "guga@123",
-      email: "gustavo@example.com"
-    },
-    {
-      id: 3,
-      nome: "Larissa",
-      sobrenome: "Mendes",
-      dataNascimento: "1994-04-05",
-      cpf: "874521369-44",
-      senha: "larism123",
-      email: "larissa@example.com"
-    },
-    {
-      id: 4,
-      nome: "Bruno",
-      sobrenome: "Costa",
-      dataNascimento: "1997-11-23",
-      cpf: "159357248-33",
-      senha: "bruno_2024",
-      email: "bruno@example.com"
-    },
-    {
-      id: 5,
-      nome: "Mariana",
-      sobrenome: "Souza",
-      dataNascimento: "1998-06-17",
-      cpf: "785412369-77",
-      senha: "mari@souza",
-      email: "mariana@example.com"
-    },
-    {
-      id: 6,
-      nome: "Felipe",
-      sobrenome: "Martins",
-      dataNascimento: "1983-09-22",
-      cpf: "741852963-55",
-      senha: "felipeM@r",
-      email: "felipe@example.com"
-    },
-    {
-      id: 7,
-      nome: "Eduarda",
-      sobrenome: "Silva",
-      dataNascimento: "2002-12-10",
-      cpf: "369258147-88",
-      senha: "edu@silva",
-      email: "eduarda@example.com"
-    },
-    {
-      id: 8,
-      nome: "João",
-      sobrenome: "Oliveira",
-      dataNascimento: "1980-01-25",
-      cpf: "987654321-00",
-      senha: "joaoolive45",
-      email: "joao@example.com"
-    },
-    {
-      id: 9,
-      nome: "Tatiane",
-      sobrenome: "Pereira",
-      dataNascimento: "1991-10-13",
-      cpf: "159852753-11",
-      senha: "tati_333",
-      email: "tatiane@example.com"
-    },
-    {
-      id: 10,
-      nome: "Ricardo",
-      sobrenome: "Gomes",
-      dataNascimento: "1989-12-02",
-      cpf: "753951456-22",
-      senha: "rickygo36",
-      email: "ricardo@example.com"
-    },
-    {
-      id: 11,
-      nome: "Amanda",
-      sobrenome: "Lima",
-      dataNascimento: "1994-08-16",
-      cpf: "852147963-66",
-      senha: "manda_lima",
-      email: "amanda@example.com"
-    },
-    {
-      id: 12,
-      nome: "Carlos",
-      sobrenome: "Santana",
-      dataNascimento: "1975-03-01",
-      cpf: "987321654-33",
-      senha: "carlosS50",
-      email: "carlos@example.com"
-    },
-    {
-      id: 13,
-      nome: "Patrícia",
-      sobrenome: "Barbosa",
-      dataNascimento: "1987-06-28",
-      cpf: "321987654-44",
-      senha: "paty_barb37",
-      email: "patricia@example.com"
-    },
-   */
-
   async function buscausuario(){
     const res = await axios.get("http://localhost:4000/usuarios")
     console.log(res.data)
@@ -152,13 +22,14 @@ export default function Login() {
   }
 
   useEffect(()=>{
+
+    if(localStorage.getItem("usuario") == null) return
+
     const user = JSON.parse( localStorage.getItem("usuario")  )
 
-    if(user.id != undefined){
+    if(user.id != undefined)
       window.location.href = '/'
-    }
-
-
+    
     buscausuario()
   } , [])
 

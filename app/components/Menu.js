@@ -11,9 +11,12 @@ export default function Menu() {
     const [user, alteraUser] = useState({});
 
     useEffect(()=>{
+        if(localStorage.getItem("usuario") == null)
+            return
+        
         const u = JSON.parse( localStorage.getItem("usuario")  )
     
-        if(u.id != undefined){
+        if(u.id != null){
           alteraUser(u)
         }
     
