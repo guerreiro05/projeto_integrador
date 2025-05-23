@@ -61,39 +61,48 @@ async function salvar  ()  {
     })
 
     alert("Usuário cadastrado com sucesso!");
+
+    window.location.href = "/login";
   }
 
   return (
     <main className="layout-container bg-white text-center p-1 rounded-md">  
-      <div className="flex justify-center items-center">  
 
-        <div className="bg-green-500 p-6 rounded-lg w-80 shadow-lg">
+      <div className="flex justify-center items-center">  
+        <form 
+          className="bg-green-500 p-6 rounded-lg w-80 shadow-lg"
+          onSubmit={(e) => {
+          e.preventDefault();
+          salvar();
+          }}>
 
           <h1 className="text-white">Cadastro de Usuário</h1>
           <p className="text-white" >Preencha os campos abaixo para se cadastrar.</p>
           
           <input 
+            required
             className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Nome" 
             value={usuario.nome} 
             onChange={(e) => alteraUsuario({ ...usuario, nome: e.target.value })}/>
 
           <input 
+            required
             className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Sobrenome" 
             value={usuario.sobrenome} 
             onChange={(e) => alteraUsuario({ ...usuario, sobrenome: e.target.value })}/>
             
-          <input 
+          <input
+            required 
             className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Data de Nascimento" 
             type="date" 
             value={usuario.nascimento} 
-            onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}
-          />
-
+            onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}/>
 
           <input 
+            required
             className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="E-mail" 
             type="email" 
@@ -101,12 +110,14 @@ async function salvar  ()  {
             onChange={(e) => alteraUsuario({ ...usuario, email: e.target.value })}/>
 
           <input 
+            required
             className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="CPF" 
             value={usuario.cpf} 
             onChange={(e) => alteraUsuario({ ...usuario, cpf: e.target.value })}/>
 
           <input 
+            required
             className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Senha" 
             type="password" 
@@ -114,6 +125,7 @@ async function salvar  ()  {
             onChange={(e) => alteraUsuario({ ...usuario, senha: e.target.value })}/>
 
           <input 
+            required
             className="p-2 mb-4 rounded placeholder-black w-72" 
             placeholder="Confirme a Senha" 
             type="password" 
@@ -122,14 +134,12 @@ async function salvar  ()  {
 
           {erro && <p className="text-red-500 text-sm mb-2">{erro}</p>}
 
-          <Link href="/login">
-            <button 
-              className="bg-gray-600 text-white my-2 p-2 rounded-full hover:bg-gray-700 w-24"
-              onClick={salvar}>
-              Cadastrar
-            </button>  
-          </Link>
-        </div>
+          <button 
+            type="submit"
+            className="bg-gray-600 text-white my-2 p-2 rounded-full hover:bg-gray-700 w-24">
+            Cadastrar
+          </button>
+        </form>
       </div>
     </main>
   );

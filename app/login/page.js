@@ -124,8 +124,7 @@ export default function Login() {
                   onClick={Cadastro}>
                   Cadastrar
                 </button>
-              </Link>
-              
+              </Link>      
           </div>
     </main>
   );

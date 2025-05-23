@@ -41,7 +41,7 @@ export default function Menu() {
           <nav>
             <div>
               <ul className="text-white flex justify-between list-none">
-                <li className="cursor-pointer" onClick={() => window.location.href = "/categoria/"}>Todas as categorias</li>
+                <li className="cursor-pointer hover:underline" onClick={() => window.location.href = "/categoria/"}>Todas as categorias</li>
                 <a
                   href="https://wa.me/5511999999999"
                   target="_blank"
@@ -51,18 +51,18 @@ export default function Menu() {
                 <div className="flex">
                   {
                     user.id === undefined && (
-                    <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer">
+                    <li onClick={() => window.location.href = "/cadastro"} className="cursor-pointer hover:underline">
                       Crie sua conta
                     </li>
                       )
                       }
                   {
                     user.id === undefined ? (
-                    <li onClick={() => window.location.href = "/login"} className="cursor-pointer mx-10">
+                    <li onClick={() => window.location.href = "/login"} className="cursor-pointer mx-10 hover:underline">
                       Entre
                     </li>
                     ) : (
-                    <li onClick={() => window.location.href = "/perfil"} className="cursor-pointer mx-10">
+                    <li onClick={() => window.location.href = "/perfil"} className="cursor-pointer mx-10 hover:underline">
                     Perfil
                     </li>
                     )
