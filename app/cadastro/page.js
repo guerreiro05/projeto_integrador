@@ -52,79 +52,69 @@ async function salvar  ()  {
 
     console.log(`Nome: ${usuario.nome}\nSobrenome: ${usuario.sobrenome}\nIdade: ${usuario.idade}\nCPF: ${usuario.cpf}\nSenha: ${usuario.senha}`);
 
-
     const res= await axios.post('http://localhost:4000/usuarios', {
       nome: usuario.nome,
       nascimento: usuario.nascimento,
       email: usuario.email,
       cpf: usuario.cpf,
       senha: usuario.senha
-     
-
     })
-
-
 
     alert("Usuário cadastrado com sucesso!");
   }
 
   return (
-    <main className="layout-container bg-white text-center p-1 rounded-md">
-      <div className="p-2 rounded bg-green-700 text-white">
-        <h1>Cadastro de Usuário</h1>
-        <p>Preencha os campos abaixo para se cadastrar.</p>
-      </div>
+    <main className="layout-container bg-white text-center p-1 rounded-md">  
+      <div className="flex justify-center items-center">  
 
-    
-     <div className="flex justify-center items-center min-h-screen  bg-white">   
-        <div className="bg-green-700 bg-opacity-80 p-6 rounded-lg w-80 shadow-lg">
-          <h2 className="text-center text-2xl font-semibold mb-6">Cadastre-se</h2>
+        <div className="bg-green-500 p-6 rounded-lg w-80 shadow-lg">
 
+          <h1 className="text-white">Cadastro de Usuário</h1>
+          <p className="text-white" >Preencha os campos abaixo para se cadastrar.</p>
+          
           <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
+            className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Nome" 
             value={usuario.nome} 
             onChange={(e) => alteraUsuario({ ...usuario, nome: e.target.value })}/>
 
-        <input 
-           className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
-            placeholder="Data de Nascimento" 
-            type="date" 
-          value={usuario.nascimento} 
-        onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}
-          />
-
           <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
+            className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Sobrenome" 
             value={usuario.sobrenome} 
             onChange={(e) => alteraUsuario({ ...usuario, sobrenome: e.target.value })}/>
+            
+          <input 
+            className="p-2 mb-2 rounded placeholder-black w-72" 
+            placeholder="Data de Nascimento" 
+            type="date" 
+            value={usuario.nascimento} 
+            onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}
+          />
 
 
           <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
+            className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="E-mail" 
             type="email" 
             value={usuario.email} 
             onChange={(e) => alteraUsuario({ ...usuario, email: e.target.value })}/>
 
           <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
+            className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="CPF" 
             value={usuario.cpf} 
             onChange={(e) => alteraUsuario({ ...usuario, cpf: e.target.value })}/>
 
-
-
           <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
+            className="p-2 mb-2 rounded placeholder-black w-72" 
             placeholder="Senha" 
             type="password" 
             value={usuario.senha} 
             onChange={(e) => alteraUsuario({ ...usuario, senha: e.target.value })}/>
 
           <input 
-            className="p-2 mb-4 rounded bg-green-700 text-white placeholder-white w-72" 
+            className="p-2 mb-4 rounded placeholder-black w-72" 
             placeholder="Confirme a Senha" 
             type="password" 
             value={confirmaSenha} 
@@ -132,26 +122,13 @@ async function salvar  ()  {
 
           {erro && <p className="text-red-500 text-sm mb-2">{erro}</p>}
 
-          <div className="flex items-center my-2">
-            <input
-                id="link-checkbox" type="checkbox"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-2 focus:ring-blue-500"
-            />
-            <label htmlFor="link-checkbox" className="ml-2 text-sm text-gray-900">
-                Eu concordo com os {''}
-                <a href="#" className="text-blue-600 hover:underline">
-                termos e condições
-                </a>.
-            </label>
-          </div>
-
           <Link href="/login">
-          <button 
-            className="bg-gray-600 text-white my-2 p-2 rounded-full hover:bg-gray-700 w-24"
-            onClick={salvar}>
-            Cadastrar
-          </button>  
-              </Link>
+            <button 
+              className="bg-gray-600 text-white my-2 p-2 rounded-full hover:bg-gray-700 w-24"
+              onClick={salvar}>
+              Cadastrar
+            </button>  
+          </Link>
         </div>
       </div>
     </main>

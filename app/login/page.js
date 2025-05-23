@@ -9,8 +9,8 @@ import axios from "axios";
 export default function Login() {
   
   
-  const [cpf, alteraCpf] = useState("2147483647");
-  const [senha, alteraSenha] = useState("senha123");
+  const [cpf, alteraCpf] = useState("");
+  const [senha, alteraSenha] = useState("");
   
   
   const [usuario, alteraUsuario] = useState([]);
@@ -90,41 +90,43 @@ export default function Login() {
   // }
   
   return (
-    <div>
-      <div className="p-2 rounded bg-green-700 text-white">
-        <h1>Cadastro de Usuário</h1>
-        <p>Preencha os campos abaixo para logar.</p>
-      </div>
-      <div className="flex justify-center items-center min-h-screen bg-cover bg-center bg-green-500">
-        <div className="bg-white bg-opacity-80 p-6 rounded-lg w-80 shadow-lg">
-          <h2 className="text-center text-2xl font-semibold mb-6">Bem-vindo ao PlayFute</h2>
-          <h3 className="text-center text-lg mb-4">Login</h3>
-          <input 
-            className="p-2 mb-2 rounded bg-green-700 text-white placeholder-white w-72" 
-            placeholder="CPF" 
-            value={cpf} 
-            onChange={(e) => alteraCpf(e.target.value)} />
-          <input 
-            className="p-2 mb-4 rounded bg-green-700 text-white placeholder-white w-72" 
-            placeholder="Senha" 
-            type="password" 
-            value={senha} 
-            onChange={(e) => alteraSenha(e.target.value)} />
-          <button 
-            className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
-            onClick={()=> logar()}>
-            Logar
-          </button>
-          <hr/>
-          <Link href="/cadastro">
-          <button 
-            className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
-            onClick={Cadastro}>
-            Cadastrar
-          </button>
+    <main className="layout-container h-[560px] flex justify-center items-center bg-white text-center p-1 rounded-md">
+    
+          <div className="bg-green-500 p-6 rounded-lg w-80 shadow-lg">
+
+              <h2 className="text-center text-white text-2xl font-semibold mb-6">Bem-vindo ao PlayFute</h2>
+              <h3 className="text-center text-white text-lg mb-4">Faça seu login:</h3>
+
+              <input 
+                className="p-2 mb-2 rounded placeholder-black w-72" 
+                placeholder="CPF" 
+                value={cpf} 
+                onChange={(e) => alteraCpf(e.target.value)} />
+
+              <input 
+                className="p-2 mb-4 rounded placeholder-black w-72" 
+                placeholder="Senha" 
+                type="password" 
+                value={senha} 
+                onChange={(e) => alteraSenha(e.target.value)} />
+
+              <button 
+                className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
+                onClick={()=> logar()}>
+                Logar
+              </button>
+
+              <hr/>
+
+              <Link href="/cadastro">
+                <button 
+                  className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
+                  onClick={Cadastro}>
+                  Cadastrar
+                </button>
               </Link>
-        </div>
-      </div>
-    </div>
+              
+          </div>
+    </main>
   );
 }
