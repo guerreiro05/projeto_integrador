@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Quadras from "../components/Quadras";
 import axios from "axios";
+import host from "../lib/host";
 
 function Categoria() {
 
@@ -21,7 +22,7 @@ function Categoria() {
       });
 
       async function buscaLocais() {
-        let url = "http://localhost:4000/quadras?";
+        let url = host+"/quadras?";
         let params = "";
       
         if (filtros.vestiario) params += "vestiario=1&";

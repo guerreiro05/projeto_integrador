@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
+import host from "../lib/host";
 
 
 export default function Carrossel() {
@@ -11,7 +12,7 @@ export default function Carrossel() {
     const [ locais, alteraLocais ] = useState([]);
 
     async function buscaLocais(){
-      const response = await axios.get("http://localhost:4000/quadras?preco_min=100&preco_max=300")
+      const response = await axios.get(host+"/quadras?preco_min=100&preco_max=300")
       console.log(response.data)
       alteraLocais(response.data)
     }

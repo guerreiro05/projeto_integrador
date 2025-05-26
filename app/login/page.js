@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Cadastro from "../cadastro/page";
 import Link from "next/link";
 import axios from "axios";
+import host from "../lib/host";
 
 export default function Login() {
   
@@ -16,7 +17,7 @@ export default function Login() {
   const [usuario, alteraUsuario] = useState([]);
 
   async function buscausuario(){
-    const res = await axios.get("http://localhost:4000/usuarios")
+    const res = await axios.get(host+"/usuarios")
     console.log(res.data)
     alteraUsuario(res.data)
   }
@@ -57,7 +58,7 @@ export default function Login() {
       cpf: cpf,
       senha: senha
     }
-    const res = await axios.post("http://localhost:4000/autenticar",obj)
+    const res = await axios.post(host+"/autenticar",obj)
     console.log(res)
     
     if(res.data.id == null){

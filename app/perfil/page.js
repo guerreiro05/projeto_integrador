@@ -4,13 +4,14 @@ export default perfilUsuario;
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import host from "../lib/host";
 
 function perfilUsuario() { // É preciso instalar o pacote "axios", ele quem vai fazer a ligação do Beckend e Frontend
 
     const [ dados, alteraDados] = useState("")
 
     async function buscaLocais(){ // Toda função que demorar para receber uma resposta coloque "await" e "async", porque ai o site consegue carregar inteiro e depois essa função, caso contrario o site todo não carregar até todas as informações chegarem
-        const response = await axios.get("http://localhost:4000/usuarios");
+        const response = await axios.get(host+"/usuarios");
         console.log(response);
            
         alteraDados(response.data[0]);

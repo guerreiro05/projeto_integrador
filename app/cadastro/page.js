@@ -3,6 +3,7 @@
 import  React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import host from "../lib/host";
 
 
 export default function Cadastro() {
@@ -10,7 +11,7 @@ export default function Cadastro() {
   const [ locais, alteraLocais ] = useState([]);
 
   async function buscaLocais(){
-    const response = await axios.get("http://localhost:4000/usuarios")
+    const response = await axios.get(host+"/usuarios")
     console.log(response.data)
     alteraLocais(response.data)
   }
@@ -52,7 +53,7 @@ async function salvar  ()  {
 
     console.log(`Nome: ${usuario.nome}\nSobrenome: ${usuario.sobrenome}\nIdade: ${usuario.idade}\nCPF: ${usuario.cpf}\nSenha: ${usuario.senha}`);
 
-    const res= await axios.post('http://localhost:4000/usuarios', {
+    const res= await axios.post(host+'/usuarios', {
       nome: usuario.nome,
       nascimento: usuario.nascimento,
       email: usuario.email,

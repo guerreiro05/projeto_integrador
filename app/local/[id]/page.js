@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Hook para pegar os parâmetros na URL
 import axios from "axios";
+import host from "@/app/lib/host";
 
 function Local() {
 
@@ -14,7 +15,7 @@ function Local() {
     const [hora, alteraHora] = useState("");
     
     async function buscaLocais(){
-        const response = await axios.get("http://localhost:4000/quadras/"+id_local)
+        const response = await axios.get(host+"/quadras/"+id_local)
         console.log(response.data)
         alteraLocal(response.data)
     }
@@ -50,7 +51,7 @@ function Local() {
         }
 
         try{
-            const response = await axios.post("http://localhost:4000/locacoes/", obj)
+            const response = await axios.post(host+"/locacoes/", obj)
             window.location.href = "/pagamento"
         }catch(e){
             alert("Dados invalidos...")
