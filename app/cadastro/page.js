@@ -5,15 +5,18 @@ import Link from "next/link";
 import axios from "axios";
 import host from "../lib/host";
 
-
 export default function Cadastro() {
  
   const [ locais, alteraLocais ] = useState([]);
 
   async function buscaLocais(){
-    const response = await axios.get(host+"/usuarios")
-    console.log(response.data)
-    alteraLocais(response.data)
+    try {
+      const response = await axios.get(host+"/usuarios")
+      console.log(response.data);
+      alteraLocais(response.data);
+    } catch(error) {
+      console.error("Erro na busca", error);
+    }
   }
 
   useEffect(()=>{
@@ -22,12 +25,10 @@ export default function Cadastro() {
 
   const [confirmaSenha, alteraConfirmaSenha] = useState("");
   const [erro, alteraErro] = useState("");
-
   
   const [usuario, alteraUsuario] = useState({
     nome: "",
     sobrenome: "",
-    idade: "",
     nascimento: "",  
     email: "",
     cpf: "",
@@ -53,9 +54,9 @@ async function salvar  ()  {
 
     console.log(`Nome: ${usuario.nome}\nSobrenome: ${usuario.sobrenome}\nIdade: ${usuario.idade}\nCPF: ${usuario.cpf}\nSenha: ${usuario.senha}`);
 
-    const res= await axios.post(host+'/usuarios', {
+    const res = await axios.post(host+'/usuarios', {
       nome: usuario.nome,
-      nascimento: usuario.nascimento,
+      nascimento: new Date(usuario.nascimento),
       email: usuario.email,
       cpf: usuario.cpf,
       senha: usuario.senha

@@ -13,7 +13,6 @@ export default function Login() {
   const [cpf, alteraCpf] = useState("");
   const [senha, alteraSenha] = useState("");
   
-  
   const [usuario, alteraUsuario] = useState([]);
 
   async function buscausuario(){
@@ -51,7 +50,7 @@ export default function Login() {
     return true;
   }
   
-   async function logar() {
+  async function logar() {
     if (!validarCampos()) return;
     
     const obj = {
@@ -70,25 +69,6 @@ export default function Login() {
     window.location.href = "/"
 
   }
-
-  // function logar() {
-  //   if (!validarCampos()) return;
-  //   console.log(`Cpf: ${cpf}\nSenha: ${senha}`);
-    
-  //   usuario.map(i => {
-  //     if (i.cpf == cpf && i.senha == senha) {
-  //       console.log("Usuário encontrado:", i);
-  //       i.senha = "";
-  //       localStorage.setItem("usuario", JSON.stringify(i));
-  //       window.location.href = '/'
-  //     }
-  //     else {
-  //        console.log("Usuário não encontrado.");
-  //    }
-  //   });
-    
-
-  // }
   
   return (
     <main className="layout-container h-[560px] flex justify-center items-center bg-white text-center p-1 rounded-md">
