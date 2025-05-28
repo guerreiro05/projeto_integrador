@@ -16,6 +16,7 @@ export default function Quadras(attr) {
 
             <div onClick={() => window.location.href = `/local/${attr.id}`} className="cursor-pointer">
                 <img className="w-full h-48 object-cover" src={attr.imagem}/>
+                
                 <div className="items-center">
                     <p className="text-lg h-[60px] font-semibold m-0">{attr.nomeLocal}</p>
                 
