@@ -59,6 +59,19 @@ function perfilUsuario() { // É preciso instalar o pacote "axios", ele quem vai
         return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
     } 
 
+    function consertaData(data){
+
+        let dia = data.split("T")[0]
+        let hora = data.split("T")[1]
+
+        dia = dia.split("-").reverse().join("/")
+        hora = hora.split(":")
+        hora = hora[0]+":"+hora[1]
+
+        return dia+" às "+hora
+
+    }
+
 return ( 
     <main className="layout-container h-full p-3 content-center rounded-lg bg-white">
         <div className="max-w-4xl mx-auto my-10 flex justify-around bg-white rounded shadow">
@@ -105,20 +118,14 @@ return (
 
                 <Link key={quadra.id} href={`/local/${quadra.id}`} className="no-underline text-inherit">
                     <div key={quadra.id} className="p-2 bg-gray-100 border flex rounded mb-2">
-                        <img src={quadra.imagemPrincipal} alt={quadra.nomeLocal} className="max-w-24 rounded" />
+                        <img src={quadra.quadra.imagemPrincipal} alt={quadra.quadra.nomeLocal} className="max-w-24 rounded" />
                         <div className="ml-2 w-96">
                             <div className="flex justify-between">
-                                <h3>{quadra.nomeLocal}</h3>
-                                <p className="mt-5">Preço: R$ {quadra.preco}</p>
+                                <h3>{quadra.quadra.nomeLocal}</h3>
+                                <p className="mt-5">Preço: R$ {quadra.quadra.preco}</p>
                             </div>
                     
-                            <p className="m-0 mx-auto">Alugada: {new Date(quadra.criado_em).toLocaleString('pt-BR', {
-                                day: '2-digit',
-                                month: '2-digit',
-                                year: 'numeric',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            }).replace(',',' às')}
+                            <p className="m-0 mx-auto">Alugada: {consertaData(quadra.dataHora)}
                             </p>
                         </div>
                     </div>

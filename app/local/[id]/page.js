@@ -47,8 +47,9 @@ function Local() {
         const obj = {
             id_usuario: idUsuario,
             id_quadra: local.id,
-            data_hora: data+" "+hora
+            data_hora: data+"T"+hora+":00.000Z"
         }
+        
 
         try{
             const response = await axios.post(host+"/locacoes/", obj)
