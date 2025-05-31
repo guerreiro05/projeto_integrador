@@ -75,7 +75,6 @@ function perfilUsuario() { // É preciso instalar o pacote "axios", ele quem vai
 return ( 
     <main className="layout-container h-full p-3 content-center rounded-lg bg-white">
         <div className="max-w-4xl mx-auto my-10 flex justify-around bg-white rounded shadow">
-
             <section className="w-96 text-center content-center">
 
                 {usuarioLogado && (
@@ -100,7 +99,7 @@ return (
                     </div>
                 )}
 
-                <a onClick={()=>sair()} href="">Sair</a>   
+                <button className="cursor-pointer" onClick={() => sair()}>Sair</button>
 
             </section>
         

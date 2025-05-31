@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Hook para pegar os parâmetros na URL
 import axios from "axios";
 import host from "@/app/lib/host";
+import Avaliacoes from "./components/Avaliacoes";
 
 function Local() {
 
@@ -13,6 +14,14 @@ function Local() {
     const [local, alteraLocal] = useState({});
     const [data, alteraData] = useState("");
     const [hora, alteraHora] = useState("");
+
+    async function buscaAvaliacao(){
+        const res = await axios.get(host+"/avaliacoes")
+    }
+
+    function avaliar() {
+
+    }
     
     async function buscaLocais(){
         const response = await axios.get(host+"/quadras/"+id_local)
@@ -49,20 +58,17 @@ function Local() {
             id_quadra: local.id,
             data_hora: data+"T"+hora+":00.000Z"
         }
-        
 
         try{
             const response = await axios.post(host+"/locacoes/", obj)
             window.location.href = "/pagamento"
         }catch(e){
             alert("Dados invalidos...")
-        }
-        
-        
+        }       
     }
 
 return ( 
-    <main className="layout-container flex h-[540px] p-3 rounded-lg bg-white">          
+    <main className="layout-container p-4 rounded-lg bg-white">          
         <section className="flex">
             {/* Galeria de imagens */}
             <div className="p-3 max-w-[100px]">
@@ -78,38 +84,112 @@ return (
                 <img className="max-w-[450px] rounded-md border-gray-300 border-solid border hover:border-black" src={local.imagemPrincipal} />
             </div>
             
-            <div className="p-3 mt-1 border-gray-300 borda-fina m-3  flex flex-col ">
+            <div className="p-4 border border-gray-300 rounded-lg shadow-md m-3 flex flex-col w-64">
 
-                <div className="max-w-64 p-3">
-                    <h2>{local.nomeLocal}</h2>
-                    
-                    <p>⭐ {local.avaliacoes}</p>
-                    <p>R$ {local.preco}</p>
-                    <p>em até <strong>12x R$ 17,99</strong></p>
+                <p className="text-yellow-500 text-lg">⭐ {local.avaliacoes || 'Sem avaliações'}</p>
+                <h2 className="text-xl font-bold mb-1"> {local.nomeLocal}</h2>
+                <p className="text-gray-600"> Quadra de {local.tipoQuadra}</p>
+
+                <p className="text-2xl text-green-600 font-semibold">R$ {local.preco}</p>
+
+                <p className="text-gray-600">📍 Endereço: {local.localizacao}</p>
+
+                <p>🗓️ Escolha a data e o horário:</p>
                 
-                    <input type="date" onChange={e=> alteraData(e.target.value)} />
-                    <input type="time" onChange={e=> alteraHora(e.target.value)}/>
+                <input 
+                    type="date" 
+                    onChange={e => alteraData(e.target.value)} 
+                    className="border rounded px-3 py-2 outline-blue-500"
+                />
 
-                    <button onClick={() => {alugar()}}>Alugar</button>
+                <input 
+                    type="time" 
+                    onChange={e => alteraHora(e.target.value)} 
+                    className="border rounded px-3 py-2 mt-4 outline-blue-500"
+                />
+            </div>
 
+
+            <div className="bg-white rounded-lg border border-gray-300 p-4 shadow-md m-3 w-64">
+                <h3 className="text-lg font-bold mb-3">✨ Estrutura Inclui:</h3>
+
+                <div className="space-y-2">
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>💡 Iluminação</span>
+                    <span className="font-semibold">{local.iluminacao ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>🚿 Vestiário</span>
+                    <span className="font-semibold">{local.vestiario ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>🚰 Bebedouro</span>
+                    <span className="font-semibold">{local.bebedouro ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>🅿️ Estacionamento</span>
+                    <span className="font-semibold">{local.estacionamento ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>🎯 Arquibancada</span>
+                    <span className="font-semibold">{local.arquibancada ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>🏟️ Cobertura</span>
+                    <span className="font-semibold">{local.coberta ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between border-b pb-2">
+                    <span>♿ Acessibilidade</span>
+                    <span className="font-semibold">{local.acessibilidade ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                    <span>📶 Wifi</span>
+                    <span className="font-semibold">{local.wifi ? "Sim" : "Não"}</span>
+                    </div>
+
+                    <button onClick={() =>alugar()}>Alugar</button>
                 </div>
             </div>
+        </section> 
 
-            <div>
-                <h3 className="ml-10">Estrutura Inclui:</h3>
-                
-                <ul className="list-none rounded-lg flex-wrap ">
-                    <li className="barraCinza rounded-t-lg">Iluminação:{local.iluminacao ? "Sim" : "Não"} </li>
-                    <li className="barraBranca">Vestiário: {local.vestiario ? "Sim" : "Não"}</li>
-                    <li className="barraCinza">Bebedouro: {local.bebedouro ? "Sim" : "Não"}</li>
-                    <li className="barraBranca">Estacionamento: {local.estacionamento ? "Sim" : "Não"}</li>
-                    <li className="barraCinza">Arquibancada: {local.arquibancada ? "Sim" : "Não"}</li>
-                    <li className="barraBranca">Cobertura: {local.coberta ? "Sim" : "Não"}</li>
-                    <li className="barraCinza rounded-b-lg">Acessibilidade:{local.acessibilidade ? "Sim" : "Não"}</li>
-                    <li className="barraBranca">Wifi: {local.wifi ? "Sim" : "Não"}</li>
-                </ul>
+        <section className="flex">
+            <div className="w-full max-w-1/3">
+                <Avaliacoes/>
             </div>
-        </section>                                       
+            <div>
+                <Avaliacoes/>
+            </div>
+            {/* <div className="flex flex-wrap justify-center items-center">
+                      {
+                        locais.map((i, index) => {
+                          if (index < 8) {
+                            return (
+                              <div key={i.id} className="flex m-4" >
+                                <Avaliacoes
+                                  id={i.id}
+                                  imagem={i.imagemPri}
+                                  nomeLocal={i.nomeLocal}
+                                  avaliacoes={i.avaliacoes}
+                                  preco={i.preco}
+                                  localizacao={i.localizacao}
+                                />
+                              </div>
+                            );
+                          }
+                        })
+                      }
+                    </div>                                     */
+            }
+        </section> 
+
     </main>
      );
 }

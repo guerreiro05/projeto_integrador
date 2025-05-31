@@ -30,6 +30,7 @@ export default function Cadastro() {
     nome: "",
     sobrenome: "",
     nascimento: "",  
+    telefone: "",
     email: "",
     cpf: "",
     senha: "",
@@ -44,6 +45,11 @@ export default function Cadastro() {
       alteraErro("As senhas digitadas não coincidem.");
       return false;
     }
+
+    if (usuario.cpf.length < 11) {
+      alteraErro("CPF inválido");
+      return false;
+    }
     
     alteraErro("");
     return true;
@@ -52,12 +58,13 @@ export default function Cadastro() {
 async function salvar  ()  {
     if (!validarCampos()) return;
 
-    console.log(`Nome: ${usuario.nome}\nSobrenome: ${usuario.sobrenome}\nIdade: ${usuario.idade}\nCPF: ${usuario.cpf}\nSenha: ${usuario.senha}`);
+    console.log(`Nome: ${usuario.nome}\nIdade: ${usuario.idade}\nCPF: ${usuario.cpf}\nSenha: ${usuario.senha}`);
 
     const res = await axios.post(host+'/usuarios', {
       nome: usuario.nome,
       nascimento: new Date(usuario.nascimento),
       email: usuario.email,
+      telefone: usuario.telefone,
       cpf: usuario.cpf,
       senha: usuario.senha
     })
@@ -83,58 +90,62 @@ async function salvar  ()  {
           
           <input 
             required
-            className="p-2 mb-2 rounded placeholder-black w-72" 
-            placeholder="Nome" 
+            className="p-2 mb-2 rounded  w-72" 
+            placeholder="Nome Completo*" 
             value={usuario.nome} 
             onChange={(e) => alteraUsuario({ ...usuario, nome: e.target.value })}/>
 
-          <input 
-            required
-            className="p-2 mb-2 rounded placeholder-black w-72" 
-            placeholder="Sobrenome" 
-            value={usuario.sobrenome} 
-            onChange={(e) => alteraUsuario({ ...usuario, sobrenome: e.target.value })}/>
-            
           <input
             required 
-            className="p-2 mb-2 rounded placeholder-black w-72" 
-            placeholder="Data de Nascimento" 
+            className="p-2 mb-2 rounded text-gray-600 w-72" 
+            placeholder="Data de Nascimento*" 
             type="date" 
             value={usuario.nascimento} 
             onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}/>
 
           <input 
             required
-            className="p-2 mb-2 rounded placeholder-black w-72" 
-            placeholder="E-mail" 
+            className="p-2 mb-2 rounded  w-72" 
+            placeholder="E-mail*" 
             type="email" 
             value={usuario.email} 
             onChange={(e) => alteraUsuario({ ...usuario, email: e.target.value })}/>
 
           <input 
             required
-            className="p-2 mb-2 rounded placeholder-black w-72" 
-            placeholder="CPF" 
+            className="p-2 mb-2 rounded  w-72" 
+            placeholder="Telefone celular*" 
+            pattern="\d{10,11}"
+            type="tel" 
+            value={usuario.telefone} 
+            onChange={(e) => alteraUsuario({ ...usuario, telefone: e.target.value })}/>
+
+          <input 
+            required
+            className="p-2 mb-2 rounded  w-72" 
+            placeholder="CPF*" 
             value={usuario.cpf} 
             onChange={(e) => alteraUsuario({ ...usuario, cpf: e.target.value })}/>
 
           <input 
             required
-            className="p-2 mb-2 rounded placeholder-black w-72" 
-            placeholder="Senha" 
+            className="p-2 mb-2 rounded w-72" 
+            placeholder="Crie sua senha*" 
             type="password" 
             value={usuario.senha} 
             onChange={(e) => alteraUsuario({ ...usuario, senha: e.target.value })}/>
 
           <input 
             required
-            className="p-2 mb-4 rounded placeholder-black w-72" 
-            placeholder="Confirme a Senha" 
+            className="p-2 mb-4 rounded  w-72" 
+            placeholder="Confirme a Senha*" 
             type="password" 
             value={confirmaSenha} 
             onChange={(e) => alteraConfirmaSenha(e.target.value)}/>
 
-          {erro && <p className="text-red-500 text-sm mb-2">{erro}</p>}
+          {
+            erro && <p className="text-red-500 text-sm mb-2">{erro}</p>
+          }
 
           <button 
             type="submit"

@@ -15,7 +15,7 @@ export default function Login() {
   
   const [usuario, alteraUsuario] = useState([]);
 
-  async function buscausuario(){
+  async function buscaUsuario(){
     const res = await axios.get(host+"/usuarios")
     console.log(res.data)
     alteraUsuario(res.data)
@@ -30,7 +30,7 @@ export default function Login() {
     if(user.id != undefined)
       window.location.href = '/'
     
-    buscausuario()
+    buscaUsuario()
   } , [])
 
 
