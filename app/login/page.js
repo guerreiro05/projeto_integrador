@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-import Cadastro from "../cadastro/page";
 import Link from "next/link";
 import axios from "axios";
 import host from "../lib/host";
@@ -83,48 +82,57 @@ export default function Login() {
   }
   
   return (
-    <main className="layout-container h-[560px] flex justify-center items-center bg-white text-center p-1 rounded-md">
+    <main className="layout-container min-h-[500px] flex justify-center items-center bg-white text-center p-1 rounded-md">
     
-          <div className="p-6 rounded-lg w-80 shadow-lg">
+      <div className="p-6 rounded-lg w-80 shadow-lg">
 
-              <h2 className="text-center  text-2xl font-semibold mb-6">Bem-vindo a PlayFut</h2>
-              <h3 className="text-center  text-lg mb-4">Faça seu login:</h3>
+        <h2 className="text-center text-textMain font-bold">Bem-vindo a PlayFute</h2>
+        <h3 className="text-center text-textMain font-bold">Faça seu login:</h3>
 
-              <input 
-                className="p-2 mb-2 rounded placeholder-black w-72" 
-                placeholder="CPF" 
-                value={cpf} 
-                onChange={(e) => alteraCpf(e.target.value)} />
+        <input 
+          className="p-2 mb-2 border-divider text-textSecondary w-48" 
+          placeholder="Digite seu CPF" 
+          value={cpf} 
+          onChange={(e) => {
+            let value = e.target.value.replace(/\D/g, '');
 
-              <input 
-                className="p-2 mb-4 rounded placeholder-black w-72" 
-                placeholder="Senha" 
-                type="password" 
-                value={senha} 
-                onChange={(e) => alteraSenha(e.target.value)} />
+            if (value.length > 11) value = value.slice(0, 11);
 
-              {erro && (
-                <div className="text-red-500 text-sm mb-2">
-                  {erro}
-                </div>
-              )}
+            if (value.length > 9) {
+              value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
+            } else if (value.length > 6) {
+              value = value.replace(/(\d{3})(\d{3})(\d+)/, "$1.$2.$3");
+            } else if (value.length > 3) {
+              value = value.replace(/(\d{3})(\d+)/, "$1.$2");
+            }
+          
+          alteraCpf(value)
+          }} 
+        />
 
-              <button 
-                className="bg-green-600 p-2 w-full hover:bg-gray-700"
-                onClick={()=> logar()}>
-                Logar
-              </button>
+        <input 
+          className="p-2 mb-4 border-divider roundedtext-textSecondaryx w-48" 
+          placeholder="Digite sua senha" 
+          type="password" 
+          value={senha} 
+          onChange={(e) => alteraSenha(e.target.value)} />
 
-              <hr/>
-
-              <Link href="/cadastro">
-                <button 
-                  className="w-full transition-colors duration-100 p-2 hover:bg-gray-300 border-none"
-                  onClick={Cadastro}>
-                  Criar conta
-                </button>
-              </Link>      
+        {erro && (
+          <div className="text-red-500 text-sm mb-2">
+            {erro}
           </div>
+        )}
+
+        <button 
+          className="bg-primary hover:bg-primaryDark text-white border-divider p-2 w-full mb-4"
+          onClick={()=> logar()}>
+          Logar
+        </button>
+        
+        <Link href="/cadastro" className="text-textSecondary text-sm">
+          Novo por aqui? Crie uma conta
+        </Link>
+      </div>
     </main>
   );
 }

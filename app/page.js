@@ -33,15 +33,15 @@ export default function Home(attr) {
   }, [])
 
   return (
-      <main className="layout-container bg-white text-center p-1 rounded-md">
+      <main className="layout-container bg-white rounded-md">
 
-        <h2>Quadras em destaques</h2>
+        <h2 className="text-textMain text-center pt-4 font-bold">Quadras em destaques</h2>
 
-        <div className="mx-11 rounded-lg">
+        <div className="mx-11">
           <Carrossel/>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center">
+        <div className="flex flex-wrap ml-7">
           {
             locais.map((i, index) => {
               if (index < 8) {
@@ -51,6 +51,7 @@ export default function Home(attr) {
                       id={i.id}
                       imagem={i.imagemPri}
                       nomeLocal={i.nomeLocal}
+                      tipoQuadra={i.tipoQuadra}
                       preco={i.preco}
                       localizacao={i.localizacao}
                     />

@@ -9,6 +9,8 @@ export default function Cadastro() {
  
   const [ locais, alteraLocais ] = useState([]);
 
+  const [ cpf, alteraCpf ] = useState("");
+
   async function buscaLocais(){
     try {
       const response = await axios.get(host+"/usuarios")
@@ -48,6 +50,7 @@ export default function Cadastro() {
 
     if (usuario.cpf.length < 11) {
       alteraErro("CPF inválido");
+      alert("CPF inválido")
       return false;
     }
     
@@ -75,85 +78,126 @@ async function salvar  ()  {
   }
 
   return (
-    <main className="layout-container bg-white text-center p-1 rounded-md">  
+    <main className="layout-container flex justify-center items-center bg-white text-center rounded-md">  
 
-      <div className="flex justify-center items-center">  
-        <form 
-          className="bg-green-500 p-6 rounded-lg w-80 shadow-lg"
-          onSubmit={(e) => {
-          e.preventDefault();
-          salvar();
-          }}>
+      <form 
+        className="p-6 rounded-lg my-5 w-80 shadow-lg"
+        onSubmit={(e) => {
+        e.preventDefault();
+        salvar();
+        }}>
 
-          <h1 className="text-white">Cadastro de Usuário</h1>
-          <p className="text-white" >Preencha os campos abaixo para se cadastrar.</p>
-          
-          <input 
-            required
-            className="p-2 mb-2 rounded  w-72" 
-            placeholder="Nome Completo*" 
-            value={usuario.nome} 
-            onChange={(e) => alteraUsuario({ ...usuario, nome: e.target.value })}/>
+        <h1 className="text-textMain font-bold">Cadastro de Usuário</h1>
 
-          <input
-            required 
-            className="p-2 mb-2 rounded text-gray-600 w-72" 
-            placeholder="Data de Nascimento*" 
-            type="date" 
-            value={usuario.nascimento} 
-            onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}/>
+        <p className="text-textMain font-bold" >Preencha os campos abaixo para se cadastrar.</p>
+        
+        <input 
+          required
+          className="p-2 mb-2 border-divider text-textSecondary w-72" 
+          placeholder="Nome Completo*" 
+          value={usuario.nome} 
+          onChange={(e) => alteraUsuario({ ...usuario, nome: e.target.value })}/>
 
-          <input 
-            required
-            className="p-2 mb-2 rounded  w-72" 
-            placeholder="E-mail*" 
-            type="email" 
-            value={usuario.email} 
-            onChange={(e) => alteraUsuario({ ...usuario, email: e.target.value })}/>
+        <input
+          required 
+          className="p-2 mb-2 border-divider text-textSecondary w-72" 
+          placeholder="Data de Nascimento*" 
+          type="date" 
+          value={usuario.nascimento} 
+          onChange={(e) => alteraUsuario({ ...usuario, nascimento: e.target.value })}/>
 
-          <input 
-            required
-            className="p-2 mb-2 rounded  w-72" 
-            placeholder="Telefone celular*" 
-            pattern="\d{10,11}"
-            type="tel" 
-            value={usuario.telefone} 
-            onChange={(e) => alteraUsuario({ ...usuario, telefone: e.target.value })}/>
+        <input 
+          required
+          className="p-2 mb-2 border-divider text-textSecondary w-72" 
+          placeholder="Digite seu e-mail*" 
+          type="email" 
+          value={usuario.email} 
+          onChange={(e) => alteraUsuario({ ...usuario, email: e.target.value })}/>
 
-          <input 
-            required
-            className="p-2 mb-2 rounded  w-72" 
-            placeholder="CPF*" 
-            value={usuario.cpf} 
-            onChange={(e) => alteraUsuario({ ...usuario, cpf: e.target.value })}/>
+        <input 
+          required
+          className="p-2 mb-2 border-divider text-textSecondary w-72" 
+          placeholder="Telefone celular*" 
+          type="tel"
+          value={usuario.telefone} 
+          onChange={(e) => {
+            let value = e.target.value;
 
-          <input 
-            required
-            className="p-2 mb-2 rounded w-72" 
-            placeholder="Crie sua senha*" 
-            type="password" 
-            value={usuario.senha} 
-            onChange={(e) => alteraUsuario({ ...usuario, senha: e.target.value })}/>
+            // Remove tudo que não é número
+            value = value.replace(/\D/g, '');
 
-          <input 
-            required
-            className="p-2 mb-4 rounded  w-72" 
-            placeholder="Confirme a Senha*" 
-            type="password" 
-            value={confirmaSenha} 
-            onChange={(e) => alteraConfirmaSenha(e.target.value)}/>
+            // Limita a 11 dígitos
+            if (value.length > 11) value = value.slice(0, 11);
 
-          {
-            erro && <p className="text-red-500 text-sm mb-2">{erro}</p>
-          }
+            // Formata
+            if (value.length > 6) {
+              value = value.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+            } else if (value.length > 2) {
+              value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+            } else {
+              value = value.replace(/^(\d{0,2})/, '($1');
+            }
 
-          <button 
-            type="submit"
-            className="bg-gray-600 text-white my-2 p-2 rounded-full hover:bg-gray-700 w-24">
-            Cadastrar
-          </button>
-        </form>
-      </div>
+            alteraUsuario({ ...usuario, telefone: value });
+          }}
+        />
+
+
+        <input 
+          type="text"
+          required
+          className="p-2 mb-2 border-divider text-textSecondary w-72" 
+          placeholder="Digite seu CPF*" 
+          value={usuario.cpf} 
+          onChange={(e) => {
+            let value = e.target.value.replace(/\D/g, '');
+
+            if (value.length > 11) value = value.slice(0, 11);
+
+            if (value.length > 9) {
+              value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
+            } else if (value.length > 6) {
+              value = value.replace(/(\d{3})(\d{3})(\d+)/, "$1.$2.$3");
+            } else if (value.length > 3) {
+              value = value.replace(/(\d{3})(\d+)/, "$1.$2");
+            }
+
+            alteraUsuario({ ...usuario, cpf: value });
+          }}
+        />
+
+
+        <input 
+          required
+          className="p-2 mb-2 border-divider text-textSecondary w-72" 
+          placeholder="Crie sua senha*" 
+          type="password" 
+          value={usuario.senha} 
+          onChange={(e) => alteraUsuario({ ...usuario, senha: e.target.value })}/>
+
+        <input 
+          required
+          className="p-2 mb-4 border-divider text-textSecondary w-72" 
+          placeholder="Confirme a Senha*" 
+          type="password" 
+          value={confirmaSenha} 
+          onChange={(e) => alteraConfirmaSenha(e.target.value)}/>
+
+        {
+          erro && <p className="text-red-500 text-sm m-2">{erro}</p>
+        }
+
+        <button 
+          type="submit"
+          className="bg-primary hover:bg-primaryDark text-white mt-2 border-divider p-2 w-full mb-4">
+          Cadastrar
+        </button>
+
+        <Link href="/login" className="text-textSecondary text-sm">
+          Já tem conta?
+        </Link>
+
+      </form>
     </main>
   );
 }

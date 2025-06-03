@@ -99,7 +99,7 @@ return (
                     </div>
                 )}
 
-                <button className="cursor-pointer" onClick={() => sair()}>Sair</button>
+                <p className="text-sm underline" onClick={() => sair()}>sair</p>
 
             </section>
         
