@@ -38,7 +38,7 @@ export default function Login() {
   
   function validarCampos() {
     if (!cpf || !senha) {
-      alteraErro("Todos os campos são obrigatórios.");
+      alteraErro("É necessário preencher todos os campos.");
       return false;
     }
     if (senha.length < 8) {
@@ -57,26 +57,38 @@ export default function Login() {
       cpf: cpf,
       senha: senha
     }
-    const res = await axios.post(host+"/autenticar",obj)
-    console.log(res)
-    
-    if(res.data.id == null){
-      alert("usuario ou senha incorretos")
-      return
+
+    try {    
+      const res = await axios.post(host+"/autenticar",obj)
+      console.log(res)
+      
+      if (!res.data || !res.data.id) {
+        alteraErro("CPF ou senha incorretos.");
+        return;
     }
 
-    localStorage.setItem("usuario", JSON.stringify(res.data))
-    window.location.href = "/"
+      localStorage.setItem("usuario", JSON.stringify(res.data))
+      window.location.href = "/"
 
+    } catch(error) {
+      console.error("Erro na requisição:", error);
+      if (error.response) {
+        // Erro vindo do backend
+        alteraErro(error.response.data.message || "Erro ao conectar, tente novamente.");
+      } else {
+        // Erro de rede ou servidor offline
+        alteraErro("Servidor indisponível no momento.");
+      }
+    }
   }
   
   return (
     <main className="layout-container h-[560px] flex justify-center items-center bg-white text-center p-1 rounded-md">
     
-          <div className="bg-green-500 p-6 rounded-lg w-80 shadow-lg">
+          <div className="p-6 rounded-lg w-80 shadow-lg">
 
-              <h2 className="text-center text-white text-2xl font-semibold mb-6">Bem-vindo ao PlayFute</h2>
-              <h3 className="text-center text-white text-lg mb-4">Faça seu login:</h3>
+              <h2 className="text-center  text-2xl font-semibold mb-6">Bem-vindo a PlayFut</h2>
+              <h3 className="text-center  text-lg mb-4">Faça seu login:</h3>
 
               <input 
                 className="p-2 mb-2 rounded placeholder-black w-72" 
@@ -91,8 +103,14 @@ export default function Login() {
                 value={senha} 
                 onChange={(e) => alteraSenha(e.target.value)} />
 
+              {erro && (
+                <div className="text-red-500 text-sm mb-2">
+                  {erro}
+                </div>
+              )}
+
               <button 
-                className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
+                className="bg-green-600 p-2 w-full hover:bg-gray-700"
                 onClick={()=> logar()}>
                 Logar
               </button>
@@ -101,9 +119,9 @@ export default function Login() {
 
               <Link href="/cadastro">
                 <button 
-                  className="bg-gray-600 text-white p-2 rounded-full hover:bg-gray-700 w-24"
+                  className="w-full transition-colors duration-100 p-2 hover:bg-gray-300 border-none"
                   onClick={Cadastro}>
-                  Cadastrar
+                  Criar conta
                 </button>
               </Link>      
           </div>

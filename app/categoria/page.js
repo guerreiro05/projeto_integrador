@@ -8,7 +8,7 @@ import host from "../lib/host";
 function Categoria() {
 
     const [ locais, alteraLocais ] = useState([]);
-    const [filtros, setFiltros] = useState({
+    const [ filtros, setFiltros ] = useState({
         tipoQuadra: "",
         vestiario: false,
         bebedouro: false,

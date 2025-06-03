@@ -23,7 +23,7 @@ function RodaPe() {
                 </div>
                 <div>
                     <h3 className="font-bold mb-2 cursor-pointer text-2xl">Vamos te ajudar</h3>
-                    <p className="cursor-pointer hover:underline cursor-pointer" onClick={() => window.location.href = "/perfil"}>
+                    <p className="hover:underline cursor-pointer" onClick={() => window.location.href = "/perfil"}>
                         Sua conta
                     </p>
                     <p className="hover:underline cursor-pointer ">Cancelamento e reembolsos</p>

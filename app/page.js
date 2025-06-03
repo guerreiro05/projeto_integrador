@@ -9,7 +9,8 @@ import host from "./lib/host";
 
 export default function Home(attr) {
 
-  const [local, alteraLocal] = useState({});
+  const [ avalicao, alteraAvaliacao ] = useState({media: 0, total: 0});
+  const [ local, alteraLocal] = useState({});
   const [ locais, alteraLocais ] = useState([]);
 
   async function buscaLocais(){
@@ -50,7 +51,6 @@ export default function Home(attr) {
                       id={i.id}
                       imagem={i.imagemPri}
                       nomeLocal={i.nomeLocal}
-                      avaliacoes={i.avaliacoes}
                       preco={i.preco}
                       localizacao={i.localizacao}
                     />

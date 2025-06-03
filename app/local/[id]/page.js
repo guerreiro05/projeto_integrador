@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation"; // Hook para pegar os parâmetros na URL
 import axios from "axios";
 import host from "@/app/lib/host";
-import Avaliacoes from "./components/Avaliacoes";
+import Estrelas from "@/app/components/Estrelas";
 
 function Local() {
 
@@ -14,14 +14,6 @@ function Local() {
     const [local, alteraLocal] = useState({});
     const [data, alteraData] = useState("");
     const [hora, alteraHora] = useState("");
-
-    async function buscaAvaliacao(){
-        const res = await axios.get(host+"/avaliacoes")
-    }
-
-    function avaliar() {
-
-    }
     
     async function buscaLocais(){
         const response = await axios.get(host+"/quadras/"+id_local)
@@ -86,7 +78,8 @@ return (
             
             <div className="p-4 border border-gray-300 rounded-lg shadow-md m-3 flex flex-col w-64">
 
-                <p className="text-yellow-500 text-lg">⭐ {local.avaliacoes || 'Sem avaliações'}</p>
+                <Estrelas media={4.3} total={24} />
+
                 <h2 className="text-xl font-bold mb-1"> {local.nomeLocal}</h2>
                 <p className="text-gray-600"> Quadra de {local.tipoQuadra}</p>
 
@@ -96,17 +89,9 @@ return (
 
                 <p>🗓️ Escolha a data e o horário:</p>
                 
-                <input 
-                    type="date" 
-                    onChange={e => alteraData(e.target.value)} 
-                    className="border rounded px-3 py-2 outline-blue-500"
-                />
+                <input type="date" onChange={e => alteraData(e.target.value)} className="border rounded px-3 py-2 outline-blue-500"/>
 
-                <input 
-                    type="time" 
-                    onChange={e => alteraHora(e.target.value)} 
-                    className="border rounded px-3 py-2 mt-4 outline-blue-500"
-                />
+                <input type="time" onChange={e => alteraHora(e.target.value)} className="border rounded px-3 py-2 mt-4 outline-blue-500"/>
             </div>
 
 
@@ -116,80 +101,49 @@ return (
                 <div className="space-y-2">
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>💡 Iluminação</span>
-                    <span className="font-semibold">{local.iluminacao ? "Sim" : "Não"}</span>
+                        <span>💡 Iluminação</span>
+                        <span className="font-semibold">{local.iluminacao ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>🚿 Vestiário</span>
-                    <span className="font-semibold">{local.vestiario ? "Sim" : "Não"}</span>
+                        <span>🚿 Vestiário</span>
+                        <span className="font-semibold">{local.vestiario ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>🚰 Bebedouro</span>
-                    <span className="font-semibold">{local.bebedouro ? "Sim" : "Não"}</span>
+                        <span>🚰 Bebedouro</span>
+                        <span className="font-semibold">{local.bebedouro ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>🅿️ Estacionamento</span>
-                    <span className="font-semibold">{local.estacionamento ? "Sim" : "Não"}</span>
+                        <span>🅿️ Estacionamento</span>
+                        <span className="font-semibold">{local.estacionamento ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>🎯 Arquibancada</span>
-                    <span className="font-semibold">{local.arquibancada ? "Sim" : "Não"}</span>
+                        <span>🎯 Arquibancada</span>
+                        <span className="font-semibold">{local.arquibancada ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>🏟️ Cobertura</span>
-                    <span className="font-semibold">{local.coberta ? "Sim" : "Não"}</span>
+                        <span>🏟️ Cobertura</span>
+                        <span className="font-semibold">{local.coberta ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-2">
-                    <span>♿ Acessibilidade</span>
-                    <span className="font-semibold">{local.acessibilidade ? "Sim" : "Não"}</span>
+                        <span>♿ Acessibilidade</span>
+                        <span className="font-semibold">{local.acessibilidade ? "Sim" : "Não"}</span>
                     </div>
 
                     <div className="flex justify-between">
-                    <span>📶 Wifi</span>
-                    <span className="font-semibold">{local.wifi ? "Sim" : "Não"}</span>
+                        <span>📶 Wifi</span>
+                        <span className="font-semibold">{local.wifi ? "Sim" : "Não"}</span>
                     </div>
 
                     <button onClick={() =>alugar()}>Alugar</button>
                 </div>
             </div>
         </section> 
-
-        <section className="flex">
-            <div className="w-full max-w-1/3">
-                <Avaliacoes/>
-            </div>
-            <div>
-                <Avaliacoes/>
-            </div>
-            {/* <div className="flex flex-wrap justify-center items-center">
-                      {
-                        locais.map((i, index) => {
-                          if (index < 8) {
-                            return (
-                              <div key={i.id} className="flex m-4" >
-                                <Avaliacoes
-                                  id={i.id}
-                                  imagem={i.imagemPri}
-                                  nomeLocal={i.nomeLocal}
-                                  avaliacoes={i.avaliacoes}
-                                  preco={i.preco}
-                                  localizacao={i.localizacao}
-                                />
-                              </div>
-                            );
-                          }
-                        })
-                      }
-                    </div>                                     */
-            }
-        </section> 
-
     </main>
      );
 }
