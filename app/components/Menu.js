@@ -1,9 +1,8 @@
 'use client'; 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 export default function Menu() {
   const [user, alteraUser] = useState({});
@@ -48,16 +47,17 @@ export default function Menu() {
             }
 
             {
-                user.id === undefined ? (
+              user.id === undefined ? (
                 <li onClick={() => window.location.href = "/login"} className="text-xl cursor-pointer mx-10 hover:underline">
                   Entre
                 </li>
-                ) : (
-                <li onClick={() => window.location.href = "/perfil"} className="text-xl cursor-pointer mx-10 hover:underline">
-                Perfil
-                </li>
-                )
-              }
+              ) : (
+                  <li onClick={() => window.location.href = "/perfil"} className="text-xl cursor-pointer mx-10 hover:underline">
+                    Perfil
+                  </li>
+              )
+            }
+
           </div>
         </ul>
       </nav>  

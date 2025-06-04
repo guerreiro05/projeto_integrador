@@ -5,7 +5,7 @@ export default RodaPe;
 function RodaPe() {
     return (
         <div className="bg-green-700">
-            <footer className="text-white layout-container flex justify-between">
+            <footer className="text-white layout-container flex justify-around">
                 <div>
                     <h3 className="font-bold mb-2 text-2xl">Conheça-nos</h3>
                     <p className="cursor-pointer hover:underline" onClick={() => window.location.href = "/sobre"}>

@@ -115,9 +115,9 @@ return (
                 ) : (
                     quadras.map((quadra) => (
 
-                <Link key={quadra.id} href={`/local/${quadra.id}`} className="no-underline text-inherit">
+               
                     <div key={quadra.id} className="p-2 bg-gray-100 border flex rounded mb-2">
-                        <img src={quadra.quadra.imagemPrincipal} alt={quadra.quadra.nomeLocal} className="max-w-24 rounded" />
+                        <img src={quadra.quadra.imagemPrincipal} alt={quadra.quadra.nomeLocal} className="max-w-32 rounded" />
                         <div className="ml-2 w-96">
                             <div className="flex justify-between">
                                 <h3>{quadra.quadra.nomeLocal}</h3>
@@ -128,7 +128,6 @@ return (
                             </p>
                         </div>
                     </div>
-                </Link>
                 ))
                 )}
             </section>

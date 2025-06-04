@@ -194,12 +194,12 @@ function Categoria() {
                 </div>
             </div>
 
-            <div className="flex flex-wrap justify-center w-full rounded-lg">
+            <div className="flex flex-wrap justify-center w-full">
                 {
                 locais.map((i, index) => {
                     if (index < 6) {
                         return (
-                            <div key={index} className="flex m-4 max-h-[450px]">
+                            <div key={index} className="flex m-4">
                                 <Quadras
                                     id={i.id}
                                     imagem={i.imagemPri}

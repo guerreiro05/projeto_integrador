@@ -130,9 +130,9 @@ return (
                 <p className="text-textMain mt-0"> Quadra de {local.tipoQuadra}</p>
 
                 <p className="font-bold text-primary text-3xl m-0">
-                    R$ {local.preco * 0.9}
+                    R$ {(local.preco * 0.9).toFixed(2).replace('.', ',')}
                     <span className="text-textSecondary line-through text-base ml-2">
-                        R$ {local.preco}
+                        R$ {(local.preco * 0.9).toFixed(2).replace('.', ',')}
                     </span>
                 </p>
 
@@ -146,8 +146,7 @@ return (
 
                 <button className="bg-primary hover:bg-primaryDark text-white p-2 border-divider" onClick={() =>alugar()}>Alugar</button>
 
-                <p className="text-sm">Após alugar</p>
-            </div>
+           </div>
 
 
             <div className="rounded-lg p-4 shadow-md m-3 w-64">

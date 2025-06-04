@@ -106,7 +106,7 @@ export default function Quadras(attr) {
 
                 <button 
                     onClick={() => window.location.href = `/local/${attr.id}`} 
-                    className="bg-primary hover:bg-primaryDark border-divider text-white p-1 cursor-pointer w-full">
+                    className="bg-primary hover:bg-primaryDark border-divider text-white p-1 cursor-pointer mb-1 w-full">
                     Ver mais
                 </button>
                 
